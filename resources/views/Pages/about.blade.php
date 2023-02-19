@@ -5,7 +5,7 @@
 @section('content')
 
         <!-- Page Header Start -->
-    <div class="container-fluid page-header py-5 mb-5">
+    <div class="container-fluid page-header-about py-5 mb-5">
         <div class="container py-5">
             <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
@@ -65,59 +65,70 @@
     </div> --}}
     <!-- About End -->
 
+    
+    <div class="container-fluid pt-5 pb-5 mb-5 mt-5 ">
+            <div class="row justify-content-center no-gutters">
 
-    <section id="main-container" class="main-container">
-  <div class="container">
-    <div class="row">
-        <div class="col-lg-6">
-          <h3 class="column-title text-danger">Who We Are</h3>
-          <p class="small">Response UK Security Ltd are specialists at delivering bespoke security and surveillance services, like Retail Security Services, etc. With over 50 years’ experience working within the security industry, our management team is committed to guaranteeing your peace of mind. While the methods and technology have changed over time, particularly the reliance on CCTV and alarms, the importance of loss prevention has remained the same.
+                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
+									<div class="mu-about-left">
+										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
+									<div class="mu-about-right">
+										<ul>
+											<li>
+												<h3 class="blockquote text-danger">Our Mission</h3>
+												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+											</li>
+											<li>
+												<h3 class="blockquote text-danger">Our Vision</h3>
+												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+											</li>
+											<li>
+												<h3 class="blockquote text-danger">Our Value</h3>
+												<p class='small'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+											</li>
+										</ul>
+									</div>
+								</div>
 
-        Being one of the respected Construction Guarding Companies In Colchester, we pride ourselves on ensuring that the safety of you, your business and your staff is never breached and look to achieve maximum impact in the most cost effective way for all our clients.Our integrated approach
-        As with all security companies, loss prevention is at the core of what we do – but being able to deliver this in the most financially efficient way is what makes us stand out from other security firms. We fit alarms, provide CCTV and supply security guards to monitor and patrol, and by turning these key security services into one, we can maximise their impact on any site. By providing better overall coverage in one service, we are able to cut down the risk of a breach and make cost savings across any contract.Our bespoke services
-        We understand that each of our client’s requirements are unique. This is why we offer tailored security solutions to meet their specific security need. We recognise when a physical presence is all that is needed to act as a deterrent, or where a guard dog unit would be more appropriate.We are sensitive to the fact that some clients may require highly visible security – while others prefer it kept at a distance or integrated with their organisation. We always listen to what the client wants – and deliver what they need, as well as responding and adapting as their requirements evolve.
-        Our security guards</p>
-        
+                        </div>
+                    </div>
 
-        </div><!-- Col end -->
 
-        <div class="col-lg-6 mt-5 mt-lg-0">
-          <h3 class="column-title text-danger">Lincense and Certified</h3>
-           <p class="small">We adhere to standard BS 7855, which stipulates the dos and don’ts of the security industry. All our staff are SIA licensed and appropriately selected to work in any part of the UK and at any sized organisation.
 
-            We are also able to promise that our guards have been trained in health and safety, first aid and fire safety awareness. When providing guards for a construction site, each will have the Construction Skills Certification Scheme card (CSCS) giving our clients the confidence that they have the right personnel to work on their site.
+    <section id="main-container" class="main-container mb-5 p-5" style="background:#008bca;">
+            <div class="container">
+                
+                <div class="row justify-content-around">
 
-            We carry out risk assessments on every site and identify any training requirements for our clients to ensure that they adhere to the necessary legal requirements and protection of their staff and ours  - which we are able to provide. When a security guard is required to be the first point of contact for the client’s customers or suppliers, we select our guards with care – ensuring that they are sensitive to the work environment and that they represent both the client, and us, in the best possible way. Our business is run from a 24-hour control unit, which delivers a round-the-clock manned response service.
 
- </p>      
+                    
+                    <div class="col-lg-5">
+                    <h3 class="column-title text-light mt-4">{{$about->title_f}}</h3>
 
- <div class="row-fluid container ">
+                    <hr class="text-light lead mt-0"> <p class="small text-light">{{$about->f_content}}</p>
+            
+
+              </div><!-- Col end -->
+
+            <div class="col-lg-5 mt-5 mt-lg-0">
+            <h3 class="column-title text-light mt-4">{{$about->title_s}}</h3>
+            <hr class="text-light lead mt-0">
+            <p class="small text-light">{{$about->s_content}}</p>      
+
+            <div class="row-fluid ">
 
            
-                    <div class="row-fluid border">
+                    <div class="row-fluid mb-md-4">
                         
                     <div class="span12 ">
-                        <div class="container row text-center
-                        ">
-                            <h2 class="col-6 mt-3" ><span style="color:#009dcd; font-weight:bold; font-size:inherit;">Request a Quote </span></h2>
+                        <div class="container row  p-5   mx-auto   ">
+                            <a href="{{URL('/')}}" class="btn achur-danger rounded-pill py-md-3 px-md-5 py-sm-3 px-sm-5 animated "><span><b>Our Service</b><span></a>
                            
                             
-                            <p class="col-6" style="
-                				position: static;
-                				margin-top: 22px;"><a class="custom_btn" id="btn_39" style="
-                				padding: 12px 31px;
-                				background: #009dcd;
-                				position: static;
-                				margin-top: ;
-                				font-weight: bold;
-                				color: #fff;
-				                font-size: 14px;" href="https://staunchtechnologies.com/careers/create"> Now</a></p>
-                            <style>
-                                #btn_39:after {
-                                    background: #0074a7
-                                }
-                            </style>
-                        </div>
+                                                </div>
                     </div> <!-- tarlent -->
                     </div>
                     </div>
@@ -136,7 +147,127 @@
         </div><!-- Col end -->
     </div><!-- Content row end -->
 
+
+    
+    </section><!-- Main container end -->
   </div><!-- Container end -->
-</section><!-- Main container end -->
+
   
+{{-- 
+                                            <div class="container">
+
+                                                <div class="row">
+                                                	<div class="col-md-6">
+                                                        <div class="mu-single-team">
+                                                            <div class="mu-single-team-img">
+                                                                <img src="assets/images/team-member.jpg" alt="img">
+													</div>
+													<div class="mu-single-team-content">
+														<h3>Services</h3>
+														<span>Founder</span>
+														<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+														<ul class="mu-team-social">
+															<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+															<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+															<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+															<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+                                            <div class="col-md-6    ">
+                                                        <div class="mu-single-team">
+                                                            <div class="mu-single-team-img">
+                                                                <img src="assets/images/team-member.jpg" alt="img">
+													</div>
+													<div class="mu-single-team-content">
+														<h3>Hannah Torres</h3>
+														<span>Founder</span>
+														<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+														<ul class="mu-team-social">
+															<li><a href="#"><i class="fa fa-facebook"></i></a></li>
+															<li><a href="#"><i class="fa fa-twitter"></i></a></li>
+															<li><a href="#"><i class="fa fa-pinterest-p"></i></a></li>
+															<li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+														</ul>
+													</div>
+												</div>
+											</div>
+
+                                        </div>
+                                    </div> --}}
+            @endsection
+
+        @section('brochure')
+      <div class="container-fluid mb-5 p-5">
+            <div class="row justify-content-center no-gutters">
+
+                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
+									<div class="mu-about-left">
+										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
+									</div>
+								</div>
+								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
+									<div class="mu-about-right m-md-5">
+									
+											
+												<h3 class="blockquote text-danger">Download Our Brochure</h3>
+												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+                                                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-5 animated ">Download</a>
+											
+											
+									</div>
+								</div>
+
+            </div>
+     </div>
+@endsection
+      
+@section('partners')
+{{-- partner's slider --}}
+    <div class="container m-5 p-5">
+    <h2>Our Partners</h2>
+    <section class="customer-logos slider">
+        <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/blue-tech-logo_1103-822.jpg"></div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/colors-curl-logo-template_23-2147536125.jpg">
+        </div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/abstract-cross-logo_23-2147536124.jpg"></div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/football-logo-background_1195-244.jpg"></div>
+        <div class="slide"><img src="https://image.freepik.com/free-vector/background-of-spots-halftone_1035-3847.jpg">
+        </div>
+        <div class="slide"><img
+                src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
+    </section>
+</div>
+<script>
+    $(document).ready(function () {
+  $(".customer-logos").slick({
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1500,
+    arrows: false,
+    dots: false,
+    pauseOnHover: false,
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 520,
+        settings: {
+          slidesToShow: 3
+        }
+      }
+    ]
+  });
+});
+</script>
 @endsection

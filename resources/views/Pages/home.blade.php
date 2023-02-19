@@ -63,7 +63,7 @@
         <div class="container">
             <div class="row g-4">
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.1s">
-                    <div class="h-100 bg-dark p-4 p-xl-5">
+                    <div class="h-100 bg-dark p-4 p-xl-5 rounded">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="btn-square rounded-circle" style="width: 64px; height: 64px; background: #000000;">
                                 <img class="img-fluid" src="{{ asset('assets/img/icon/breach-prevention.png') }}" alt="Icon">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.3s">
-                    <div class="h-100 bg-dark p-4 p-xl-5">
+                    <div class="h-100 bg-dark p-4 p-xl-5 rounded">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="btn-square rounded-circle" style="width: 64px; height: 64px; background: #000000;">
                                 <img class="img-fluid" src="{{asset('assets/img/icon/cctv-1.png')}}" alt="cctv">
@@ -88,8 +88,8 @@
                         <span>A professional alarmed response service will provide you with immediate response in case of theft or damage to your property or your staff. Alarmed response is available 24/7, and business owners can benefit from this service since disaster can strike at any moment – with little or no warning. </span>
                     </div>
                 </div>
-                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="h-100 bg-dark p-4 p-xl-5">
+                <div class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay="0.5s" >
+                    <div class="h-100 bg-dark p-4 p-xl-5 rounded">
                         <div class="d-flex align-items-center justify-content-between mb-4">
                             <div class="btn-square rounded-circle" style="width: 70px; height: 70px; background: #000000;">
                                 {{-- <img class="img-fluid" src="{{asset('assets/img/icon/icon-2.png')}}" alt="Icon"> --}}
@@ -162,8 +162,8 @@
     <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="section-title text-center mb-4 pb-2">
-                <h4 class="title mb-2">Our Services</h4>
+            <div class="section-title text-center mb-4 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                <h4 class="title mb-2 display-5 pt-5">Our Services</h4>
                 <p class="text-muted para-desc mx-auto mb-0">Here is the collection of the quality services we offer.<br>Please choose we are sure there is something we can help you with</p>
             </div>
         </div><!--end col-->
@@ -283,7 +283,8 @@
           
             </div>
              {{-- <div class="service-item border h-100 p-5 text-center"><a class="btn" href=""><i class="fa fa-arrow-right text-white me-3"></i><span>More Services<span></a></div> --}}
-                <div class="mx-auto text-center wow fadeIn" data-wow-delay="1.3s"><a href="{{url('service')}}"> <button type="button" class="btn btn-primary rounded-pill mt-4 mw-50 py-3 px-5">More Services</button></a></div>
+              
+                <div class="text-center wow fadeInUp" data-wow-delay="0.1s"><a href="{{url('service')}}"> <button type="button" class="btn btn-primary rounded-pill mt-4 mw-50 py-3 px-5">More Service</button></a></div>
         </div>
     </div>
     </div><!--end row-->
@@ -291,10 +292,10 @@
 
              
     <!-- Service End -->
-
+<div class="p-3"></div>
 
     <!-- Feature Start -->
-    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+    <div class="container-fluid bg-light overflow-hidden mt-5 px-lg-0">
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -466,7 +467,7 @@
 
 
     <!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0">
+    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0" id='my_quote'>
         <div class="container quote px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
@@ -545,7 +546,8 @@
                                     <input class="form-control border-0" placeholder="How did you find us?"></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn achur-primary     w-100 py-3" type="submit">Get A Free Quote</button>
+                                    <button class="btn achur-primary rounded-pill  w-100 py-3" type="submit">
+                                        Submit Request</button>
                                 </div>
                             </div>
                         </form>
@@ -636,7 +638,7 @@
 
 
     <!-- Testimonial Start -->
-    {{-- <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="bg-primary mb-3 mx-auto" style="width: 60px; height: 2px;"></div>
@@ -660,7 +662,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div>
     <!-- Testimonial End -->
 
 

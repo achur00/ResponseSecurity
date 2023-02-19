@@ -123,12 +123,54 @@
     </nav>
     <!-- Navbar End -->
 
+                <!-- Page Header Start -->
+                <div class="container-fluid page-header-about py-5 mb-5">
+                    <div class="container py-5">
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                        <nav aria-label="breadcrumb animated slideInDown">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+                
+                
+                <div class=" p-5 ">
+                    <div class="d-flex justify-content-center wow fadeInUp" data-wow-delay="1.0s">
+                
+                        <div class="col-md-3 col-sm-2 col-xs-2 mx-3">
+                            <div class="bg-danger sidebar-img  mb-5 pb-5 rounded">
+                                <ul class="" style="list-style:none;">
+                                    <li class="small fw-bold text-uppercase"><span><i class="bi bi-caret-right"></i></span> Construction
+                                    </li>
+                                    <div style="color: whitesmoke">
+                                        <hr>
+                                    </div>
+                                    <li class="small text-uppercase fw-bold"> All services<span class="align-self-end"><span
+                                                class="m-2"></span><i class="bi bi-chevron-right"></i></span></li>
+                                </ul>
+                            </div>
+                
+                            <div class=" mt-5 pt-5 p-5 sidebar rounded"
+                                style="background-color: rgb(60, 60, 60); border:1px solid black; ">
+                                <p class="fw-bold">Get Brochure</p>
+                                <div class="text-light ">
+                                    <hr>
+                                </div>
+                                <div class="small fw-bold"><i class="fa fa-file-pdf"></i><span class="m-1"></span></span> Download</div>
+                            </div>
+                        </div>
+                        
+
     @yield('content')
     @yield('brochure')
     @yield('partners')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-secondary footer  py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -139,7 +181,8 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>01322553105</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@responseuksecurity.co.uk</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square 
+                        btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>

@@ -98,7 +98,7 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0 d-flex align-items-center ">
                 <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                 <a href="{{url('about')}}" class="nav-item nav-link">About</a>
-                <a href="{{url('services')}}" class="nav-item nav-link">Service</a>
+                <a href="{{url('service')}}" class="nav-item nav-link">Service</a>
                 <a href="{{url('project')}}" class="nav-item nav-link">Project</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -121,6 +121,7 @@
             </div> --}}
         </div>
     </nav>
+
     <!-- Navbar End -->
 
     @yield('content')
@@ -139,7 +140,8 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>01322553105</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@responseuksecurity.co.uk</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square 
+                        btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>

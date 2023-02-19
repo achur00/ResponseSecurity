@@ -2,7 +2,8 @@
 // namespace app\Http\Controllers;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\AboutController;
+use App\Http\Controllers\productsController;
+// use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
@@ -25,12 +26,21 @@ use Illuminate\Http\Request;
 
 // home 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 // about
-Route::get('/about', [AboutController::class, 'index'])->name('about');
+// Route::get('/about', [AboutController::class, 'index'])->name('about');
+Route::resource('about', AboutController::class);
+
 // contact
 Route::get('/contact', [ContactController::class, 'index'])->name('contact-us');
+
 //  service
-Route::get('/service', [ServiceController::class, 'index'])->name('service');
+Route::get('/services', [ServiceController::class, 'index'])->name('services');
+     //products
+     Route::get('/products', [ProductsController::class, 'index'])->name('products');
+
+
+
 // csrf token
 // Route::get('/token', function (Request $request) {
 //     $token = $request->session()->token();

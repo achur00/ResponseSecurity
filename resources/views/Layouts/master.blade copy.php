@@ -20,6 +20,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
     <link href="{{asset('assets/css/uicons-solid-straight.css')}}" rel="stylesheet">
 
+    <!-- font awesome -->
+     <link href="{{asset('assets/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet">
+
+
     <!-- Libraries Stylesheet -->
     <link href="{{asset('assets/lib/animate/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('assets/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet">
@@ -50,7 +54,7 @@
 
 
     <!-- Topbar Start -->
-    <div class="container-fluid bg-dark">
+    <div class="container-fluid bg-dark px-5">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
                 <div class="h-100 d-inline-flex align-items-center py-3 me-4">
@@ -98,7 +102,7 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0 d-flex align-items-center ">
                 <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
                 <a href="{{url('about')}}" class="nav-item nav-link">About</a>
-                <a href="{{url('services')}}" class="nav-item nav-link">Service</a>
+                <a href="{{url('service')}}" class="nav-item nav-link">Service</a>
                 <a href="{{url('project')}}" class="nav-item nav-link">Project</a>
                 <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
@@ -111,7 +115,7 @@
                     </div>
                 </div>
                 <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
-                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-3 small animated ">Get A Quote</a>
+                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-5 animated ">Get A Quote</a>
             </div>
             {{-- <div class="h-100 d-lg-inline-flex align-items-center d-none">
                 <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>

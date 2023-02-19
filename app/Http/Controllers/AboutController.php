@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+use App\Models\About;
 
 class AboutController extends Controller
 {
@@ -12,9 +14,13 @@ class AboutController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('Pages.about');
+    {   //make the about an object with first()
+        $about= About::all()->first();
+        // 
+        
+        return view('Pages.about', compact('about'));
     }
+
 
     /**
      * Show the form for creating a new resource.

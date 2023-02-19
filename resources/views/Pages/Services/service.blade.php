@@ -1,13 +1,27 @@
 @extends('Layouts.master')
-@section('content')4
+@section('content')
+
+<div class="container-fluid page-header-services py-5 mb-5 pb-5">
+        <div class="container py-5">
+            <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+
 
 
     <div class="container">
     <div class="row justify-content-center">
         <div class="col-12">
-            <div class="section-title text-center mb-4 pb-2">
+            <div class="section-title text-center mb-4 pb-2 pt-5">
                 <h4 class="title mb-4">Our Services</h4>
-                <p class="text-muted para-desc mx-auto mb-0">Here is the collection of the quality services we offer.<br>Please choose, we are sure we have just the tthing you are looking for</p>
+                <p class="text-muted para-desc mx-auto mb-0">Here is the collection of the quality services we offer.<br>Please choose, we are sure we have just the thing you are looking for</p>
             </div>
         </div><!--end col-->
     </div><!--end row-->
@@ -332,7 +346,7 @@
         </div><!--end col-->
 
 
-        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2 wow fadeIn" data-wow-delay="3.5s">
+        <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2 wow fadeIn mb-5" data-wow-delay="3.5s">
             <div class="card service-wrapper rounded border-0 shadow p-4">
                 <div class="icon text-center text-custom h1 shadow rounded bg-white">
                     <span class="uim-svg" style=""><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 267.87 394.14"><title>traffoc-management</title><path d="M377.85,117.41q12.42,2.3,24.83,4.59c2.65.48,5.29,1,8,1.34,7,.79,11.3,4.63,13.64,11.23q5.48,15.39,11.44,30.59c2.52,6.42,1.46,11.91-3,17.11-6.89,8.12-13.75,16.27-20.29,24.67-4.66,6-10.37,8-17.61,6.5-1.84-.38-3.72-.55-5.84-.85-2,11.62-3.86,22.85-5.76,34.07-1,5.69-1.87,11.38-2.9,17.06-.4,2.26-.27,3.85,1.88,5.56,9.08,7.25,7.15,20.74-3.53,25.48-2.31,1-3.92,2.13-5,4.66a8.73,8.73,0,0,1-11.79,4c-2.4-1.35-4.22-1-6.44-.19-6.27,2.26-12.5,4.63-18.87,6.56-9.12,2.77-14.41.67-19.66-7.29a131.44,131.44,0,0,0-9.89-13.72v53H221.21v-32l-1-.32c-.57,1.12-1.19,2.21-1.71,3.35-6.7,14.68-13.33,29.4-20.11,44-3.89,8.38-12.17,11.77-20,8.47s-11.36-11.93-7.82-20.21c4-9.3,8.31-18.45,12.51-27.66,12.28-26.92,24.67-53.8,36.79-80.79,3.22-7.18,8.36-10.86,16-10.89q29.25-.09,58.5.1c6.2.05,10.86,2.87,14.28,8.24,9.23,14.48,18.7,28.8,28.27,43.49,7.28-2.63,14.49-5.17,21.65-7.87a3.32,3.32,0,0,0,1.55-2.27c3.33-19.31,6.57-38.62,9.88-58.22-2.86-.51-5.49-1-8.11-1.46a14.29,14.29,0,0,1-11.5-9.64q-6.22-16.55-12.35-33.13a14.11,14.11,0,0,1,2.55-14.75c7.42-9,14.68-18.17,22.38-26.93,2.24-2.56,5.75-4,8.67-6Zm-95.5,135.32a77.93,77.93,0,0,0-9.52,2.53c-1.18.47-2.63,2.49-2.52,3.66.73,7.43,2.52,14.62,6.9,20.83,3.41,4.83,7.18,5,10.27,0A57.66,57.66,0,0,0,293,267.26C296.48,256.68,293.76,253.2,282.35,252.73Z" transform="translate(-169.19 -117.41)"/><path d="M270.75,385.05H257.46v4.74q0,50.4,0,100.81c0,8.15-2.34,14.92-10,18.87a18,18,0,0,1-26.09-13.22,30.67,30.67,0,0,1-.41-5q0-66.18,0-132.37v-3.7h85.81a23,23,0,0,1,.26,2.5q0,67.34,0,134.67c0,7.1-2.7,12.77-8.79,16.48a18,18,0,0,1-27.43-14.77c-.31-10.63-.1-21.28-.11-31.93V385.05Z" transform="translate(-169.19 -117.41)"/><path d="M228.78,183a142.45,142.45,0,0,0,70.4,0c1.93,17.66-14.54,34.94-34.7,35.62C245,219.32,227.7,201.76,228.78,183Z" transform="translate(-169.19 -117.41)"/><path d="M264.2,126.83q21,0,41.92,0c3.32,0,6.53.26,8.23,3.68s-.18,6-1.89,8.84c-2.23,3.68-5,4.94-9.35,4.9-26.66-.22-53.33-.11-80-.11-4.7,0-10.7-7-10-11.74.52-3.53,3.29-5.53,8-5.55,13.33,0,26.66,0,40,0Z" transform="translate(-169.19 -117.41)"/><path d="M224.3,157.07h79.44c-1.68,7.86-10.33,16-19.4,16.41a400.38,400.38,0,0,1-40.7,0C234.6,173,226.05,164.9,224.3,157.07Z" transform="translate(-169.19 -117.41)"/></svg></span>
@@ -354,8 +368,41 @@
 
 
     </div><!--end row-->
+
+    
 </div>
 
 
+<div class="row justify-content-center bg-primary p-5 wow fadeIn mb-5" data-wow-delay="3.8s">
 
+    <div class="col-4 text-light "><p>If there is something you need us to assist with specifically please make a personalise quote and let us no about it<p></div>
+    <div class="col-4"><a href="{{URL('/#my_quote')}}" class="btn btn-light  rounded-pill py-md-3 px-md-5 animated ">Get A Quote</a></div>
+</div>
 @endsection
+
+@section('brochure')
+      <div class="container-fluid mb-5 pt-5 mt-5">
+            <div class="row justify-content-center no-gutters wow fadeIn mb-5" data-wow-delay="4.1s">
+
+                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
+									
+										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
+									
+								</div>
+								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
+									<div class="mu-about-right m-md-5">
+									
+											
+												<h3 class="blockquote text-danger">Download Our Brochure</h3>
+												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+                                                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-5 animated ">Download</a>
+											
+											
+									</div>
+								</div>
+
+            </div>
+     </div>
+@endsection
+
+

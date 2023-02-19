@@ -508,7 +508,7 @@ progress {
 }
 .img-fluid {
     max-width: 100%;
-    height: auto;
+    height: 100%;
 }
 .img-thumbnail {
     padding: 0.25rem;
@@ -2552,6 +2552,16 @@ fieldset:disabled .btn {
     color: #008bca;
     background-color: #008bca;
     border-color: #008bca;
+}
+
+.achur-danger {
+    color: white;
+    border-color: white;
+}
+
+.achur-danger:hover {
+    color: white;
+    background-color: red;
 }
 
 .achur-primary {
