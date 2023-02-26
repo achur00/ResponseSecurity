@@ -3,9 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-// use App\Models\About;
 
-class CreateAboutsTable extends Migration
+class CreateAboutValsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,13 +13,14 @@ class CreateAboutsTable extends Migration
      */
     public function up()
     {
-        Schema::create('abouts', function (Blueprint $table) {
+        Schema::create('about_vals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('title_f', 50);
-            $table->longText('f_content');
-            $table->string('title_s', 50);
-            $table->longText('s_content');
-            $table->string('founder', 100);
+            $table->string('mis_title, 50');
+            $table->longText('mis_content');
+            $table->string('vis_title', 50);
+            $table->longText('vis_content');
+            $table->string('val_title, 50');
+            $table->longText('val_content');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateAboutsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('about_vals');
     }
 }

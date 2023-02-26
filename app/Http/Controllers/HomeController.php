@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Home_banner;
+use App\Models\About;
+use App\Models\Home_quality;
+use App\Models\Home_about;
+use App\Models\Home_service;
+use App\Models\Service_product;
+
 
 class HomeController extends Controller
 {
@@ -12,8 +19,14 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('Pages.home');
+    {   $home_banners = Home_banner::all();
+        $home_qualities = Home_quality::all();
+        $home_about=Home_About::get()->first();
+        $home_service=Home_service::all()->first();
+        $service_products=Service_Product::all();
+
+        // dd($service_products);
+        return view('Pages.home',compact('home_banners', 'home_qualities', 'home_about', 'home_service','service_products'));
     }
 
     /**
