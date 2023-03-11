@@ -21,7 +21,7 @@ class ServiceController extends Controller
         $quote_cta=Quote_cta::all()->first();
         // dd($quote);
         
-        return view("Pages.Services.service", compact('home_service','service_products', 'quote_cta'));
+        return view("Pages.Services.services", compact('home_service','service_products', 'quote_cta'));
     }
 
     /**

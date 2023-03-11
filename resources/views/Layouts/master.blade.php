@@ -166,7 +166,7 @@
 
     @yield('content')
     @yield('brochure')
-    @yield('quote')
+    @yield('quote_cta')
     @yield('partners')
 
     <!-- Footer Start -->
