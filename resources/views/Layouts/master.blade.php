@@ -68,17 +68,21 @@
                 </div>
             </div>
             <div class="col-lg-6 text-end">
-                <div class="h-100 d-inline-flex align-items-center  me-4">
+                <div class="h-100 d-inline-flex align-items-center me-4">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <small>{{$contact->phone_no1}}</small>
+                    <a href='tel:{{$contact->phone_no1}}'>
+                        <small>{{$contact->phone_no1}}</small>
+                    </a>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <small>{{$contact->phone_no2}}</small>
+                    <a href='tel:{{$contact->phone_no1}}'>
+                        <small>{{$contact->phone_no2}}</small>
+                    </a>
                 </div>
             </div>
         </div>

@@ -25,7 +25,7 @@ use Illuminate\Http\Request;
 // Route::get('/', 'HomeController@index');
 
 // home 
-// Route::('/', [HomeController::class, 'index'])->name('home');
+// Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::resource('/', HomeController::class);
 
 // about

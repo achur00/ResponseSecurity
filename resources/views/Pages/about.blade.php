@@ -126,7 +126,7 @@
                         
                     <div class="span12 ">
                         <div class="container row  p-5   mx-auto   ">
-                            <a href="{{URL('/')}}" class="btn achur-danger rounded-pill py-md-3 px-md-5 py-sm-3 px-sm-5 animated "><span><b>Our Service</b><span></a>
+                            <a href="{{URL('/services')}}" class="btn achur-danger rounded-pill py-md-3 px-md-5 py-sm-3 px-sm-5 animated "><span><b>Our Service</b><span></a>
                            
                             
                                                 </div>
@@ -231,7 +231,7 @@
     <div class="row justify-content-around bg-primary p-5 wow fadeIn mt-5 mb-5" data-wow-delay="1.8s">
 
         <div class="col-4 text-light "><p>{{$quote_cta->content}}<p></div>
-        <div class="col-4"><a href="{{URL('/#my_quote')}}" class="btn btn-light  rounded-pill py-md-3 px-md-5 animated ">{{$quote_cta->cta}}</a></div>
+        <div class="col-4"><a href="{{url('/#my_quote')}}" class="btn btn-light  rounded-pill py-md-3 px-md-5 animated ">{{$quote_cta->cta}}</a></div>
     </div>
 @endsection
       
