@@ -53,14 +53,14 @@
     <div class="container-fluid bg-dark">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <div class="h-100 d-inline-flex align-items-center  me-4">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-map-marker-alt text-white"></small>
                     </div>
                     
                     <small>{{$contact->address}}</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
+                <div class="h-100 d-inline-flex align-items-center ">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-envelope-open text-white"></small>
                     </div>
@@ -68,13 +68,13 @@
                 </div>
             </div>
             <div class="col-lg-6 text-end">
-                <div class="h-100 d-inline-flex align-items-center py-3 me-4">
+                <div class="h-100 d-inline-flex align-items-center  me-4">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
                     <small>{{$contact->phone_no1}}</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
+                <div class="h-100 d-inline-flex align-items-center">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
@@ -166,6 +166,7 @@
 
     @yield('content')
     @yield('brochure')
+    @yield('quote')
     @yield('partners')
 
     <!-- Footer Start -->
