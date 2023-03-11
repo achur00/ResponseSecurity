@@ -8,9 +8,9 @@
                 {{-- <div class="row justify-content-center">
                     <div class="col-12"> --}}
                         <div class=" pb-2 wow fadeInUp" data-wow-delay="1.0s">
-                            <h4 class="  display-6">Our Services</h4>
+                            <h4 class="  display-6">{{$product->title}}</h4>
                             <div class="mx-auto  mb-2"><hr></div>   
-                            <p class="text-muted para-desc mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est repellendus quam, dolore consequatur natus cumque nemo earum soluta pariatur illo sapiente sequi esse. Aspernatur, consectetur blanditiis. Dignissimos consectetur aliquam asperioresLorem ipsum dolor sit amet, consectetur adipisicing elit. Est repellendus quam, dolore consequatur natus cumque nemo earum soluta pariatur illo sapiente sequi esse. Aspernatur, consectetur blanditiis. Dignissimos consectetur aliquam asperiores!Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+                            <p class="text-muted para-desc mb-0 small">{!! $product->long_content !!}</p>
                         {{-- </div>
                     </div><!--end col--> --}}
 
@@ -35,7 +35,7 @@
                         </div>
 
                         <div class="mo-left pt-3 ">
-                                            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Facilis beatae ut blanditiis tenetur asperiores quidem nesciunt fuga. Reiciendis, illum doloremque. Impedit atque expedita minus numquam nostrum architecto debitis porro beatae.</p>
+                                            <p>{{$product->content}}</p>
                         </div>
                     </div>
                 </div>

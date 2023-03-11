@@ -57,13 +57,14 @@
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-map-marker-alt text-white"></small>
                     </div>
-                    <small>Howbury House Thames Road Crayford DA1 4RQ</small>
+                    
+                    <small>{{$contact->address}}</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-envelope-open text-white"></small>
                     </div>
-                    <small>info@responseuksecurity.co.uk</small>
+                    <small>{{$contact->email}}</small>
                 </div>
             </div>
             <div class="col-lg-6 text-end">
@@ -71,13 +72,13 @@
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <small>08455190249</small>
+                    <small>{{$contact->phone_no1}}</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <small>01322553105  </small>
+                    <small>{{$contact->phone_no2}}</small>
                 </div>
             </div>
         </div>
@@ -87,6 +88,7 @@
   {{-- new top bar end --}}
 
     <!-- Navbar Start -->
+    {{-- {{dd($servicexr)}} --}}
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 ">
         <img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" />
          
@@ -96,11 +98,50 @@
         <div class="collapse navbar-collapse animated slideInDown" id="navbarCollapse">
             {{-- dflex align-center makes the button align --}}
             <div class="navbar-nav ms-auto py-4 py-lg-0 d-flex align-items-center ">
-                <a href="{{url('/')}}" class="nav-item nav-link active">Home</a>
-                <a href="{{url('about')}}" class="nav-item nav-link">About</a>
+
+                @foreach ( $servicexr as $menus )
+                    
+                    {{-- <a href="{{url("$menus->page_url")}}" class="nav-item nav-link ">{{$menus->page_name}}</a> --}}
+                    
+                    {{-- @if(count($menus->service_product)) --}}
+                        {{-- <ul> --}}
+                            {{-- @foreach ($menus->service_product as $submenu)   
+                                <li><a href="">{{$submenu->title}}</a></li>
+                            @endforeach --}}
+
+                             {{-- @foreach ($menus->service_product as $submenu)   
+                                <div class="dropdown-menu rounded-0 rounded-bottom m-0">
+                                    <a href="" class="dropdown-item">{{$submenu->title}}</a>
+                                </div>
+                            @endforeach --}}
+
+                        {{-- </ul> --}}
+
+                        <div class="navbar-collapse" id="main_nav">
+                            <ul class="navbar-nav">
+                                <li class="{{$menus->nav_style}}" id="myDropdown">
+                                <a class="{{$menus->nav_toggle}}" href="{{url("$menus->page_url")}}" data-bs-toggle="">  {{$menus->page_name}}  </a>
+
+                             @if(count($menus->service_product))
+
+                                 <ul class="dropdown-menu">
+                                    @foreach ($menus->service_product as $submenu)
+                                     <li> <a class="dropdown-item" href="{{url('products/'.$submenu->id)}}"> {{$submenu->title}} </a></li>
+                                    @endforeach
+                                 </ul>
+                              
+                            @endif
+                      </li>
+                    </ul>
+                </div>
+
+                @endforeach
+
+                {{-- <a href="{{url('about')}}" class="nav-item nav-link">About</a>
                 <a href="{{url('services')}}" class="nav-item nav-link">Service</a>
-                <a href="{{url('project')}}" class="nav-item nav-link">Project</a>
-                <div class="nav-item dropdown">
+                <a href="{{url('project')}}" class="nav-item nav-link">Project</a> --}}
+
+                {{-- <div class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                     <div class="dropdown-menu rounded-0 rounded-bottom m-0">
                         <a href="feature.html" class="dropdown-item">Feature</a>
@@ -109,8 +150,8 @@
                         <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                         <a href="404.html" class="dropdown-item">404 Page</a>
                     </div>
-                </div>
-                <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a>
+                </div> --}}
+                {{-- <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a> --}}
                 <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-3 small animated ">Get A Quote</a>
             </div>
             {{-- <div class="h-100 d-lg-inline-flex align-items-center d-none">
@@ -150,8 +191,21 @@
                                         <hr>
                                     </div>
                                     <li class="small text-uppercase fw-bold"> All services<span class="align-self-end"><span
-                                                class="m-2"></span><i class="bi bi-chevron-right"></i></span></li>
+                                                class="m-2"></span><i class="bi bi-chevron-right"></i></span>
+                                    </li>
+                                    
+                                    
+                                        @foreach($servicexr as $menus)
+                                        
+                                            @foreach($menus->service_product as $service)
+                                            <li class="small mb-1 mt-2">
+                                                {{$service->title}}
+                                            </li>
+                                            @endforeach
+                                         @endforeach
+                                    
                                 </ul>
+                            
                             </div>
                 
                             <div class=" mt-5 pt-5 p-5 sidebar rounded"

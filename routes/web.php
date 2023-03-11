@@ -1,8 +1,8 @@
 <?php
 // namespace app\Http\Controllers;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\productsController;
+// use App\Http\Controllers\productsController;
 // use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
@@ -25,7 +25,8 @@ use Illuminate\Http\Request;
 // Route::get('/', 'HomeController@index');
 
 // home 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+// Route::('/', [HomeController::class, 'index'])->name('home');
+Route::resource('/', HomeController::class);
 
 // about
 // Route::get('/about', [AboutController::class, 'index'])->name('about');
@@ -37,8 +38,7 @@ Route::get('/contact', [ContactController::class, 'index'])->name('contact-us');
 //  service
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
      //products
-     Route::get('/products', [ProductsController::class, 'index'])->name('products');
-
+     Route::resource('products', ProductsController::class);
 
 
 // csrf token

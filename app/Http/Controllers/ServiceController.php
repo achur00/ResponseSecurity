@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Home_service;
+use App\Models\Service_product;
+use App\Models\Quote_cta;
 
 class ServiceController extends Controller
 {
@@ -13,7 +16,12 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        return view("Pages.Services.service");
+        $home_service= Home_service::all()->first();
+        $service_products = Service_product::all();
+        $quote_cta=Quote_cta::all()->first();
+        // dd($quote);
+        
+        return view("Pages.Services.service", compact('home_service','service_products', 'quote_cta'));
     }
 
     /**

@@ -8,7 +8,8 @@
     <!-- Carousel Start -->
     <div class="container-fluid p-0 pb-5">
         <div class="owl-carousel header-carousel position-relative">
-            
+            {{-- variable from AppServicerovider --}}
+            {{-- {{dd($servicexr)}} --}}
             @foreach ( $home_banners as $banner)
             <div class="owl-carousel-item position-relative">
                 <img class="img-fluid" src="{{asset('assets/img/'.$banner->image)}}" alt="">
@@ -123,11 +124,11 @@
             
        
         <div class="row">
-             @foreach ($service_products as $service )
+             @foreach ($service_products->take(6) as $service )
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2 wow fadeIn" data-wow-delay="0.1s">
                 <div class="card service-wrapper rounded border-0 shadow p-4">
                     <div class="icon text-center text-custom h1 shadow rounded bg-white">
-                        <span class="uim-svg" style="" src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDo etc'>{{$service->svg}}</span>
+                        <span class="uim-svg" style="" >{!! $service->svg !!}</span>
                     </div>
                     <div class="content mt-4">
                         <h5 class="title">{{$service->title}}</h5>
@@ -241,21 +242,21 @@
             <a href="{{url('service')}}"> <button type="button" class="btn btn-primary rounded-pill mt-4 mw-50 py-3 px-5">More Service</button></a></div>
         </div>
     <!--end row-->
-    </div>
-
-             
+    </div>       
     <!-- Service End -->
+
+
 <div class="p-3"></div>
 
-    <!-- Feature Start -->
+    <!--why choose us -->
     <div class="container-fluid bg-light overflow-hidden mt-5 px-lg-0">
         <div class="container feature px-lg-0">
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 feature-text py-5 wow fadeIn" data-wow-delay="0.5s">
                     <div class="p-lg-5 ps-lg-0">
                         <div class="bg-primary mb-3" style="width: 60px; height: 2px;"></div>
-                        <h1 class="display-5 mb-5">Why Choose Us</h1>
-                        <p class="mb-4 pb-2 text-white">As with all security companies, loss prevention is at the core of what we do – but being able to deliver this in the most financially efficient way is what makes us stand out from other security firms.</p>
+                        <h1 class="display-5 mb-5">{{$home_why_choose->title}}</h1>
+                        <p class="mb-4 pb-2 text-white">{{$home_why_choose->content}}</p>
                         <div class="row g-4">
                             <div class="col-6">
                                 <div class="d-flex align-items-center">
@@ -285,7 +286,7 @@
                 </div>
                 <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{asset('assets/img/feature.jpg')}}" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{asset("assets/img/$home_why_choose->img")}}" style="object-fit: cover;" alt="">
                     </div>
                 </div>
             </div>
@@ -315,11 +316,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{asset('assets/img/portfolio-1.jpg')}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">Business Security</p>
+                            <p class="text-danger mb-2">Business Security</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">Business Security</p>
+                            <p class="text-danger mb-2">Business Security</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-1.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
@@ -332,11 +333,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{asset('assets/img/portfolio-2.jpg')}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">Fire Detection</p>
+                            <p class="text-danger mb-2">Fire Detection</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">Fire Detection</p>
+                            <p class="text-danger mb-2">Fire Detection</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-2.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
@@ -349,11 +350,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{(asset('assets/img/portfolio-3.jpg'))}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">Access Control</p>
+                            <p class="text-danger mb-2">Access Control</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">Access Control</p>
+                            <p class="text-danger mb-2">Access Control</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-3.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
@@ -366,11 +367,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{asset('assets/img/portfolio-4.jpg')}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">Alarm Systems</p>
+                            <p class="text-danger mb-2">Alarm Systems</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">Alarm Systems</p>
+                            <p class="text-danger mb-2">Alarm Systems</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-4.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
@@ -383,11 +384,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{asset('assets/img/portfolio-5.jpg')}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">CCTV & Video</p>
+                            <p class="text-danger mb-2">CCTV & Video</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">CCTV & Video</p>
+                            <p class="text-danger mb-2">CCTV & Video</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-5.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
@@ -400,11 +401,11 @@
                     <div class="portfolio-inner">
                         <img class="img-fluid w-100" src="{{asset('assets/img/portfolio-6.jpg')}}" alt="">
                         <div class="text-center p-4">
-                            <p class="text-primary mb-2">Smart Home</p>
+                            <p class="text-danger mb-2">Smart Home</p>
                             <h5 class="lh-base mb-0">Smart CCTV Security Systems That Fits Your Business</h5>
                         </div>
                         <div class="portfolio-text text-center bg-white p-4">
-                            <p class="text-primary mb-2">Smart Home</p>
+                            <p class="text-danger mb-2">Smart Home</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-6.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>

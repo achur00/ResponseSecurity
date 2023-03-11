@@ -14,3 +14,5 @@ class Home_service extends Model
      //activating mass assignment by using fillable property signifiying the columns that can be mass assigned
     Protected $fillable= ['title', 'content'];
 }
+
+

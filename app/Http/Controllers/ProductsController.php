@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Service_product;
 use Illuminate\Http\Request;
 
 class ProductsController extends Controller
@@ -44,8 +44,8 @@ class ProductsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    {   $product=Service_product::find($id);
+        return view('Pages.Services.show', compact('product'));
     }
 
     /**

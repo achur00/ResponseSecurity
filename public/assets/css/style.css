@@ -280,7 +280,7 @@
     background-color: lightgrey;
     width: 300px;
     padding: 10px;
-    height: 400px;
+    height: 700px;
 }
 
 .breadcrumb-item + .breadcrumb-item::before {

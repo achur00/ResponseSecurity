@@ -3,6 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Contact;
+use App\Models\Page;
+use App\Models\Service_product;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +27,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        
+        View()->composer(['Layouts.master','Layouts.productslayout','Layouts.serviceslayout'], function($view)
+        {
+            // $service=Page::with('Service_product')->get();
+              $service=Page::all()->load(['service_product']);
+
+        $view->with('contact',Contact::all()->first()) 
+        ->with('menu',Page::all())
+        ->with('servicexr', $service)
+        
+        ;
+        });
+        
+
     }
 }

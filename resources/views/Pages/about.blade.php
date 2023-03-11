@@ -69,11 +69,12 @@
     <div class="container-fluid pt-5 pb-5 mb-5 mt-5 ">
             <div class="row justify-content-center no-gutters">
 
-                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
+                                <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
 									<div class="mu-about-left">
 										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
 									</div>
 								</div>
+                                
 								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
 									<div class="mu-about-right">
 										<ul>
@@ -113,10 +114,10 @@
 
               </div><!-- Col end -->
 
-            <div class="col-lg-5 mt-5 mt-lg-0">
-            <h3 class="column-title text-light mt-4">{{$about->title_s}}</h3>
-            <hr class="text-light lead mt-0">
-            <p class="small text-light">{{$about->s_content}}</p>      
+                    <div class="col-lg-5 mt-5 mt-lg-0">
+                    <h3 class="column-title text-light mt-4">{{$about->title_s}}</h3>
+                    <hr class="text-light lead mt-0">
+                    <p class="small text-light">{{$about->s_content}}</p>      
 
             <div class="row-fluid ">
 
@@ -226,7 +227,7 @@
       
 @section('partners')
 {{-- partner's slider --}}
-    <div class="container m-5 p-5">
+    <div class="container ">
     <h2>Our Partners</h2>
     <section class="customer-logos slider">
         <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">

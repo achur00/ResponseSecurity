@@ -9,6 +9,8 @@ use App\Models\Home_quality;
 use App\Models\Home_about;
 use App\Models\Home_service;
 use App\Models\Service_product;
+use App\Models\Home_why_choose;
+use App\Models\Page;
 
 
 class HomeController extends Controller
@@ -21,12 +23,20 @@ class HomeController extends Controller
     public function index()
     {   $home_banners = Home_banner::all();
         $home_qualities = Home_quality::all();
-        $home_about=Home_About::get()->first();
-        $home_service=Home_service::all()->first();
-        $service_products=Service_Product::all();
+        $home_about= Home_About::get()->first();
+        $home_service= Home_service::all()->first();
+        $service_products = Service_product::all();
+        $chunk_services =$service_products->chunk(6);
+        $home_why_choose = Home_why_choose::all()->first();
+        $page= Home_banner::all();
 
-        // dd($service_products);
-        return view('Pages.home',compact('home_banners', 'home_qualities', 'home_about', 'home_service','service_products'));
+        // $service=Service_product::with('page')->get();
+        $service=Page::with(['Service_product'])->get();
+
+        // $service=Service_product::find(1)->page;
+
+        // dd(   $service);
+        return view('Pages.home',compact('home_banners', 'home_qualities', 'home_about', 'home_service','service_products', 'home_why_choose','chunk_services'));
     }
 
     /**
