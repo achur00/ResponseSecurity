@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\About;
+use App\Models\Quote_cta;
 
 class AboutController extends Controller
 {
@@ -16,9 +17,14 @@ class AboutController extends Controller
     public function index()
     {   //make the about an object with first()
         $about= About::all()->first();
-        // 
+
+        // Quote_cta model
+        //usinf find() intead of first() to accomplish the same expected result
+        $quote_cta=Quote_cta::find(1);
+
+    
         
-        return view('Pages.about', compact('about'));
+        return view('Pages.about', compact('about','quote_cta'));
     }
 
 

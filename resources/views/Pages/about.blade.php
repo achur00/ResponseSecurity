@@ -224,6 +224,16 @@
             </div>
      </div>
 @endsection
+
+@section('quote')
+     @section('quote_cta')
+
+    <div class="row justify-content-around bg-primary p-5 wow fadeIn mt-5 mb-5" data-wow-delay="1.8s">
+
+        <div class="col-4 text-light "><p>{{$quote_cta->content}}<p></div>
+        <div class="col-4"><a href="{{URL('/#my_quote')}}" class="btn btn-light  rounded-pill py-md-3 px-md-5 animated ">{{$quote_cta->cta}}</a></div>
+    </div>
+@endsection
       
 @section('partners')
 {{-- partner's slider --}}
