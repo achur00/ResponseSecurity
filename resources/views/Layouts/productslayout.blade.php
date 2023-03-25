@@ -53,22 +53,24 @@
     <div class="container-fluid bg-dark">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
+                <div class="h-100 d-inline-flex align-items-center me-4 py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-map-marker-alt text-white"></small>
                     </div>
                     
                     <small>{{$contact->address}}</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center">
+                <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-envelope-open text-white"></small>
                     </div>
-                    <small>{{$contact->email}}</small>
+                       <a href="mailto:{{$contact->email}}"> 
+                     <small>{{$contact->email}}</small>
+                   </a>
                 </div>
             </div>
             <div class="col-lg-6 text-end">
-                <div class="h-100 d-inline-flex align-items-center me-4">
+                <div class="h-100 d-inline-flex align-items-center me-4 py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
@@ -76,7 +78,7 @@
                         <small>{{$contact->phone_no1}}</small>
                     </a>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center">
+                <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
@@ -168,20 +170,9 @@
     </nav>
     <!-- Navbar End -->
 
-                <!-- Page Header Start -->
-                <div class="container-fluid page-header-about py-5 mb-5">
-                    <div class="container py-5">
-                        <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
-                        <nav aria-label="breadcrumb animated slideInDown">
-                            <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                                <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                                <li class="breadcrumb-item text-white active" aria-current="page">About</li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
                 
+                
+                @yield('header-breadcrumb')
                 
                 <div class=" p-5 ">
                     <div class="d-flex justify-content-center wow fadeInUp" data-wow-delay="1.0s">
@@ -189,21 +180,23 @@
                         <div class="col-md-3 col-sm-2 col-xs-2 mx-3">
                             <div class="bg-danger sidebar-img  mb-5 pb-5 rounded">
                                 <ul class="" style="list-style:none;">
-                                    <li class="small fw-bold text-uppercase"><span><i class="bi bi-caret-right"></i></span> Construction
+                                    <li class="small fw-bold text-uppercase text-danger"><span><i class="bi bi-caret-right "></i></span>All Services
                                     </li>
                                     <div style="color: whitesmoke">
                                         <hr>
                                     </div>
-                                    <li class="small text-uppercase fw-bold"> All services<span class="align-self-end"><span
-                                                class="m-2"></span><i class="bi bi-chevron-right"></i></span>
-                                    </li>
-                                    
+                                        {{-- <li class="small text-uppercase fw-bold"> All services<span class="align-self-end"><span
+                                                    class="m-2"></span><i class="bi bi-chevron-right"></i></span>
+                                        </li>
+                                        --}}
                                     
                                         @foreach($servicexr as $menus)
                                         
                                             @foreach($menus->service_product as $service)
                                             <li class="small mb-1 mt-2">
-                                                {{$service->title}}
+                                                <a href={{url('products/'.$service->id)}}>
+                                                    {{$service->title}}
+                                                </a>
                                             </li>
                                             @endforeach
                                          @endforeach
@@ -214,7 +207,7 @@
                 
                             <div class=" mt-5 pt-5 p-5 sidebar rounded"
                                 style="background-color: rgb(60, 60, 60); border:1px solid black; ">
-                                <p class="fw-bold">Get Brochure</p>
+                                <p class="fw-bold text-light ">Get Brochure</p>
                                 <div class="text-light ">
                                     <hr>
                                 </div>
@@ -292,7 +285,9 @@
     
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+ 
+    <a href="https://wa.link/ssqgp4" target="_blank" class="btn btn-lg btn-success btn-lg-square rounded-circle whatsapp"><i class="bi bi-whatsapp" style="font-size:50px;"></i></a>
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle mt-1 back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

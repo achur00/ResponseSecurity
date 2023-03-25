@@ -15,10 +15,17 @@ class CreateHomeServicesTable extends Migration
     {
         Schema::create('home_services', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('page_id');
             $table->string('title', 50);
             $table->longText('content');
             $table->timestamps();
+            $table->foreign('page_id')
+                ->references('id')
+                ->on('pages')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
+        
     }
 
     /**

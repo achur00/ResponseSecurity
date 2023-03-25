@@ -53,22 +53,24 @@
     <div class="container-fluid bg-dark">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
-                <div class="h-100 d-inline-flex align-items-center  me-4">
+                <div class="h-100 d-inline-flex align-items-center  me-4 py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-map-marker-alt text-white"></small>
                     </div>
                     
                     <small>{{$contact->address}}</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center ">
+                <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-envelope-open text-white"></small>
                     </div>
-                    <small>{{$contact->email}}</small>
+                   <a href="mailto:{{$contact->email}}"> 
+                     <small>{{$contact->email}}</small>
+                   </a>
                 </div>
             </div>
             <div class="col-lg-6 text-end">
-                <div class="h-100 d-inline-flex align-items-center me-4">
+                <div class="h-100 d-inline-flex align-items-center me-4 py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
@@ -76,7 +78,7 @@
                         <small>{{$contact->phone_no1}}</small>
                     </a>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center">
+                <div class="h-100 d-inline-flex align-items-center py-3">
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
@@ -126,10 +128,10 @@
                                 <li class="{{$menus->nav_style}}" id="myDropdown">
                                 <a class="{{$menus->nav_toggle}}" href="{{url("$menus->page_url")}}" data-bs-toggle="">  {{$menus->page_name}}  </a>
 
-                             @if(count($menus->service_product))
+                             @if(count($menus->Service_product))
 
                                  <ul class="dropdown-menu">
-                                    @foreach ($menus->service_product as $submenu)
+                                    @foreach ($menus->Service_product as $submenu)
                                      <li> <a class="dropdown-item" href="{{url( "products/".$submenu->id)}}"> {{$submenu->title}} </a></li>
                                     @endforeach
                                  </ul>
@@ -167,14 +169,14 @@
         </div>
     </nav>
     <!-- Navbar End -->
-
+    @yield('header-breadcrumb')
     @yield('content')
     @yield('brochure')
     @yield('quote_cta')
     @yield('partners')
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container-fluid bg-dark text-secondary footer  py-5 wow fadeIn" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
@@ -237,7 +239,8 @@
     
 
     <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+    <a href="https://wa.link/ssqgp4" target="_blank" class="btn btn-lg btn-success btn-lg-square rounded-circle whatsapp" style="font-size:50px;"><i class="bi bi-whatsapp"></i></a>
+    <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle mt-1  back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->

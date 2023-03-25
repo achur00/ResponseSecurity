@@ -18,4 +18,12 @@ class Page extends Model
     public function Service_product(){
         return $this->hasMany(Service_product::class, 'page_id','id');
     }
+
+    public function About(){
+       return  $this->hasOne(About::class, 'page_id', 'id');
+    }
+
+     public function Home_service(){
+        return $this->hasOne(Home_service::class, 'page_id','id');
+    }
 }

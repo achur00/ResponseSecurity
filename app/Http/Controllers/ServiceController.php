@@ -16,10 +16,13 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $home_service= Home_service::all()->first();
+        $home_service= Home_service::all()->first()->load(['Page']);
         $service_products = Service_product::all();
         $quote_cta=Quote_cta::all()->first();
-        // dd($quote);
+        // dd( $home_service);
+        
+            //  dd( $home_service->Page->page_name);
+     
         
         return view("Pages.Services.services", compact('home_service','service_products', 'quote_cta'));
     }

@@ -7,9 +7,10 @@
                 <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                        <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                        <li class="breadcrumb-item"><a class="text-white" href="{{url('/')}}">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">
+                             {{$home_service->Page->page_name}}
+                        </li>
                     </ol>
                 </nav>
             </div>
@@ -41,7 +42,8 @@
                         <h5 class="title">{{$service->title}}</h5>
                         <p class="text-muted mt-3 mb-0">{{$service->content}}</p>
                         <div class="mt-3">
-                            <a href="" class="text-custom">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="{{url('products/'.$service->id)}}" class="text-custom">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            
                         </div>
                     </div>
                     <div class="big-icon h1 text-custom">

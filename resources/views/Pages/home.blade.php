@@ -239,7 +239,7 @@
         </div>
 
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <a href="{{url('service')}}"> <button type="button" class="btn btn-primary rounded-pill mt-4 mw-50 py-3 px-5">More Service</button></a></div>
+            <a href="{{url('services')}}"> <button type="button" class="btn btn-primary rounded-pill mt-4 mw-50 py-3 px-5">More Service</button></a></div>
         </div>
     <!--end row-->
     </div>       
@@ -296,7 +296,7 @@
 
 
     <!-- Projects Start -->
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5 mb-5 pb-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="bg-primary mb-3 mx-auto" style="width: 60px; height: 2px;"></div>
@@ -407,7 +407,7 @@
                         <div class="portfolio-text text-center bg-white p-4">
                             <p class="text-danger mb-2">Smart Home</p>
                             <h5 class="lh-base mb-3">Smart CCTV Security Systems That Fits Your Business</h5>
-                            <div class="d-flex justify-content-center">
+                            <div class="d-flex justify-content-center mb-5 pb-5">
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href="{{asset('assets/img/portfolio-6.jpg')}}" data-lightbox="portfolio"><i class="fa fa-eye"></i></a>
                                 <a class="btn btn-square btn-primary rounded-circle mx-1" href=""><i class="fa fa-link"></i></a>
                             </div>

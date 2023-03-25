@@ -13,6 +13,10 @@ class Home_service extends Model
 
      //activating mass assignment by using fillable property signifiying the columns that can be mass assigned
     Protected $fillable= ['title', 'content'];
+
+    public function Page(){
+        return $this->belongsTo(Page::class, 'page_id');
+    }
 }
 
 

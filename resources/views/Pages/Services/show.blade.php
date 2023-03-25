@@ -1,40 +1,43 @@
 @extends('Layouts.productslayout')
+
+@section('header-breadcrumb')
+    <!-- Page Header Start -->
+                <div class="container-fluid page-header-about py-5 mb-5">
+                    <div class="container py-5">
+                        <h1 class="display-3 text-white mb-3 animated slideInDown">Service</h1>
+                        <nav aria-label="breadcrumb animated slideInDown">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-white" href="#">Services</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">{{$product->title}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+@endsection
+
 @section('content')
 
 
             <div class="col-md-7 col-sm-7 col-xs-5 ml-xs-5 px-sm-5 ">  
                 
                     
-                {{-- <div class="row justify-content-center">
-                    <div class="col-12"> --}}
+                
                         <div class=" pb-2 wow fadeInUp" data-wow-delay="1.0s">
+                            {{-- TITLE --}}
                             <h4 class="  display-6">{{$product->title}}</h4>
-                            <div class="mx-auto  mb-2"><hr></div>   
+                            <div class="mx-auto  mb-2"><hr></div> 
+                              {{-- CONTENT  --}}
                             <p class="text-muted para-desc mb-0 small">{!! $product->long_content !!}</p>
-                        {{-- </div>
-                    </div><!--end col--> --}}
-
-                    {{-- <div class="container-fluid pt-5 pb-5 mb-5    ">
-                        <div class="row justify-content-around no-gutters">
-                                <div class="col-md-6 col-lg-4  mb-3 ">
-									<div class="mu-about-left">
-										<img class="img-fluid img-content" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
-									</div>
-								</div>
-                                 
-								<div class="col-md-6 col-lg-4   mb-3 ">
-									<div class="mu-about-right">
-										<img class="img-fluid img-content" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
-									</div>
-								</div>
-                        </div>
-                    </div> --}}
+                            
                     <div class="mt-3 bigscreen">
                         <div class="mo-right pt-3">
-                                            <img class="img-fluid img-content justify-content-center"    src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
+                            {{-- IMAGE --}}
+                                            <img class="img-fluid img-content justify-content-center"    src="{{asset('assets/img/'.$product->service_img)}}"  alt="img">
                         </div>
 
                         <div class="mo-left pt-3 ">
+                            {{-- PRODUCT SECOND CONTENT --}}
                                             <p>{{$product->content}}</p>
                         </div>
                     </div>

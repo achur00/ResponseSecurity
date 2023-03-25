@@ -3,6 +3,11 @@
 @section('title', 'Contact us at response Security on phone: 0208 226 2177')
 
 @section('content')
+      <div>
+        
+        <iframe src="https://www.google.com/maps/embed?pb=!1m16!1m12!1m3!1d2485.6903842004604!2d0.1824383152805845!3d51.46384082170883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!2m1!1sHowbury%20House%20Thames%20Road%20Crayford%20DA1%204RQ!5e0!3m2!1sen!2sng!4v1679449176672!5m2!1sen!2sng" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
 
  <!-- Contact Start -->
     <div class="container-fluid bg-light overflow-hidden px-lg-0">
@@ -47,14 +52,14 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
+                {{-- <div class="col-lg-6 pe-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
                         <iframe class="position-absolute w-100 h-100" style="object-fit: cover;"
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
                         frameborder="0" allowfullscreen="" aria-hidden="false"
                         tabindex="0"></iframe>
                     </div>
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>

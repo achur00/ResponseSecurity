@@ -31,11 +31,14 @@ class AppServiceProvider extends ServiceProvider
         View()->composer(['Layouts.master','Layouts.productslayout','Layouts.serviceslayout'], function($view)
         {
             // $service=Page::with('Service_product')->get();
-              $service=Page::all()->load(['service_product']);
+              $service=Page::all()->load(['Service_product']);
+             
+             
 
         $view->with('contact',Contact::all()->first()) 
         ->with('menu',Page::all())
         ->with('servicexr', $service)
+       
         
         ;
         });

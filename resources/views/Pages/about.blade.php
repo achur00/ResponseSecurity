@@ -2,7 +2,7 @@
 
 @section('title', 'Response UK Security Ltd are specialists at delivering bespoke security and surveillance services, like Retail Security Services, etc. With over 50 years’ experience working within the security industry, our management team is committed to guaranteeing your peace of mind.')
 
-@section('content')
+@section('header-breadcrumb')
 
         <!-- Page Header Start -->
     <div class="container-fluid page-header-about py-5 mb-5">
@@ -10,13 +10,13 @@
             <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">About</li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{{url('/')}}">Home</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="{{$about_with_page->Page->page_name}}" href="#">{{$about_with_page->Page->page_name}}</li>
                 </ol>
             </nav>
         </div>
     </div>
+@endsection
     <!-- Page Header End -->
     
     <!-- About Start -->
@@ -65,7 +65,7 @@
     </div> --}}
     <!-- About End -->
 
-    
+   @section('content') 
     <div class="container-fluid pt-5 pb-5 mb-5 mt-5 ">
             <div class="row justify-content-center no-gutters">
 

@@ -21,6 +21,14 @@
 .back-to-top {
     position: fixed;
     display: none;
+    right: 100px;
+    bottom: 45px;
+    z-index: 99;
+}
+
+.whatsapp {
+    position: fixed;
+    display: none;
     right: 45px;
     bottom: 45px;
     z-index: 99;
