@@ -45,6 +45,10 @@
                             <a href="{{url('products/'.$service->id)}}" class="text-custom">Read More <i class="mdi mdi-chevron-right"></i></a>
                             
                         </div>
+                        <div class="big-icon h1 text-custom">
+                        {!! $service->svg !!}
+                        </div>
+                
                     </div>
                     <div class="big-icon h1 text-custom">
                         <span class="uim-svg" style=""></span>
