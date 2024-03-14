@@ -13,6 +13,7 @@
                     <li class="breadcrumb-item"><a class="text-white" href="{{url('/')}}">Home</a></li>
                     <li class="breadcrumb-item text-white active" aria-current="{{$about_with_page->Page->page_name}}" href="#">{{$about_with_page->Page->page_name}}</li>
                 </ol>
+                
             </nav>
         </div>
     </div>
@@ -66,29 +67,29 @@
     <!-- About End -->
 
    @section('content') 
-    <div class="container-fluid pt-5 pb-5 mb-5 mt-5 ">
+    <div class="container-fluid pt-5">
             <div class="row justify-content-center no-gutters">
 
-                                <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
+                                <div class="col-md-6 col-lg-4 d-flex flex-row ">
 									<div class="mu-about-left">
-										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
+										<img class="img-fluid  h-75" src="{{asset('assets/img/talkie-2021-08-28-18-32-39-utc.png')}}"  alt="img">
 									</div>
 								</div>
                                 
-								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
+								<div class="col-md-6 col-lg-4  d-flex flex-row  ">
 									<div class="mu-about-right">
 										<ul>
 											<li>
-												<h3 class="blockquote text-danger">Our Mission</h3>
-												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+												<h3 class="blockquote text-danger">{{$value->mis_title}}</h3>
+												<p class="small text-dark">{{$value->mis_content}}</p>
 											</li>
 											<li>
-												<h3 class="blockquote text-danger">Our Vision</h3>
-												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+												<h3 class="blockquote text-danger">{{$value->vis_title}}</h3>
+												<p class="small text-dark">{{$value->vis_content}}</p>
 											</li>
 											<li>
-												<h3 class="blockquote text-danger">Our Value</h3>
-												<p class='small'>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
+												<h3 class="blockquote text-danger">{{$value->val_title}}</h3>
+												<p class='small text-dark'>{{$value->val_content}}</p>
 											</li>
 										</ul>
 									</div>
@@ -99,7 +100,7 @@
 
 
 
-    <section id="main-container" class="main-container mb-5 p-5" style="background:#008bca;">
+    <section id="main-container" class="container-fluid mb-5 p-5" style="background:#008bca;">
             <div class="container">
                 
                 <div class="row justify-content-around">
@@ -198,35 +199,15 @@
 
                                         </div>
                                     </div> --}}
+
+                                    @include('include.brochure')    
             @endsection
+            
 
-        @section('brochure')
-      <div class="container-fluid mb-5 p-5">
-            <div class="row justify-content-center no-gutters">
+            {{-- @include('include.brochure') --}}
 
-                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
-									<div class="mu-about-left">
-										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
-									<div class="mu-about-right m-md-5">
-									
-											
-												<h3 class="blockquote text-danger">Download Our Brochure</h3>
-												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
-                                                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-5 animated ">Download</a>
-											
-											
-									</div>
-								</div>
 
-            </div>
-     </div>
-@endsection
-
-@section('quote')
-     @section('quote_cta')
+@section('quote_cta')
 
     <div class="row justify-content-around bg-primary p-5 wow fadeIn mt-5 mb-5" data-wow-delay="1.8s">
 
@@ -234,12 +215,14 @@
         <div class="col-4"><a href="{{url('/#my_quote')}}" class="btn btn-light  rounded-pill py-md-3 px-md-5 animated ">{{$quote_cta->cta}}</a></div>
     </div>
 @endsection
-      
-@section('partners')
-{{-- partner's slider --}}
+
+
+{{-- partner's slider --}}      
+{{-- @section('partners')
+
     <div class="container ">
     <h2>Our Partners</h2>
-    <section class="customer-logos slider">
+    <section class="customer-logos slider mb-5">
         <div class="slide"><img src="https://image.freepik.com/free-vector/luxury-letter-e-logo-design_1017-8903.jpg">
         </div>
         <div class="slide"><img src="https://image.freepik.com/free-vector/3d-box-logo_1103-876.jpg"></div>
@@ -254,6 +237,7 @@
                 src="https://image.freepik.com/free-vector/retro-label-on-rustic-background_82147503374.jpg"></div>
     </section>
 </div>
+
 <script>
     $(document).ready(function () {
   $(".customer-logos").slick({
@@ -280,5 +264,5 @@
     ]
   });
 });
-</script>
-@endsection
+</script> 
+@endsection--}}

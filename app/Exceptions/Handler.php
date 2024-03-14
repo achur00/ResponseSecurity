@@ -4,7 +4,9 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
-
+use log;
+use Mail;
+use App\Mail\SendMail;  
 class Handler extends ExceptionHandler
 {
     /**
@@ -35,7 +37,44 @@ class Handler extends ExceptionHandler
     public function register()
     {
         $this->reportable(function (Throwable $e) {
-            //
+              $this->sendEmail($e);
         });
     }
+
+    //   public function sendEmail(Throwable $exception)
+    // {
+    //    try {
+    //         $e = FlattenException::create($exception);
+    //         $handler = new HtmlErrorRenderer(true); // boolean, true raises debug flag...
+    //         $css = $handler->getStylesheet();
+    //         $content = $handler->getBody($e);
+    //         \Mail::send('emails.exception', compact('css','content'), function ($message) {
+    //             $message->to(['youremail1@gmail.com','youremail2@gmail.com'])
+    //                                 ->subject('Exception: ' . \Request::fullUrl());
+    //         });
+    //     } catch (Throwable $exception) {
+    //         Log::error($exception);
+    //     }
+    // }
+
+       public function sendEmail(Throwable $exception)
+    {
+       try {
+   
+            $content['message'] = $exception->getMessage();
+            $content['file'] = $exception->getFile();
+            $content['line'] = $exception->getLine();
+            $content['trace'] = $exception->getTrace();
+  
+            $content['url'] = request()->url();
+            $content['body'] = request()->all();
+            $content['ip'] = request()->ip();
+   
+            Mail::to('your_email@gmail.com')->send(new ExceptionOccured($content));
+  
+        } catch (Throwable $exception) {
+            Log::error($exception);
+        }
+    }
+
 }

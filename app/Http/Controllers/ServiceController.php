@@ -19,7 +19,7 @@ class ServiceController extends Controller
         $home_service= Home_service::all()->first()->load(['Page']);
         $service_products = Service_product::all();
         $quote_cta=Quote_cta::all()->first();
-        // dd( $home_service);
+        //  dd( $service_products);
         
             //  dd( $home_service->Page->page_name);
      

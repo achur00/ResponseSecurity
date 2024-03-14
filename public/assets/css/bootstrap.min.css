@@ -183,7 +183,8 @@ strong {
 }
 small,
 .small {
-    font-size: 0.875em;
+    font-size: 0.975em;
+    /* font-weight: bold; */
 }
 mark,
 .mark {
@@ -204,7 +205,7 @@ sup {
     top: -0.5em;
 }
 a {
-    color: #bdbdbd;
+    color: white;
     text-decoration: none;
 }
 a:hover {
@@ -512,8 +513,8 @@ progress {
 }
 .img-thumbnail {
     padding: 0.25rem;
-    background-color: #fff;
-    border: 1px solid #dee2e6;
+p */
+    /* border: 1px solid #dee2e6; */
     border-radius: 6px;
     max-width: 100%;
     height: auto;

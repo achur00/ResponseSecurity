@@ -8,7 +8,7 @@
     <meta content="@yield('title')" name="description">
 
     <!-- Favicon -->
-    <link href="{{asset('assets/img/favicon.ico')}}" rel="icon">
+    <link href="{{asset('assebts/img/favicon.ico')}}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,25 +49,36 @@
     <!-- Spinner End -->
 
 
-     <!-- Topbar Start -->
+  <!-- Topbar -->
     <div class="container-fluid bg-dark">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4 py-3">
-                    <div class="btn-sm-square rounded-circle bg-primary me-2">
-                        <small class="fa fa-map-marker-alt text-white"></small>
-                    </div>
+                <div class="row">
+                    <div class="col-8">
+
+                         <div class="h-100 d-inline-flex align-items-center  me-4 py-3">
+                            <div class="btn-sm-square rounded-circle bg-primary me-2">
+                                <small class="fa fa-map-marker-alt text-white"></small>
+                            </div>
                     
-                    <small>{{$contact->address}}</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <div class="btn-sm-square rounded-circle bg-primary me-2">
-                        <small class="fa fa-envelope-open text-white"></small>
+                            <small class="text-white">{{$contact->address}}</small>
+                        </div>
+
                     </div>
-                     <a href="mailto:{{$contact->email}}"> 
-                     <small>{{$contact->email}}</small>
-                   </a>
+                    <div class="col-2">
+                            <div class="h-100 d-inline-flex align-items-center py-3">
+                               <div class="btn-sm-square rounded-circle bg-primary me-2">
+                                <small class="fa fa-map-marker-alt text-white"></small>
+                            </div>
+                                <a href="mailto:{{$contact->email}}"> 
+                                    <small >{{$contact->email}}</small>
+                                </a>
+                            </div>
+                    </div>
+
                 </div>
+               
+                
             </div>
             <div class="col-lg-6 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4 py-3">
@@ -82,22 +93,21 @@
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <a href='tel:{{$contact->phone_no1}}'>
+                    <a href='tel:{{$contact->phone_no2}}'>
                         <small>{{$contact->phone_no2}}</small>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+    <!-- End Topbar -->
     {{-- new top bar --}}
   {{-- new top bar end --}}
 
     <!-- Navbar Start -->
     {{-- {{dd($servicexr)}} --}}
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 ">
-        <img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" />
-         
+       <a href="{{url('/')}}"><img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" style="width:80%; height:auto" /></a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -173,47 +183,54 @@
     @yield('content')
     @yield('quote_cta')
     @yield('brochure')
-    @yield('partners')
+  
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid bg-dark text-secondary footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container ">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
                     <div class="row">
-                    <div class="col-1 mb-2"><i class="fa fa-map-marker-alt me-3"></i></div><div class="col-6">Howbury House Thames Road Crayford DA1 4RQ</p></div></div>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>08455190249</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>01322553105</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@responseuksecurity.co.uk</p>
+                    <div class="col-1 mb-2"><i class="fa fa-map-marker-alt me-3"></i></div><div class="col-6">{{$contact->address}}</p></div></div>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href='tel:{{$contact->phone_no1}}'>
+                        <small class="text-secondary">{{$contact->phone_no1}}</small>
+                    </a></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href='tel:{{$contact->phone_no2}}'>
+                        <small class="text-secondary">{{$contact->phone_no2}}</small>
+                    </a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:{{$contact->email}}"> 
+                                    <small class="text-secondary">{{$contact->email}}</small>
+                                </a></p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square 
-                        btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-youtube"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <h5 class="text-light mb-4">Page Navigation</h5>  
+                    @foreach ( $menu as $menus )
+
+                    <a class="btn btn-link" href="">{{$menus->page_name}}</a>
+
+                    @endforeach
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Business Security</a>
-                    <a class="btn btn-link" href="">Fire Detection</a>
-                    <a class="btn btn-link" href="">Alarm Systems</a>
-                    <a class="btn btn-link" href="">CCTV & Video</a>
-                    <a class="btn btn-link" href="">Smart Home</a>
+             
+                    @foreach ( $service_product as $service )
+                        
+                    
+                    <a class="btn btn-link" href="">{{$service->title}}</a>
+                     @endforeach
+                  
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                 <div class="col-lg-3 col-md-6">
+                    <h5 class="text-light mb-4">{{$newsletter->title}}</h5>
+                    <p>{{$newsletter->content}}</p>
                     <div class="position-relative w-100">
                         <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5 rounded-pill" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill">SignUp</button>

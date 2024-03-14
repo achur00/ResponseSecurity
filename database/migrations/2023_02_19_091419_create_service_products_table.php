@@ -17,19 +17,28 @@ class CreateServiceProductsTable extends Migration
         Schema::create('service_products', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('Page_id');
+            // $table->unsignedInteger('banner_id');
             $table->string('title', 50);
             $table->string('content');
             $table->longText('long_content');
             $table->longText('svg');
             $table->string('service_img');
+            $table->string('img_position');
             $table->timestamps();
-            $table->foreign('page_id')
-                
+            $table->foreign('page_id')   
 				->references('id')
                 ->on('pages')
                 ->onDelete('cascade') 
                 ->onUpdate('cascade') 
                 ;
+
+            // $table->foreign('banner_id')   
+			// 	->references('id')
+            //     ->on('home_banners')
+            //     ->onDelete('cascade') 
+            //     ->onUpdate('cascade') 
+            //     ;
+
         });
     }
 

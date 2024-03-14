@@ -200,8 +200,8 @@
 
 .header-carousel .owl-nav .owl-prev,
 .header-carousel .owl-nav .owl-next {
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -222,7 +222,7 @@
 .header-carousel .owl-dots {
     position: absolute;
     height: 45px;
-    bottom: 30px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
@@ -260,19 +260,15 @@
 
 .page-header-about {
     background: linear-gradient(rgba(22, 22, 22, 0.7), rgba(22, 22, 22, 0.7)),
-        url(../img/carousel-1.jpg) center center no-repeat;
-    background-size: cover;
-}
-
-.page-header-about {
-    background: linear-gradient(rgba(22, 22, 22, 0.7), rgba(22, 22, 22, 0.7)),
-        url(../img/carousel-1.jpg) center center no-repeat;
+        url(../img/security-guard-2022-12-20-16-55-28-utc.jpg) center center
+            no-repeat;
     background-size: cover;
 }
 
 .page-header-services {
     background: linear-gradient(rgba(22, 22, 22, 0.7), rgba(22, 22, 22, 0.7)),
-        url(../img/carousel-1.jpg) center center no-repeat;
+        url(../img/gate-guard-security-officer-on-public-event-2021-08-29-10-19-51-utc.jpg)
+            center center no-repeat;
     background-size: cover;
 }
 

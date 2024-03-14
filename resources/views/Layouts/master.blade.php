@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <title>{{Config('app.name')}}</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">  
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta content="@yield('title')" name="description">
 
@@ -13,7 +13,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500&family=Roboto:wght@500;700;900&display=swap" rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -27,7 +27,7 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-     
+
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
@@ -40,7 +40,8 @@
 </head>
 
 <body>
-      <!-- Spinner Start -->
+
+    <!-- Spinner Start -->
     <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
             <span class="sr-only">Loading...</span>
@@ -49,25 +50,36 @@
     <!-- Spinner End -->
 
 
-    <!-- Topbar Start -->
+    <!-- Topbar -->
     <div class="container-fluid bg-dark">
         <div class="row gx-4 d-none d-lg-flex">
             <div class="col-lg-6 text-start">
-                <div class="h-100 d-inline-flex align-items-center  me-4 py-3">
-                    <div class="btn-sm-square rounded-circle bg-primary me-2">
-                        <small class="fa fa-map-marker-alt text-white"></small>
+                <div class="row">
+                    <div class="col-8">
+
+                         <div class="h-100 d-inline-flex align-items-center  me-4 py-3">
+                            <div class="btn-sm-square rounded-circle bg-primary me-2">
+                                <small class="fa fa-map-marker-alt text-white"></small>
+                            </div>
+
+                            <small class="text-white">{{$contact->address}}</small>
+                        </div>
+
                     </div>
-                    
-                    <small>{{$contact->address}}</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center py-3">
-                    <div class="btn-sm-square rounded-circle bg-primary me-2">
-                        <small class="fa fa-envelope-open text-white"></small>
+                    <div class="col-2">
+                            <div class="h-100 d-inline-flex align-items-center py-3">
+                               <div class="btn-sm-square rounded-circle bg-primary me-2">
+                                <small class="fa fa-map-marker-alt text-white"></small>
+                            </div>
+                                <a href="mailto:{{$contact->email}}">
+                                    <small >{{$contact->email}}</small>
+                                </a>
+                            </div>
                     </div>
-                   <a href="mailto:{{$contact->email}}"> 
-                     <small>{{$contact->email}}</small>
-                   </a>
+
                 </div>
+
+
             </div>
             <div class="col-lg-6 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4 py-3">
@@ -82,22 +94,22 @@
                     <div class="btn-sm-square rounded-circle bg-primary me-2">
                         <small class="fa fa-phone-alt text-white"></small>
                     </div>
-                    <a href='tel:{{$contact->phone_no1}}'>
+                    <a href='tel:{{$contact->phone_no2}}'>
                         <small>{{$contact->phone_no2}}</small>
                     </a>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Topbar End -->
+    <!-- End Topbar -->
     {{-- new top bar --}}
   {{-- new top bar end --}}
 
     <!-- Navbar Start -->
     {{-- {{dd($servicexr)}} --}}
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 ">
-        <img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" />
-         
+        <a href="{{url('/')}}"><img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" style="width:60%; height:auto" /></a>
+
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -106,22 +118,7 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0 d-flex align-items-center ">
 
                 @foreach ( $servicexr as $menus )
-                    
-                    {{-- <a href="{{url("$menus->page_url")}}" class="nav-item nav-link ">{{$menus->page_name}}</a> --}}
-                    
-                    {{-- @if(count($menus->service_product)) --}}
-                        {{-- <ul> --}}
-                            {{-- @foreach ($menus->service_product as $submenu)   
-                                <li><a href="">{{$submenu->title}}</a></li>
-                            @endforeach --}}
 
-                             {{-- @foreach ($menus->service_product as $submenu)   
-                                <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                                    <a href="" class="dropdown-item">{{$submenu->title}}</a>
-                                </div>
-                            @endforeach --}}
-
-                        {{-- </ul> --}}
 
                         <div class="navbar-collapse" id="main_nav">
                             <ul class="navbar-nav">
@@ -135,7 +132,7 @@
                                      <li> <a class="dropdown-item" href="{{url( "products/".$submenu->id)}}"> {{$submenu->title}} </a></li>
                                     @endforeach
                                  </ul>
-                              
+
                             @endif
                       </li>
                     </ul>
@@ -168,24 +165,30 @@
             </div> --}}
         </div>
     </nav>
+
     <!-- Navbar End -->
     @yield('header-breadcrumb')
     @yield('content')
-    @yield('brochure')
     @yield('quote_cta')
-    @yield('partners')
+    {{-- @yield('partners') --}}
 
     <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-secondary footer  py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
+    <div class="container-fluid bg-dark text-secondary footer wow fadeIn" data-wow-delay="0.1s">
+        <div class="container ">
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Address</h5>
                     <div class="row">
-                    <div class="col-1 mb-2"><i class="fa fa-map-marker-alt me-3"></i></div><div class="col-6">Howbury House Thames Road Crayford DA1 4RQ</p></div></div>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>08455190249</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>01322553105</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@responseuksecurity.co.uk</p>
+                    <div class="col-1 mb-2"><i class="fa fa-map-marker-alt me-3"></i></div><div class="col-6">{{$contact->address}}</p></div></div>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href='tel:{{$contact->phone_no1}}'>
+                        <small class="text-secondary">{{$contact->phone_no1}}</small>
+                    </a></p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href='tel:{{$contact->phone_no2}}'>
+                        <small class="text-secondary">{{$contact->phone_no2}}</small>
+                    </a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:{{$contact->email}}">
+                                    <small class="text-secondary">{{$contact->email}}</small>
+                                </a></p>
                     <div class="d-flex pt-2">
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-square btn-outline-secondary rounded-circle me-2" href=""><i class="fab fa-facebook-f"></i></a>
@@ -194,25 +197,27 @@
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Services</a>
-                    <a class="btn btn-link" href="">Terms & Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <h5 class="text-light mb-4">Page Navigation</h5>
+                    @foreach ( $menu as $menus )
+
+                    <a class="btn btn-link" href="{{url( "$menus->page_url")}}">{{$menus->page_name}}</a>
+
+                    @endforeach
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-light mb-4">Services</h5>
-                    <a class="btn btn-link" href="">Business Security</a>
-                    <a class="btn btn-link" href="">Fire Detection</a>
-                    <a class="btn btn-link" href="">Alarm Systems</a>
-                    <a class="btn btn-link" href="">CCTV & Video</a>
-                    <a class="btn btn-link" href="">Smart Home</a>
+
+                    @foreach ( $service_product as $service )
+
+
+                    <a class="btn btn-link" href={{url("products/$service->id")}}>{{$service->title}}</a>
+                     @endforeach
+
                 </div>
 
                 <div class="col-lg-3 col-md-6">
-                    <h5 class="text-light mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <h5 class="text-light mb-4">{{$newsletter->title}}</h5>
+                    <p>{{$newsletter->content}}</p>
                     <div class="position-relative w-100">
                         <input class="form-control bg-transparent border-secondary w-100 py-3 ps-4 pe-5 rounded-pill" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2 rounded-pill">SignUp</button>
@@ -224,19 +229,19 @@
     <!-- Footer End -->
 
 
-  
+
     <div class="container-fluid py-4" style="background: #000000;">
         <div class="container">
             {{-- <div class="row"> --}}
 
                 <div class="text-center">
-                    
-                   &copy;<?= date('Y') ?> <span class="text-danger">Response Security</span><br> Designed By <a class=" text-info" href="">Arkuz</a> 
+
+                   &copy;<?= date('Y') ?> <span class="text-danger">Response Security</span><br> Designed By <a class=" text-info" href="">Arkuz</a>
                 </div>
             {{-- </div> --}}
         </div>
     </div>
-    
+
 
     <!-- Back to Top -->
     <a href="https://wa.link/ssqgp4" target="_blank" class="btn btn-lg btn-success btn-lg-square rounded-circle whatsapp" style="font-size:50px;"><i class="bi bi-whatsapp"></i></a>

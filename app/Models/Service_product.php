@@ -18,4 +18,8 @@ class Service_product extends Model
     public function Page(){
       return $this->belongsTo(Page::class, 'id');
     }
+
+     public function Home_banner(){
+      return $this->belongsTo(Home_banner::class, 'id');
+    }
 }

@@ -2,11 +2,14 @@
 // namespace app\Http\Controllers;
 // use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ServiceController;
-// use App\Http\Controllers\productsController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\QuoteController;
+// use App\Http\Controllers\productsController;s
 // use App\Http\Controllers\AboutController;
 use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,6 +43,16 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services');
      //products
      Route::resource('products', ProductsController::class);
 
+// authentication
+Route::get('/auth/login', [AuthController::class, 'loginPage'])->name('login');
+Route::get('/auth/register', [AuthController::class, 'registerPage'])->name('register');
+Route::post('/auth/signup', [AuthController::class, 'register'])->name('auth.submit');
+Route::post('/auth/signin', [AuthController::class, 'check'])->name('auth.login');
+Route::get('/auth/dashboard',[AuthController::class, 'dashboard'])->name('dashboard');
+Route::get('/auth/logout',[AuthController::class, 'logout'])->name('logout');
+
+// Quote
+Route::post('/quote', [QuoteController::class, 'send']);
 
 // csrf token
 // Route::get('/token', function (Request $request) {
@@ -49,3 +62,4 @@ Route::get('/services', [ServiceController::class, 'index'])->name('services');
  
 //     // ...
 // });
+          

@@ -13,6 +13,7 @@ use App\Models\Home_why_choose;
 use App\Models\Page;
 
 
+
 class HomeController extends Controller
 {
     /**
@@ -21,7 +22,18 @@ class HomeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   $home_banners = Home_banner::all();
+    { 
+        //   $home_banners = Home_banner::with(['Service_product'])->get();
+        // $home_banners = Home_banner::all()->load(['Service_product']);
+        // **this is used for testing 
+        // foreach($home_banners as $x){
+        //     echo '<pre>';
+        //     // var_dump($x->Service_product);
+        //      foreach($x->Service_product as $y){
+        //         var_dump($y);
+        //      }
+        // }
+        // dd($home_banners);
         $home_qualities = Home_quality::all();
         $home_about= Home_About::get()->first();
         $home_service= Home_service::all()->first();
@@ -32,11 +44,15 @@ class HomeController extends Controller
 
         // $service=Service_product::with('page')->get();
         $service=Page::with(['Service_product'])->get();
+        //   foreach($service as $pages){
+        //     foreach($pages->Service_product as $x){
+                    // dd( $service);
+        //     }
+        // }
 
         // $service=Service_product::find(1)->page;
 
-        // dd(   $service);
-        return view('Pages.home',compact('home_banners', 'home_qualities', 'home_about', 'home_service','service_products', 'home_why_choose','chunk_services'));
+        return view('Pages.home',compact( 'home_qualities', 'home_about', 'home_service','service_products', 'home_why_choose','chunk_services'));
     }
 
     /**

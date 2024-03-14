@@ -12,6 +12,6 @@ class Brochure extends Model
     Protected $table='brochures';
 							
     //activating mass assignment by using fillable property signifiying the columns that can be mass assigned
-    Protected $fillable= ['title', 'content', 'founder'];
+    Protected $fillable= ['title', 'content'];
     
 }

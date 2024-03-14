@@ -19,6 +19,7 @@ class CreateHomeBannersTable extends Migration
             $table->longText('content');
             $table->string('image',100);
             $table->timestamps();
+            
         });
     }
 

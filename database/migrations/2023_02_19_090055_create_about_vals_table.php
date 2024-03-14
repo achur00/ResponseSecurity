@@ -15,11 +15,11 @@ class CreateAboutValsTable extends Migration
     {
         Schema::create('about_vals', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('mis_title, 50');
+            $table->string('mis_title', 50);
             $table->longText('mis_content');
             $table->string('vis_title', 50);
             $table->longText('vis_content');
-            $table->string('val_title, 50');
+            $table->string('val_title', 50);
             $table->longText('val_content');
             $table->timestamps();
         });

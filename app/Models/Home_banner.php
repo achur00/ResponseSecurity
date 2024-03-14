@@ -13,4 +13,9 @@ class Home_banner extends Model
 
      //activating mass assignment by using fillable property signifiying the columns that can be mass assigned
     Protected $fillable= ['title', 'content', 'images'];
+
+      public function Service_product(){
+        return $this->hasMany(Service_product::class, 'banner_id','id');
+    }
+
 }

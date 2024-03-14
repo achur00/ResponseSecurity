@@ -10,17 +10,25 @@
         <div class="owl-carousel header-carousel position-relative">
             {{-- variable from AppServicerovider --}}
             {{-- {{dd($servicexr)}} --}}
-            @foreach ( $home_banners as $banner)
+            @foreach ( $service_products as $banner)
             <div class="owl-carousel-item position-relative">
-                <img class="img-fluid" src="{{asset('assets/img/'.$banner->image)}}" alt="">
+               
+                <img class="img-fluid" src="{{asset('assets/img/'.$banner->service_img)}}" alt="">
+   
                 <div class="carousel-inner">
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-12 col-lg-8 text-center">
+                                 
                                 <h1 class="display-3 text-white animated slideInDown mb-4">{{$banner->title}}</h1>
                                 <p class="fs-5 text-white mb-4 pb-2">{{$banner->content}}</p>
-                                <a href="" class="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
-                                <a href="" class="btn btn-light rounded-pill py-md-3 px-md-5 animated slideInRight">request Quote</a>
+                                 {{-- @if(count($banner->Service_product)) --}}
+                               
+                                <a href="{{url("products/".$banner->id)}}" class="btn btn-primary rounded-pill py-md-3 px-md-5 me-3 animated slideInLeft"> Read More</a>
+                              
+                                 {{-- @endif --}}
+                                <a href="{{url('/#my_quote')}}" class="btn btn-light rounded-pill py-md-3 px-md-5 animated slideInRight">request Quote</a>
+                               
                             </div>
                         </div>
                     </div>
@@ -52,7 +60,7 @@
                         </div>
                         <h5 class="text-white">{{$quality->title}}</h5>
                         <hr class="w-25">
-                        <span>{{$quality->content}}</span>
+                        <span style="color:whitesmoke;">{{$quality->content}}</span>
                     </div>
                 </div>
                  @endforeach
@@ -69,7 +77,7 @@
             <div class="row g-0 mx-lg-0">
                 <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
                     <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{asset('assets/img/about.jpg')}}" style="object-fit: cover;" alt="">
+                        <img class="position-absolute img-fluid w-100 h-100" src="{{asset('assets/img/about2.jpg')}}" style="object-fit: cover;" alt="">
                     </div>
                 </div>
                 <div class="col-lg-6 about-text py-5 wow fadeIn" data-wow-delay="0.5s">
@@ -101,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a href="" class="btn achur-primary rounded-pill py-3 px-5">Explore More</a>
+                        <a href="{{url('/about')}}" class="btn achur-primary rounded-pill py-3 px-5">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -116,7 +124,7 @@
             <div class="col-12">
                 <div class="section-title text-center mb-4 pb-2 wow fadeInUp" data-wow-delay="0.1s">
                     <h4 class="title mb-2 display-5 pt-5">{{$home_service->title}}</h4>
-                    <p class="text-muted para-desc mx-auto mb-0">{{$home_service->content}}</p>
+                    <p class="text-dark para-desc mx-auto mb-0">{{$home_service->content}}</p>
                 </div>
             </div><!--end col-->
         </div><!--end row-->
@@ -132,9 +140,9 @@
                     </div>
                     <div class="content mt-4">
                         <h5 class="title">{{$service->title}}</h5>
-                        <p class="text-muted mt-3 mb-0">{{$service->content}}</p>
+                        <p class="text-dark mt-3 mb-0">{{$service->content}}</p>
                         <div class="mt-3">
-                            <a href="" class="text-custom">Read More <i class="mdi mdi-chevron-right"></i></a>
+                            <a href="{{url( "products/".$service->id)}}" class="text-custom">Read More <i class="mdi mdi-chevron-right"></i></a>
                         </div>
                     </div>
                     <div class="big-icon h1 text-custom">
@@ -246,7 +254,7 @@
     <!-- Service End -->
 
 
-<div class="p-3"></div>
+    <div class="p-3"></div>
 
     <!--why choose us -->
     <div class="container-fluid bg-light overflow-hidden mt-5 px-lg-0">
@@ -296,7 +304,7 @@
 
 
     <!-- Projects Start -->
-    <div class="container-xxl py-5 mb-5 pb-5">
+    {{-- <div class="container-xxl py-5 mb-5 pb-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="bg-primary mb-3 mx-auto" style="width: 60px; height: 2px;"></div>
@@ -416,104 +424,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
     <!-- Projects End -->
+   @include('include.brochure')
 
 
     <!-- Quote Start -->
-    <div class="container-fluid bg-light overflow-hidden my-5 px-lg-0" id='my_quote'>
-        <div class="container quote px-lg-0">
-            <div class="row g-0 mx-lg-0">
-                <div class="col-lg-6 ps-lg-0" style="min-height: 400px;">
-                    <div class="position-relative h-100">
-                        <img class="position-absolute img-fluid w-100 h-100" src="{{asset('assets/img/quote.jpg')}}" style="object-fit: cover;" alt="">
-                    </div>
-                </div>
-                <div class="col-lg-6 quote-text py-5 wow fadeIn" data-wow-delay="0.5s">
-                    <div class="p-lg-5 pe-lg-0">
-                        <div class="bg-primary mb-3" style="width: 60px; height: 2px;"></div>
-                        <h1 class="display-5 mb-5">Request Quote</h1>
-                        {{-- <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p> --}}
-                        <form>
-                            <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Company Name" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;" required>
-                                </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;" required>
-                                </div>
-                                 
-                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Address" style="height: 55px;" required>
-                                </div>
-                                
-                               
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;" required>
-                                        <option selected>Select A Service</option>
-                                        <option value="1"> Corporate Guarding</option>
-                                        <option value="2">Retail Guarding</option>
-                                        <option value="3">CCTV Monitoring and Installation</option>
-                                        <option value="3">Door Supervision</option>
-                                        <option value="3">Events</option>
-                                        <option value="3">Building Sites</option>
-                                        <option value="3">Consultancy</option>
-                                        <option value="3">Others</option>
-                                    </select>
-                                   
-
-                                </div>
-
-                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;" required>
-                                        <option selected >Number of Security </option>
-                                        <?php 
-                                        for($i=1; $i<=19; $i++ ){
-                                           echo"<option value=$i> $i</option>";
-                                        }
-                                        ?>   
-                                    </select>
-                                 </div>
-
-                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Location" style="height: 55px;">
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Start Date" onfocus="(this.type = 'date')" style="height: 55px;" id="achur-date1" required>
-                                </div>
-
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="End Date" onfocus="(this.type = 'date')" style="height: 55px;" id="achur-date2" required>
-                                </div>
-                                
-                                <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Note"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <input class="form-control border-0" placeholder="How did you find us?"></textarea>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn achur-primary rounded-pill  w-100 py-3" type="submit">
-                                        Submit Request</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+   @include('include.quote')
     <!-- Quote End -->
 
 
-    <!-- Team Start -->
+    <!-- Team Start 
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -588,11 +509,11 @@
             </div>
         </div>
     </div>
-    <!-- Team End -->
+     Team End -->
 
 
-    <!-- Testimonial Start -->
-    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <!-- Testimonial Start 
+    <div class="container-xxl py-5 mb-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <div class="bg-primary mb-3 mx-auto" style="width: 60px; height: 2px;"></div>
@@ -617,7 +538,8 @@
             </div>
         </div>
     </div>
-    <!-- Testimonial End -->
+     Testimonial End -->
+    
 
 
     

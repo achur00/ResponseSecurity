@@ -12,3 +12,6 @@ class Quote extends Model
     protected $table="quotes";
     protected $fillable=['name','company_name','email','mobile','address','service_type', 'security_no', 'location','start_date','end_date','note','reference_src'];
 }
+
+
+

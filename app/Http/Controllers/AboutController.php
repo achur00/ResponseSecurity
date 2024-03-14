@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\About;
 use App\Models\Quote_cta;
 use App\Models\Page;
+use App\Models\About_val;
+
 
 class AboutController extends Controller
 {
@@ -18,6 +20,7 @@ class AboutController extends Controller
     public function index()
     {   //make the about an object with first()
         $about= About::all()->first();
+        $value=About_val::all()->first();
         
         //method 1: using find() to fetch id=1
           $about_with_page=About::find(1);
@@ -42,7 +45,7 @@ class AboutController extends Controller
 
     
         
-        return view('Pages.about', compact('about','quote_cta','about_with_page'));
+        return view('Pages.about', compact('about','quote_cta','about_with_page','value'));
     }
 
 

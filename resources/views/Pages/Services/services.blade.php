@@ -4,7 +4,7 @@
     <div class="container-fluid page-header-services py-5 mb-5 pb-5">
     
             <div class="container py-5">
-                <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
+                <h1 class="display-3 text-white mb-3 animated slideInDown">{{$home_service->Page->page_name}}</h1>
                 <nav aria-label="breadcrumb animated slideInDown">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a class="text-white" href="{{url('/')}}">Home</a></li>
@@ -73,28 +73,9 @@
 @endsection
 
 @section('brochure')
-      <div class="container-fluid mb-5 pt-5 mt-5">
-            <div class="row justify-content-center no-gutters wow fadeIn mb-5" data-wow-delay="2.0s">
-
-                            <div class="col-md-6 col-lg-4 d-flex flex-row mb-3 ">
-									<div class="mu-about-left">
-										<img class="img-fluid" src="{{asset('assets/img/about-us.jpg')}}"  alt="img">
-									</div>
-								</div>
-								<div class="col-md-6 col-lg-4  d-flex flex-row mb-3 ">
-									<div class="mu-about-right m-md-5">
-									
-											
-												<h3 class="blockquote text-danger">Download Our Brochure</h3>
-												<p class="small">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis,</p>
-                                                <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-5 animated ">Download</a>
-											
-											
-									</div>
-								</div>
-
-            </div>
-     </div>
+    @include('include.brochure')
+    @include('include.quote')
 @endsection
+
 
 

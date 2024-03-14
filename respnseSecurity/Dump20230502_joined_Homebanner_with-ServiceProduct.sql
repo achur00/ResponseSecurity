@@ -1,0 +1,669 @@
+-- MySQL dump 10.13  Distrib 8.0.30, for Win64 (x86_64)
+--
+-- Host: localhost    Database: response_security
+-- ------------------------------------------------------
+-- Server version	8.0.30
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!50503 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `about_banners`
+--
+
+DROP TABLE IF EXISTS `about_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_banners` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_banners`
+--
+
+LOCK TABLES `about_banners` WRITE;
+/*!40000 ALTER TABLE `about_banners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `about_banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `about_vals`
+--
+
+DROP TABLE IF EXISTS `about_vals`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `about_vals` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `mis_title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mis_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vis_title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `vis_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `val_title` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `val_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `about_vals`
+--
+
+LOCK TABLES `about_vals` WRITE;
+/*!40000 ALTER TABLE `about_vals` DISABLE KEYS */;
+INSERT INTO `about_vals` VALUES (1,'Our Mission','Our mission is to provide professional security solutions that exceed our clients\' expectations and needs with an emphasis on \nvalue,integrity and professionalism. We are an employee focused, customer driven Security Company with an enthusiastic desire to meet the distinctive goals of each of our clients through quality practices and unique solutions','Our Vision','Being amongst the trusted Security Companies in the UK,our primary remit is to prevent loss to the client and add value to their business through our integrated and specialist approach','Our Values','Response UK Security Ltd personnel are fully trained;SIA Licensed,First Aid Trained,CSCS Holders,Insured and Bonded. We, also, employ the services of retired law enforcement officers.They are further screened (CRB Checked) and tested before being deployed.','2023-04-23 14:57:25','2023-04-23 14:57:25');
+/*!40000 ALTER TABLE `about_vals` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `abouts`
+--
+
+DROP TABLE IF EXISTS `abouts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `abouts` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int unsigned DEFAULT NULL,
+  `title_f` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `f_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title_s` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `s_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `founder` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `abouts_page_id_foreign` (`page_id`),
+  CONSTRAINT `abouts_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `abouts`
+--
+
+LOCK TABLES `abouts` WRITE;
+/*!40000 ALTER TABLE `abouts` DISABLE KEYS */;
+INSERT INTO `abouts` VALUES (1,2,'Who We Are','Response UK Security Ltd are specialists at delivering bespoke security and surveillance services, like Retail Security Services, etc. With over 50 years’ experience working within the security industry, our management team is committed to guaranteeing your peace of mind. While the methods and technology have changed over time, particularly the reliance on CCTV and alarms, the importance of loss prevention has remained the same. Being one of the respected Construction Guarding Companies In Colchester, we pride ourselves on ensuring that the safety of you, your business and your staff is never breached and look to achieve maximum impact in the most cost effective way for all our clients.Our integrated approach As with all security companies, loss prevention is at the core of what we do – but being able to deliver this in the most financially efficient way is what makes us stand out from other security firms. We fit alarms, provide CCTV and supply security guards to monitor and patrol, and by turning these key security services into one, we can maximise their impact on any site. By providing better overall coverage in one service, we are able to cut down the risk of a breach and make cost savings across any contract.Our bespoke services We understand that each of our client’s requirements are unique. This is why we offer tailored security solutions to meet their specific security need. We recognise when a physical presence is all that is needed to act as a deterrent, or where a guard dog unit would be more appropriate.We are sensitive to the fact that some clients may require highly visible security – while others prefer it kept at a distance or integrated with their organisation. We always listen to what the client wants – and deliver what they need, as well as responding and adapting as their requirements evolve. Our security guards','License and Certified','We adhere to standard BS 7855, which stipulates the dos and don’ts of the security industry. All our staff are SIA licensed and appropriately selected to work in any part of the UK and at any sized organisation. We are also able to promise that our guards have been trained in health and safety, first aid and fire safety awareness. When providing guards for a construction site, each will have the Construction Skills Certification Scheme card (CSCS) giving our clients the confidence that they have the right personnel to work on their site. We carry out risk assessments on every site and identify any training requirements for our clients to ensure that they adhere to the necessary legal requirements and protection of their staff and ours - which we are able to provide. When a security guard is required to be the first point of contact for the client’s customers or suppliers, we select our guards with care – ensuring that they are sensitive to the work environment and that they represent both the client, and us, in the best possible way. Our business is run from a 24-hour control unit, which delivers a round-the-clock manned response','Daniel','2023-02-19 10:35:34','2023-02-19 10:35:34');
+/*!40000 ALTER TABLE `abouts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `brochures`
+--
+
+DROP TABLE IF EXISTS `brochures`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `brochures` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `brochures`
+--
+
+LOCK TABLES `brochures` WRITE;
+/*!40000 ALTER TABLE `brochures` DISABLE KEYS */;
+/*!40000 ALTER TABLE `brochures` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `contacts`
+--
+
+DROP TABLE IF EXISTS `contacts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `contacts` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `phone_no1` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone_no2` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `contacts`
+--
+
+LOCK TABLES `contacts` WRITE;
+/*!40000 ALTER TABLE `contacts` DISABLE KEYS */;
+INSERT INTO `contacts` VALUES (1,'02082262177','01322553105','info@responseuksecurity.co.uk','St. 7 Howbury House Thames Road Crayford DA1 4RQ\r ','2023-03-05 01:59:34','2023-03-05 01:59:34');
+/*!40000 ALTER TABLE `contacts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `failed_jobs`
+--
+
+DROP TABLE IF EXISTS `failed_jobs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `failed_jobs` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `uuid` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `failed_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `failed_jobs_uuid_unique` (`uuid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `failed_jobs`
+--
+
+LOCK TABLES `failed_jobs` WRITE;
+/*!40000 ALTER TABLE `failed_jobs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `failed_jobs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `general_navs`
+--
+
+DROP TABLE IF EXISTS `general_navs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `general_navs` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `nav_name` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `general_navs`
+--
+
+LOCK TABLES `general_navs` WRITE;
+/*!40000 ALTER TABLE `general_navs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `general_navs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `home_abouts`
+--
+
+DROP TABLE IF EXISTS `home_abouts`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `home_abouts` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img1` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `img1_subhead` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `img2` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `img2_subhead` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `home_abouts`
+--
+
+LOCK TABLES `home_abouts` WRITE;
+/*!40000 ALTER TABLE `home_abouts` DISABLE KEYS */;
+INSERT INTO `home_abouts` VALUES (1,'About Us','Response UK Security Ltd are specialists at delivering bespoke security and surveillance services, like Retail Security Services, etc. With over 50 years’ experience working within the security industry, our management team is ...',NULL,NULL,NULL,NULL,'2023-02-19 13:59:53','2023-02-19 13:59:53');
+/*!40000 ALTER TABLE `home_abouts` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `home_banners`
+--
+
+DROP TABLE IF EXISTS `home_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `home_banners` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `home_banners`
+--
+
+LOCK TABLES `home_banners` WRITE;
+/*!40000 ALTER TABLE `home_banners` DISABLE KEYS */;
+INSERT INTO `home_banners` VALUES (1,'CCTV  Security  and Monitoring',' We provide that extra set of eyes to keep your valuables secured, 24hours everyday','shot-of-a-young-security-guard-using-a-two-way-rad-2022-12-13-23-25-37-utc.jpg','2023-02-19 10:35:44','2023-02-19 10:35:44'),(2,'We are Flexible','We adapt and grow with your business and provide efficient solutions every step of the way','security-worker-with-detection-dog-patrolling-airp-2021-09-04-14-33-49-utc.jpg','2023-02-19 10:46:18','2023-02-19 10:46:18'),(3,'Protection for any Establishments',' Our qualified and well train personels are ready to give the peace of mind you and your clients needs for an efficient business cooperation.','security-check-2021-09-24-03-25-23-utc.jpg','2023-02-19 11:16:39','2023-02-19 11:16:39');
+/*!40000 ALTER TABLE `home_banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `home_qualities`
+--
+
+DROP TABLE IF EXISTS `home_qualities`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `home_qualities` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image2` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `anim_delay` varchar(5) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `home_qualities`
+--
+
+LOCK TABLES `home_qualities` WRITE;
+/*!40000 ALTER TABLE `home_qualities` DISABLE KEYS */;
+INSERT INTO `home_qualities` VALUES (1,'100% Breach Prevention','Being one of the respected Construction Guarding Companies In Colchester, we pride ourselves on ensuring that the safety of you, your business and your staff is never breached and look to achieve maximum impact in the most cost effective way for all our clients.','breach-prevention.png','breach-prevention_dark.png','0.1','2023-02-19 12:57:17','2023-02-19 12:57:17'),(2,'CCTV and Alarms','A professional alarmed response service will provide you with immediate response in case of theft or damage to your property or your staff. Alarmed response is available 24/7, and business owners can benefit from this service since disaster can strike at any moment – with little or no warning.','cctv-1.png','cctv-dark.png','0.3','2023-02-19 12:59:06','2023-02-19 12:59:06'),(3,'SIA Lincense','We adhere to standard BS10800 and BS7858, which stipulates the dos and don’ts of the security industry. All our staff are SIA licensed and appropriately selected to work in any part of the UK and at any sized organisation.','guarantee.png','guarantee-dark.png','0.5','2023-02-19 13:00:13','2023-02-19 13:00:13');
+/*!40000 ALTER TABLE `home_qualities` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `home_services`
+--
+
+DROP TABLE IF EXISTS `home_services`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `home_services` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int unsigned NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `home_services_page_id_foreign` (`page_id`),
+  CONSTRAINT `home_services_page_id_foreign` FOREIGN KEY (`page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `home_services`
+--
+
+LOCK TABLES `home_services` WRITE;
+/*!40000 ALTER TABLE `home_services` DISABLE KEYS */;
+INSERT INTO `home_services` VALUES (1,3,'Our Services','Here is the collection of the quality services we offer. Please choose what you need, we are sure we have just the thing you are looking for','2023-02-24 13:43:04','2023-02-24 13:43:04');
+/*!40000 ALTER TABLE `home_services` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `home_why_chooses`
+--
+
+DROP TABLE IF EXISTS `home_why_chooses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `home_why_chooses` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `img` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `home_why_chooses`
+--
+
+LOCK TABLES `home_why_chooses` WRITE;
+/*!40000 ALTER TABLE `home_why_chooses` DISABLE KEYS */;
+INSERT INTO `home_why_chooses` VALUES (1,'Why Choose Us','As with all security companies, loss prevention is at the core of what we do – but being able to deliver this in the most financially efficient way is what makes us stand out from other security firms.','feature.jpg','2023-02-27 10:44:06','2023-02-27 10:44:06');
+/*!40000 ALTER TABLE `home_why_chooses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `migrations`
+--
+
+DROP TABLE IF EXISTS `migrations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `migrations` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `batch` int NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=111 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `migrations`
+--
+
+LOCK TABLES `migrations` WRITE;
+/*!40000 ALTER TABLE `migrations` DISABLE KEYS */;
+INSERT INTO `migrations` VALUES (90,'2014_10_12_000000_create_users_table',1),(91,'2014_10_12_100000_create_password_resets_table',1),(92,'2019_08_19_000000_create_failed_jobs_table',1),(93,'2019_12_14_000001_create_personal_access_tokens_table',1),(94,'2023_02_05_180610_create_abouts_table',1),(95,'2023_02_19_081740_create_home_banners_table',1),(96,'2023_02_19_082416_create_general_navs_table',1),(97,'2023_02_19_083042_create_home_qualities_table',1),(98,'2023_02_19_083900_create_home_abouts_table',1),(99,'2023_02_19_084135_create_home_services_table',1),(100,'2023_02_19_084517_create_service_highlights_table',1),(101,'2023_02_19_085124_create_home_why_chooses_table',1),(102,'2023_02_19_085409_create_about_banners_table',1),(103,'2023_02_19_090055_create_about_vals_table',1),(104,'2023_02_19_090519_create_brochures_table',1),(105,'2023_02_19_091004_create_service_banners_table',1),(106,'2023_02_19_091419_create_service_products_table',1),(107,'2023_03_04_070830_create_quotes_table',2),(108,'2023_03_04_123002_create_quote_ctas_table',3),(109,'2023_03_05_015128_create_contacts_table',4),(110,'2023_03_05_032505_create_pages_table',5);
+/*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pages`
+--
+
+DROP TABLE IF EXISTS `pages`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `pages` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `page_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `page_url` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nav_style` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `nav_toggle` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pages`
+--
+
+LOCK TABLES `pages` WRITE;
+/*!40000 ALTER TABLE `pages` DISABLE KEYS */;
+INSERT INTO `pages` VALUES (1,'Home','/','nav-item dropdown','nav-link ','2023-03-05 03:48:29','2023-03-05 03:48:29'),(2,'About','/about','nav-item dropdown','nav-link ','2023-03-05 03:51:56','2023-03-05 03:51:56'),(3,'Services','/services','nav-item dropdown','nav-link dropdown-toggle','2023-03-05 03:53:57','2023-03-05 03:53:57'),(5,'Contact','/contact','nav-item dropdown','nav-link ','2023-03-05 03:58:19','2023-03-05 03:58:19'),(6,'Sign-in','/auth/login','nav-item dropdown','nav-link','2023-04-15 13:29:46','2023-04-15 13:29:46');
+/*!40000 ALTER TABLE `pages` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `password_resets`
+--
+
+DROP TABLE IF EXISTS `password_resets`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `password_resets` (
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  KEY `password_resets_email_index` (`email`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `password_resets`
+--
+
+LOCK TABLES `password_resets` WRITE;
+/*!40000 ALTER TABLE `password_resets` DISABLE KEYS */;
+/*!40000 ALTER TABLE `password_resets` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `personal_access_tokens`
+--
+
+DROP TABLE IF EXISTS `personal_access_tokens`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `personal_access_tokens` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `tokenable_type` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tokenable_id` bigint unsigned NOT NULL,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `last_used_at` timestamp NULL DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `personal_access_tokens_token_unique` (`token`),
+  KEY `personal_access_tokens_tokenable_type_tokenable_id_index` (`tokenable_type`,`tokenable_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `personal_access_tokens`
+--
+
+LOCK TABLES `personal_access_tokens` WRITE;
+/*!40000 ALTER TABLE `personal_access_tokens` DISABLE KEYS */;
+/*!40000 ALTER TABLE `personal_access_tokens` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `quote_ctas`
+--
+
+DROP TABLE IF EXISTS `quote_ctas`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `quote_ctas` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `cta` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quote_ctas`
+--
+
+LOCK TABLES `quote_ctas` WRITE;
+/*!40000 ALTER TABLE `quote_ctas` DISABLE KEYS */;
+INSERT INTO `quote_ctas` VALUES (1,'Get a Quote','If there is something you need us to assist you with, please make a personalise quotes so we can get back to you as soon as possible','2023-03-05 01:19:42','2023-03-05 01:19:42');
+/*!40000 ALTER TABLE `quote_ctas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `quotes`
+--
+
+DROP TABLE IF EXISTS `quotes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `quotes` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `company_name` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mobile` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `address` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_type` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `security_no` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `location` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `start_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `end_date` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `note` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `reference_src` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `quotes`
+--
+
+LOCK TABLES `quotes` WRITE;
+/*!40000 ALTER TABLE `quotes` DISABLE KEYS */;
+INSERT INTO `quotes` VALUES (1,'Motor Vehicl','mm','yachur@ymail.com','08023000382','18, Forolagba Street,Yetunde Brown,Ifako-Gbagada.','Leasures Centers','16','mil2','2023-05-22','2023-06-07','mmm','friend','2023-05-01 19:48:13','2023-05-01 19:48:13'),(2,'Motor Vehicl','mm','yachur@ymail.com','08023000382','18, Forolagba Street,Yetunde Brown,Ifako-Gbagada.','Leasures Centers','16','mil2','2023-05-22','2023-06-07','mmm','friend','2023-05-01 19:49:39','2023-05-01 19:49:39'),(3,'Motor Vehicl','mm','yachur@ymail.com','08023000382','18, Forolagba Street,Yetunde Brown,Ifako-Gbagada.','Leasures Centers','16','mil2','2023-05-22','2023-06-07','mmm','friend','2023-05-01 19:51:01','2023-05-01 19:51:01');
+/*!40000 ALTER TABLE `quotes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_banners`
+--
+
+DROP TABLE IF EXISTS `service_banners`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `service_banners` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_banners`
+--
+
+LOCK TABLES `service_banners` WRITE;
+/*!40000 ALTER TABLE `service_banners` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service_banners` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_highlights`
+--
+
+DROP TABLE IF EXISTS `service_highlights`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `service_highlights` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_highlights`
+--
+
+LOCK TABLES `service_highlights` WRITE;
+/*!40000 ALTER TABLE `service_highlights` DISABLE KEYS */;
+/*!40000 ALTER TABLE `service_highlights` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `service_products`
+--
+
+DROP TABLE IF EXISTS `service_products`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `service_products` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `page_id` int unsigned DEFAULT NULL,
+  `banner_id` int unsigned NOT NULL,
+  `title` varchar(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `long_content` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `svg` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `service_img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `img_position` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+   PRIMARY KEY (`id`),
+  KEY `service_products_page_id_foreign` (`Page_id`),
+  KEY `service_products_banner_id_foreign` (`banner_id`),
+  CONSTRAINT `service_products_banner_id_foreign` FOREIGN KEY (`banner_id`) REFERENCES `home_banners` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `service_products_page_id_foreign` FOREIGN KEY (`Page_id`) REFERENCES `pages` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `service_products`
+--
+
+LOCK TABLES `service_products` WRITE;
+/*!40000 ALTER TABLE `service_products` DISABLE KEYS */;
+INSERT INTO `service_products` VALUES (1,3,1,'CCTV Monitoring and Recording','From Man guarding to CCTV monitoring and mobile response units; your options are endless when it comes..','<p class=\"text-muted para-desc mb-0\">When it comes to protecting your premises, CCTV monitoring and recording has become an essential security measure to implement. Whether you have a small business, or own a large multi-national franchise, <b>CCTV Monitoring Service</b> is a great addition to your security arsenal. As criminals are becoming more and more sophisticated in the techniques they use, it has never been more important to make use of as many different security solutions a possible – that’s why complementing a security presence on your premises with a CCTV system is such a great idea. We are one of the most competent <b>CCTV Monitoring And Recording Companies In Kent</b>.</p><br>\n<p class=\"text-muted para-desc mb-0\">As a cost-effective alternative or an additional aspect to manned guarding, a remote CCTV monitoring service can effectively protect your business premises 24 hours a day. Remote monitoring works by linking a CCTV system with appropriate alarm detectors; once triggered, they send images to our security centre’s 24-hour remote monitoring centre where trained, experienced and accredited personnel will take appropriate action. This can include contacting the relevant authorities, or sending a professional security response team to your business premises.</p>\n<br><p class=\"text-muted para-desc mb-0\">Included in this service is the ability for our security company to survey and identify the most vulnerable areas of your premises so that cameras and detection devices can be effectively set up. These integrated systems will compliment your on-site security team as well. With a CCTV system, your<br>\npremises can be monitored in real time; this is a huge benefit for any business to have.</p><br>\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. provides professional CCTV monitoring and recording services to clients throughout the United Kingdom and we have a dedicated and professional security team that is\navailable to provide you with specialist services for your unique needs. We specialise in providing\na combined solution that our clients will truly benefit from; our aim is to add value to your business \nthrough our integrated and specialist security approach. All our security personnel are SIA licensed.</p>\n','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 512 405.46\"><title>cctv-1</title><path d=\"M537.21,108.44c-1.67-.07-3.33,0-5,0H63.77c-1.66,0-3.33,0-5,0C49.4,108.82,44.85,112.23,42,121v88c1.82-.09,3.64-.27,5.47-.27H548.53c1.83,0,3.65.18,5.47.27V122C551.65,112.52,547.1,108.84,537.21,108.44Zm-106.3,66.48a14.91,14.91,0,0,1-14.36,14c-3.49.19-7,0-10.49,0-3.33,0-6.67.16-10,0-8-.46-13.92-6.37-14.21-14-.3-8,4.65-14.22,12.76-15.19a98.12,98.12,0,0,1,23.42,0A14.46,14.46,0,0,1,430.91,174.92Zm45.52,13.9c-3.64.32-7.32.06-11,.06v.06c-3.33,0-6.67.13-10,0-8.09-.38-14.1-6.13-14.51-13.7-.44-8.15,4.62-14.63,12.93-15.55a99.18,99.18,0,0,1,23.42.07A14.37,14.37,0,0,1,490,174.61,14.71,14.71,0,0,1,476.43,188.82Z\" transform=\"translate(-42 -108.39)\"/><path d=\"M504,238q-103,.27-205.95.12-103.21,0-206.44-.11c-4.48,0-5.51,1.17-5.46,5.53.26,19,0,38,.14,57a222.07,222.07,0,0,0,4.37,44.16c9.93,47.46,33.1,87.3,70.16,118.44,52.62,44.24,113.28,59.39,180.58,46.13,47.94-9.45,87.49-33.92,118.89-71.21C489.64,403.07,506,362.6,509,317c1.64-24.29.29-48.64.86-73C510,239.23,508.85,238,504,238Zm-206,216.87c-51.39-.09-93.64-42.45-93.42-93.67a93.49,93.49,0,0,1,187,.13C391.46,412.71,349.24,454.93,297.94,454.84Z\" transform=\"translate(-42 -108.39)\"/><path d=\"M297.84,297.16A64,64,0,1,0,362,361.45C362.11,326.2,333,297,297.84,297.16Zm-.24,94.62c-17-.5-30.37-14.4-30-31.06a30.39,30.39,0,0,1,60.77.8C328.17,378.34,314,392.26,297.6,391.78Z\" transform=\"translate(-42 -108.39)\"/></svg>','young-woman-looking-at-surveillance-camera-feeds-i-2022-12-15-01-39-09-utc.jpg','top','2023-02-24 14:17:42','2023-02-24 14:17:42'),(2,3,2,'Warehouse Security','A well-trained security team can provide your premises with the necessary protection from theft and...','<p class=\"text-muted para-desc mb-0\">Warehouse Security is an important area for any business owner to consider; warehouse security is something that should be carried out by a professional service provider with proven security experience in the retail or warehouse industry. On-site security is an important measure that will provide you with peace of mind; knowing that your premises and your products are protected at all times. We also provide Retail Security Services to our clients across UK.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Warehouse theft can prove to be very damaging; not only financially – it can bring your daily business operations to a sudden halt. You need to prevent theft and minimize the disruption to your business where possible – thus reducing your overall business risk. A well-trained security team can provide your premises with the necessary protection from theft and other damages while you focus on your core business operations. As a business owner, you need to make use of trained guards with experience – especially in warehouse environments. We ensure, as one of the largest Security Companies In England, that our team of experts is able to provide you with professional security protection at all times.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Frequent mobile patrols are an additional benefit that you can also use to reduce your risk even further. This will allow you to have your property monitored on a regular basis, and have help nearby when you need it the most. In addition to providing you with security guards on site, your company’s aim should\nalso focus on additional services such as deterring fire, injury and negligence.<p><br>\n\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. provides professional security services to business owners and individuals  across the United Kingdom. We help to prevent any loss or damage to your property and aim to add\nvalue to your business through our integrated and specialist security approach. All of our security\npersonnel are SIA licensed. We only deploy highly trained security guards that have a solid working\nbackground. This allows you to get the best security protection for your business premises.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 384.11 384\"><title>warehouse</title><path d=\"M106.5,478V239.5c3-3.06,5.52-6.7,9-9.08q67.5-46.8,135.22-93.27c14.88-10.23,29.88-20.27,44.83-30.4h6c2.32,1.42,4.71,2.74,6.95,4.28q87,59.9,174.05,119.75c5.77,3.95,8.11,8.64,8.1,15.6q-.24,112.26,0,224.52c0,9.88-3.4,16.58-12.86,19.85H442.5c0-63.11-.14-126.23.14-189.34,0-10.26-6.32-18.77-18.73-18.73q-125.42.39-250.83,0c-12.31,0-18.77,8.38-18.72,18.73.28,63.11.14,126.23.14,189.34H119.25A18.85,18.85,0,0,1,106.5,478Z\" transform=\"translate(-106.5 -106.75)\"/><path d=\"M312,490.75c-4.29-2.39-5.56-6-5.52-10.87.19-19.61.07-39.23.09-58.84,0-7.71,2.64-10.33,10.38-10.35,8.35,0,16.69,0,25.62,0,0,3.91,0,7.48,0,11.05.09,7.76,4.92,12.95,12,12.92s11.87-5.3,12-13c.06-3.48,0-7,0-10.95h7.33c6.62,0,13.24-.1,19.86,0,5.52.11,8.73,3.16,8.76,8.63.11,20.87,0,41.73.05,62.59,0,4.25-2.25,6.94-5.81,8.8Z\" transform=\"translate(-106.5 -106.75)\"/><path d=\"M200.25,490.75c-4.46-2.18-5.9-5.84-5.87-10.67.13-19.61.05-39.23.06-58.84,0-7.77,2.82-10.54,10.68-10.55h25.34c0,4.21-.14,8.14,0,12.07a12.2,12.2,0,0,0,9,11.61,11.64,11.64,0,0,0,13.19-5.5,17.44,17.44,0,0,0,1.71-6.76c.27-3.58.07-7.2.07-11a20.43,20.43,0,0,1,2.75-.41c8,0,16-.08,24,0,6.25.06,9.23,3,9.25,9.21,0,20.48-.07,41,.08,61.46,0,4.45-2,7.22-5.5,9.37Z\" transform=\"translate(-106.5 -106.75)\"/><path d=\"M286.5,314.74c0,4.22-.05,8,0,11.7.13,7.05,5.24,12.21,12,12.21s11.85-5.14,12-12.22c.08-3.73,0-7.47,0-11.74h15.84c3.88,0,7.76-.11,11.63,0,5.44.21,8.5,3.37,8.51,8.85q.07,31.13,0,62.24c0,5.71-3.15,8.9-8.8,8.91q-39.18.06-78.37,0c-5.66,0-8.78-3.19-8.79-8.91q-.06-31.12,0-62.25c0-5.19,2.83-8.62,7.77-8.76C267.51,314.56,276.74,314.74,286.5,314.74Z\" transform=\"translate(-106.5 -106.75)\"/></svg>','warehouse-worker-using-laptop-and-entering-data-to-2021-08-29-22-34-01-utc.jpg','top','2023-02-24 15:15:18','2023-02-24 15:15:18'),(3,3,3,'Alarm Response','Waiting for the police or an emergency response team can take time, this can be very costly when...','<p class=\"text-muted para-desc mb-0\">Ours is the most preferred Security Company In Cardiff. We provide Professional Security Services to clients at the best prices. When it comes to security services, alarmed response is a critical area that any business owner needs to cover. It’s important that you actively protect your assets at all times – ensuring professional help is be available when you need it most.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">A professional alarmed response service will provide you with immediate response in case of theft or damage to your property or your staff. Alarmed response is available 24/7, and business owners can benefit from this service since disaster can strike at any moment – with little or no warning. From theft to personal injury, you can rest assured that you will have the assistance of a professional security response team when you need them. Knowing that professional help is always nearby will make any situation much easier to handle, should one arise.\n</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Waiting for the police or an emergency response team can take time, this can be very costly when you need back-up immediately. This is why you should look into the benefits posed by a professional\nservice that an alarmed response team can provide. Our highly trained security personnel can deal\nwith any situation, from a simple reset of the alarm system, to a potentially dangerous occurrence. This\nis very beneficial for individuals and business owners alike; and it will give you the peace of mind you\nneed.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. provides professional alarmed response services throughout the United Kingdom. Our dedicated and well-trained mobile response team will respond within the hour inside\nthe M25 radius and within two hours for the Home Counties. Our aim is to add value to your business\nthrough our integrated and specialist security approach. All our security personnel are SIA licensed and\nwe only deploy highly trained security guards with a solid working background.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 276.79 257.72\"><title>Alarm</title><path d=\"M437.61,260.18c-1.81,4.75-4.59,8.41-10,9.32a11.75,11.75,0,0,1-13.75-10.14c-.8-7-1.9-13.91-4.92-20.34-8.41-17.89-22.22-29.12-41.71-32.82-9.86-1.88-13-11-9.72-17.5a12,12,0,0,1,13.64-6.26c33.78,7.4,55.44,27.64,64.47,61.15.85,3.14,1.36,6.37,2,9.56Z\" transform=\"translate(-160.82 -182.12)\"/><path d=\"M299.15,399.74H231.6c-6.27,0-8.93-1.8-11.29-7.6C217,384,218.08,375.75,225,370.29c8.84-7,11.64-16.22,12.59-26.61,1.21-13.28,3-26.44,8.12-38.9,6-14.57,14.44-27.12,28.67-34.92a4.86,4.86,0,0,1,.7-.4c4.88-1.64,8.38-4.16,10.72-9.42,2.77-6.26,9-8.56,15.89-7.51s11.09,5.17,13.07,11.67c.37,1.23.7,2,2,2.49,13.79,4.78,23.4,14.41,30.51,26.8,8.08,14.07,11.69,29.45,13,45.47a109.8,109.8,0,0,0,2.82,17.28,18.56,18.56,0,0,0,6,9.72c4.27,3.74,8.5,7.57,10,13.38,1.69,6.38.08,12.13-3.68,17.3-1.81,2.49-4.65,3.13-7.69,3.12-12.43-.05-24.86,0-37.29,0Z\" transform=\"translate(-160.82 -182.12)\"/><path d=\"M229.6,182.19c6.65-.07,11.6,4.19,12.48,10.27a11.56,11.56,0,0,1-8.7,13.08c-7.65,1.76-15.15,3.8-21.82,8.13-15.38,10-24.41,24-26.5,42.34-.34,3-.61,6.07-2.51,8.68A12,12,0,0,1,168.9,269a11.87,11.87,0,0,1-8.05-12.36,77.26,77.26,0,0,1,6.58-27.09c10.66-23.28,28.37-38.44,52.95-45.57A43.35,43.35,0,0,1,229.6,182.19Z\" transform=\"translate(-160.82 -182.12)\"/><path d=\"M203.42,273.55c.63-21,16.62-41.64,37.2-48,2.49-.76,5-1.4,7.57-1.92a12,12,0,0,1,14,8.87,11.79,11.79,0,0,1-8.34,14.31c-4,1.16-8.21,2-11.85,4.28-9,5.66-13.79,13.84-14.8,24.39a12,12,0,0,1-23.82-2Z\" transform=\"translate(-160.82 -182.12)\"/><path d=\"M395,272.84c.24,7.75-4.32,13-11.23,13.65-6.18.55-11.86-4.38-12.59-11.17-1.34-12.44-7.53-21.32-19.07-26.26a54.38,54.38,0,0,0-7-2c-6.65-1.82-10.51-8.08-8.92-14.47s7.73-10.21,14.51-8.82c23.67,4.84,40.06,21.88,43.92,45.67C394.81,270.78,394.88,272.13,395,272.84Z\" transform=\"translate(-160.82 -182.12)\"/><path d=\"M299,414.93c4.95,0,9.91,0,14.86,0,4.79,0,6.71,2.36,6,7.06a20.87,20.87,0,0,1-41.41-.86c-.45-4,1.39-6.14,5.46-6.2C289,414.87,294,414.93,299,414.93Z\" transform=\"translate(-160.82 -182.12)\"/></svg>','warehouse-inspector-2021-09-24-04-02-21-utc.jpg','top','2023-02-26 10:47:14','2023-02-26 10:47:14'),(4,3,4,'Banks','As with any business property, banks require Bank Security Services around the clock. Since they run a high risk of...','<p class=\"text-muted para-desc mb-0\">As with any business property, banks require Bank Security Services around the clock. Since they run a high risk of theft and property damage, it is essential for banks to have a well-trained security team on-site at all times. Banks need to protect themselves and their customers from any physical damage or theft – and that’s where we come in, here at Response UK Security Ltd. the company is also one of the biggest Dog Handling Companies In London.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">A professional security team will be able to provide security services that are effective, and of course meet industry standards. Our guards will be able to recognize any potential threats and react accordingly. We can provide your business with CCTV Monitoring Service as well as on-site guards that are trained to protect your premises at all times. You will also have access to a mobile response unit that will provide you with additional support in a timely manner. This is a very valuable service, especially when a situation arises and back-up is needed, fast.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our security personnel are trained to handle any situation that may occur. This will provide added\nprotection to you and your customers and ensure that help is always nearby. You can also have our\nsecurity company take care of your key holding services; this has the added benefit of eliminating\nthe need for your employees to attend to any emergencies after hours. This can be dangerous and\nexpose key holders to additional liabilities, which you can reduce with the help of a professional security\ncompany such as ours. Dog handling services are also available and your security team will be able to\nassess your unique situation and determine if extra support is needed, and where it is needed.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. has a team of well-trained security guards that are trained to combat any threat, guard against robberies, watch camera monitors, and provide effective patrol services. All our security personnel are SIA licensed and we aim to provide a complete security solution. Get in touch\nwith us today to see how we can help you.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 348.22 348.16\"><title>Untitled-1</title><path d=\"M299.13,312Q378,312,457,311.92c3.06,0,3.87.64,3.86,3.81q-.18,62.24,0,124.46c0,3-.55,4-3.78,3.9-8.28-.26-8.29-.08-8.29-8.3V332.32c0-6.44-1.84-8.32-8.16-8.32H360.74c-6.09,0-8,1.93-8,8.1,0,36.12,0,72.23.07,108.35,0,3-.75,3.74-3.66,3.62-5.73-.24-11.5-.23-17.24,0-2.67.11-3.24-.69-3.23-3.28q.13-54,.06-108c0-7.17-1.65-8.82-8.78-8.82H157.63c-7.32,0-8.88,1.6-8.88,9.08,0,35.74-.05,71.49.09,107.23,0,3.22-.89,3.85-3.91,3.77-8.18-.22-8.18-.07-8.18-8.4q0-60-.08-120c0-3.19.84-3.79,3.88-3.78Q219.84,312.08,299.13,312Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M364.75,390c0-16.87.07-33.74-.07-50.61,0-2.8.63-3.48,3.45-3.46q32.61.19,65.24,0c2.79,0,3.46.64,3.45,3.45q-.17,50.61,0,101.24c0,2.79-.63,3.47-3.45,3.45q-32.61-.19-65.24,0c-2.79,0-3.48-.64-3.45-3.45C364.82,423.75,364.75,406.88,364.75,390Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M238.74,336c24.88,0,49.75.05,74.63-.07,2.79,0,3.46.64,3.45,3.45q-.17,50.63,0,101.24c0,2.82-.66,3.51-3.46,3.46-8.61-.17-8.61,0-8.61-8.72V356.23c0-6.37-1.86-8.23-8.25-8.23H181c-6.4,0-8.25,1.84-8.25,8.21,0,28.13,0,56.25.07,84.38,0,2.74-.55,3.55-3.42,3.49-8.65-.18-8.65,0-8.65-8.69,0-31.87.05-63.75-.08-95.62,0-3.1.68-3.87,3.82-3.85C189.24,336.07,214,336,238.74,336Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M298.57,468q-84.93,0-169.86.08c-3.25,0-4.17-.68-4.05-4,.28-8.06.09-8.07,8.15-8.07q167.81,0,335.61-.09c3.58,0,4.59.74,4.43,4.4-.33,7.68-.1,7.69-7.79,7.69Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M184.75,401.62c0-12.87.07-25.74-.06-38.61,0-2.45.61-3.09,3.06-3.07q21,.18,42,0c2.45,0,3.07.62,3.06,3.07q-.15,39,0,78c0,2.45-.61,3.09-3.06,3.07q-21-.18-42,0c-2.45,0-3.08-.62-3.06-3.07C184.82,427.87,184.75,414.75,184.75,401.62Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M244.75,401.7c0-12.88.05-25.75-.05-38.62,0-2.31.39-3.17,3-3.15,14.12.15,28.25.11,42.37,0,2,0,2.76.37,2.75,2.6q-.12,39.36,0,78.74c0,2-.36,2.77-2.6,2.75-14.24-.1-28.49-.12-42.74,0-2.52,0-2.76-.9-2.74-3C244.79,427.94,244.75,414.82,244.75,401.7Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M298.37,132q-78.93,0-157.87.08c-3.11,0-3.92-.71-3.83-3.84.23-8.24.07-8.24,8.34-8.24q155.81,0,311.61-.08c3.4,0,4.33.81,4.22,4.21-.27,7.86-.09,7.87-8,7.87Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M298.75,252q-79.11,0-158.24.08c-3.1,0-3.94-.69-3.85-3.83.25-8.25.08-8.25,8.35-8.25q155.81,0,311.6-.08c3.38,0,4.35.78,4.23,4.21-.28,7.86-.09,7.87-8,7.87Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M172.75,264c11,0,22,.08,33-.06,2.45,0,3.11.61,3.07,3.06-.14,10.12-.12,20.25,0,30.37,0,2.12-.57,2.68-2.68,2.68q-33.37-.12-66.74,0c-2.11,0-2.7-.56-2.68-2.68q.17-15.36,0-30.74c0-2.12.56-2.7,2.68-2.68C150.5,264.06,161.63,264,172.75,264Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M256.75,264c11,0,22,.08,33-.06,2.45,0,3.11.61,3.07,3.06-.14,10.13-.12,20.25,0,30.37,0,2.12-.57,2.68-2.68,2.68q-33.37-.12-66.74,0c-2.11,0-2.7-.56-2.68-2.68q.17-15.37,0-30.74c0-2.12.57-2.7,2.68-2.68C234.5,264.06,245.63,264,256.75,264Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M340.75,264c11,0,22,.08,33-.06,2.45,0,3.09.62,3.06,3.07-.14,10.12-.12,20.24,0,30.36,0,2.13-.58,2.68-2.68,2.68q-33.37-.12-66.74,0c-2.12,0-2.7-.57-2.68-2.68q.17-15.37,0-30.74c0-2.13.57-2.7,2.68-2.68C318.51,264.06,329.63,264,340.75,264Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M424.38,300c-10.87,0-21.75-.08-32.62.06-2.44,0-3.11-.6-3.07-3.06.14-10.12.12-20.25,0-30.37,0-2.11.56-2.68,2.68-2.68q33.36.12,66.74,0c2.1,0,2.7.55,2.68,2.68q-.17,15.36,0,30.74c0,2.11-.56,2.7-2.68,2.68C446.87,299.94,435.63,300,424.38,300Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M212.79,204h-1.12c-9,0-8.93,0-9-9,0-2.4.55-3.18,3-3.07,4.72.21,9.45,0,14.17.07,4.13.05,6.73,2.32,6.84,5.81.11,3.64-2.58,6.09-6.85,6.17C217.51,204,215.15,204,212.79,204Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M472.82,147.38c0-2.8-.65-3.45-3.45-3.45q-170.61.12-341.23,0c-2.79,0-3.48.63-3.46,3.44q.18,38.44,0,76.87c0,3.12.72,3.84,3.84,3.84q84.93-.17,169.86-.08,85.5,0,171,.07c2.79,0,3.48-.63,3.46-3.44Q472.64,186,472.82,147.38ZM235.64,188c3.83,5.92,4.31,12.17.92,18.42s-9,9.52-16.19,9.58q-11.25.07-22.49,0c-4.89,0-7.09-2.21-7.12-7.07,0-7.62,0-15.24,0-22.86s0-15,0-22.48c0-5.45,2.05-7.55,7.37-7.57q11,0,22.1,0c7.23,0,12.8,3.12,16.27,9.45s3,12.76-1,18.72C234.37,185.79,234.74,186.6,235.64,188ZM296,216.08c-9.29,0-9.27.12-9.3-9.15,0-2.85,1-6.66-.48-8.29-1.71-1.93-5.62-.53-8.57-.61-4.11-.12-8.24.1-12.35-.08-2.19-.1-2.71.65-2.64,2.72.15,4.36,0,8.74.09,13.1.06,1.84-.56,2.22-2.31,2.28-9.73.35-9.73.41-9.73-9.43,0-8.74-.05-17.48,0-26.22.11-13.79,10.62-24.41,24-24.39s23.81,10.66,23.94,24.49c.05,5.12,0,10.24,0,15.36,0,5.74-.09,11.48.05,17.22C298.84,215.21,298.54,216.08,296,216.08Zm58.62-.46c-3.6,1.25-5.83-.8-7.84-3.5-7.21-9.71-14.5-19.37-21.77-29-.56-.75-1.14-1.49-2.3-3,0,11.69-.08,22.3.06,32.91,0,2.46-.64,3.08-3.07,3.06-9-.05-9,0-9-9.06,0-14.36,0-28.72,0-43.07,0-3.39.55-6.32,4.11-7.56s5.82.78,7.83,3.48c7.21,9.72,14.51,19.37,21.78,29.05.56.75,1.15,1.5,2.31,3v-31c0-4.87,0-4.87,4.88-4.87,7.12,0,7.12,0,7.12,7.12,0,15,0,30,0,44.95C358.8,211.46,358.21,214.39,354.66,215.62Zm49.76.43c-2.85-.23-6,.69-8.53-.27-2.7-1-1.39-4.72-2.34-7.14A23.16,23.16,0,0,0,382.75,196c0,6.05-.07,11.64,0,17.23,0,1.93-.19,2.81-2.53,2.84-9.51.13-9.51.23-9.51-9.29,0-15.86.07-31.72-.07-47.57,0-2.6.57-3.32,3.24-3.28,8.83.13,8.83,0,8.83,8.85v11.33c7.13-4.14,10.84-10,11.79-17.52.26-2,.68-2.82,2.8-2.63a34.5,34.5,0,0,0,6.74,0c2.58-.29,2.84.9,2.6,3-1.29,11.49-6.78,20.39-16.44,26.81.77,1.53,2.27,2,3.38,2.93a35.12,35.12,0,0,1,13,24.39C406.85,214.78,407.06,216.27,404.42,216.05Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M220.5,168c-3-.11-6,0-8.95,0-8.85,0-8.75,0-8.86,8.74,0,2.48.4,3.63,3.16,3.31a60,60,0,0,1,6.71-.05c2.61,0,5.22.07,7.83,0,3.8-.13,6.3-2.53,6.34-5.93S224.25,168.16,220.5,168Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M274.92,168c-6.84-.09-12,5.21-12.17,12.41-.11,5.58-.11,5.58,5.28,5.58h13.09c5.75,0,5.75,0,5.63-5.6C286.6,173.39,281.55,168.1,274.92,168Z\" transform=\"translate(-124.65 -119.92)\"/><path d=\"M400.57,384c-3.25,0-6.5-.08-9.75,0-1.63.06-2.13-.44-2.11-2.09q.14-9.93,0-19.87c0-1.63.45-2.13,2.1-2.11q9.93.14,19.87,0c1.63,0,2.13.45,2.11,2.1q-.14,9.93,0,19.87c0,1.63-.44,2.17-2.1,2.11C407.32,383.91,403.94,384,400.57,384Z\" transform=\"translate(-124.65 -119.92)\"/></svg>','rear-view-of-a-security-guard-in-uniform-patrollin-2022-12-22-23-44-51-utc.jpg','left bottom','2023-02-26 11:06:53','2023-02-26 11:06:53'),(5,3,5,'Support Service','Security is an essential part of our daily lives and when it comes to your business premises, you should make security a top priority...','<p class=\"text-muted para-desc mb-0\">Security is an essential part of our daily lives and when it comes to your business premises, you should make security a top priority. From Man guarding to CCTV monitoring and mobile response units; your options are endless when it comes to customized, Corporate Security Services – letting you rest with peace of mind that your business is protected.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Any business premises run the risk of theft or damage, and hiring a security team is the ideal way to help prevent this. In the event that disaster strikes, you know that you will have a highly trained, professional team at your disposal to handle any situation and take any appropriate action. Many retail premises are protected by CCTV monitoring and this provides the additional benefit of having additional eyes on every corner of your store; allowing your security team to respond instantly when faced with a threat. We provide the best Security Solutions in all of UK.</p></br>\n\n<p class=\"text-muted para-desc mb-0\">Mobile response units are another addition to your security arsenal and this will give you the peace\nof mind knowing that help is on the way. With regular patrols and monitoring, your premises will be\nsafer and more secure. Other helpful security services include hotel security, retail guards, key holding\nservices and dog handling services. These all work together to provide you with top notch protection.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we provide professional security services for business owners\nand individuals throughout the United Kingdom. We can provide additional support services to your\nbusiness in the relevant or required area of expertise. We have a dedicated security team that is\navailable to provide you with specialist services for your unique needs. We specialise in providing\na combined solution that our clients will truly benefit from; our aim is to add value to your business\nthrough our integrated and specialist security approach. All of our security personnel are SIA licensed.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 306.95 344.67\"><title>customer-service</title><path d=\"M145.56,463.56c-2.37-1.2-4.94-2.12-7.08-3.64a16.32,16.32,0,0,1-6.95-13.23c-1.24-41.68,14.28-75.35,48.24-100,11.09-8.05,23.51-13.39,36.76-16.88a5.09,5.09,0,0,1,5.61,1.46,91.89,91.89,0,0,0,35.68,22.15,6.84,6.84,0,0,1,3.44,3.13c4.93,9.55,12.68,15.47,23.33,15.83a423,423,0,0,0,44.05-.4c21.47-1.51,38.72-11.72,52.13-28.48l1.66-2c4.47,3.14,9.12,6,13.32,9.43q40.92,33.47,42.6,86.38c.09,2.8.07,5.61,0,8.41-.15,8.3-4.72,14.49-12.61,17.18a13,13,0,0,0-1.45.71Z\" transform=\"translate(-131.46 -118.89)\"/><path d=\"M262.84,329.79c-21.86-8.94-35.44-25.3-44.1-46.78-.82,1-1.47,1.82-2.13,2.62a20,20,0,0,1-21.9,6.21,19.59,19.59,0,0,1-13.38-18c-.16-17.17-.12-34.34,0-51.51,0-5.39,2.44-9.88,6.17-13.78a8.41,8.41,0,0,0,2.31-4.51,95.79,95.79,0,0,1,85.54-84.64c51.35-5.08,97.69,31.4,104.35,82.28.43,3.25,1.18,5.81,3.68,8.19,3.62,3.44,5.19,8.09,5.2,13.1q.07,25.08,0,50.16c0,5.52-2.24,10.15-5.95,14.24a7.77,7.77,0,0,0-1.95,4.87c.21,10.34-.81,20.44-5.46,29.82-10.88,22-28.57,33.7-53.13,34.47-11.55.36-23.12.09-34.68.06-7.47,0-12.68-4.91-12.71-11.84s5-11.92,12.55-12c11-.08,22,.05,33-.05,18.14-.15,32.2-11.15,35.62-28.23.92-4.56.65-9.37.79-14.07a4,4,0,0,0-1.08-2.3c-1.34-1.63-2.82-3.15-4.41-4.89-1.7,3.77-3.12,7.63-5.11,11.17a157.23,157.23,0,0,1-9.15,14.46c-4,5.57-9.76,8-16.62,7.91-10.1-.07-20.21.24-30.29-.08C278.69,316.3,269.6,320.1,262.84,329.79Zm-43.51-116c4.16-10.3,9.58-19.57,17.16-27.39,18.94-19.55,41.56-27.17,67.94-18.81C326,174.44,339.82,190.1,349,210.25c.52,1.14,1.07,2.26,1.69,3.57a26.32,26.32,0,0,1,3.16-4c2.16-1.79,2.43-3.72,2-6.46-5.66-35.2-36.2-61.11-71.61-60.58-35.92.54-65.93,27.07-70.42,62.31a4.68,4.68,0,0,0,.68,3C215.85,210,217.51,211.71,219.33,213.81Z\" transform=\"translate(-131.46 -118.89)\"/></svg>','happy-woman-call-center-and-computer-with-headset-2023-03-08-18-47-01-utc.jpg','center','2023-02-26 11:14:48','2023-02-26 11:14:48'),(6,3,6,'Dog Handling','We are providers of the best Professional Dog Handling Service in UK. With security being such an important requirement...','<p class=\"text-muted para-desc mb-0\">We are providers of the best Professional Dog Handling Service in UK. With security being such an important requirement for all business owners, availing services of dog handling can often be an ideal way to compliment your existing security team. With burglary, robbery and other general crimes constantly on the rise, you will need all the security help that you can get. Employing the use of specialist dog handling teams is one of the best possible deterrents for would-be thieves and burglars.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">With our professional dog handling service, you know that your premises is in good hands; our security company can accurately assess whether a dog is needed, or in which cases a dog can do the work of multiple security officers. This allows you to have the best of both worlds and benefit of the additional security that a trained dog can provide your business with. These dogs are professionally trained and have been working with security guards in almost every possible scenario and environment. Our company is known as a major firm among all Dog Handling Companies In London.<p><br>\n\n<p class=\"text-muted para-desc mb-0\">One of the biggest benefits of a guard dog is that they are trained to sense a disruption or an intrusion\nfrom a distance. While your alarm doesn’t go off until the crime has been committed, a security dog\nsenses an intruder from afar, thus raising the alarm – the dog may then be able to corner or immobilize\nthe intruder until back-up arrives. This is a huge help in terms of security and can provide valuable\nprevention; a security dog is ideal to use in addition to your regular security team and any CCTV\nsystems that may be installed within your premises.<p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we provide professional dog handling services to clients throughout\nthe United Kingdom. We have a dedicated and professional security team that is available to provide\nyou with specialist services for your business’ unique needs. We specialise in providing a combined\nsolution that our clients will truly benefit from; our aim is to add value to your business through our\nintegrated and specialist security approach. All of our security personnel are SIA licensed.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 356.58 384\"><title>dog-security</title><path d=\"M211.5,478.75c-.12-1.48-.34-3-.34-4.45,0-26.24,0-52.49-.09-78.73a16.07,16.07,0,0,0-1.77-7.06c-13.93-26.7-21.51-55-21.94-85.14,0-1.48.66-3.64,1.76-4.36,23.21-15.38,46.53-30.59,70-46,10.88,7.54,21.68,15.17,32.68,22.48A15.24,15.24,0,0,0,299.7,278c27.62.17,55.24,0,82.86.12,24.92.07,44.77,16.21,49.72,40.47a60.22,60.22,0,0,1,1,11.55c.12,14.74.18,29.49,0,44.24a8.66,8.66,0,0,0,3.78,7.81q10.33,8.07,20.23,16.69a7.44,7.44,0,0,1,2.4,4.92c.14,25,.09,50,.08,75h-46.5c-.06-12.36-.17-24.73-.11-37.09a5.27,5.27,0,0,0-2.7-5.16c-15.74-10.18-26.3-24.34-31.25-42.41-1.73-6.31-2.34-12.92-3.46-19.42H258V478.75Z\" transform=\"translate(-120.42 -94.75)\"/><path d=\"M477,94.75c-23.48,48.68-60.55,84.69-105.66,113.17-24.56,15.51-50.65,27.92-77.82,38.15a5.75,5.75,0,0,1-6.13-.73c-6.44-4.66-13-9.11-20.05-14,6.89-2.44,13.24-4.56,19.5-6.92,44.91-17,86.24-39.92,121.27-73.24a228.66,228.66,0,0,0,41.2-52.13c.8-1.4,1.46-2.87,2.19-4.31Z\" transform=\"translate(-120.42 -94.75)\"/><path d=\"M213.8,161.53c10.27,25,20.31,49.4,30.48,74.12-1.05.77-2,1.53-3,2.18q-29.76,19.5-59.58,38.91a10.94,10.94,0,0,1-5.52,1.63c-9.09.13-18.25.69-27-2.78q-22.5-8.93-28.51-32.34c-.64-2.49-.13-3.72,2.2-4.95q14.37-7.65,28.5-15.76a6.37,6.37,0,0,0,2.9-4.1c1.58-15.8,12-28.09,27.2-32.14a18.79,18.79,0,0,0,6.83-3.46C196.73,176,205,168.94,213.8,161.53Z\" transform=\"translate(-120.42 -94.75)\"/></svg>','security-officer-and-police-dog-inspecting-airplan-2021-09-04-14-30-43-utc.jpg','top','2023-02-26 11:24:43','2023-02-26 11:24:43'),(7,3,7,'Events','Here at Response UK Security we offer many different security services and solutions – from leisure centre security...','<p class=\"text-muted para-desc mb-0\">Our company is known as one of the reliable Event Security Companies in UK. We also engage in providing competent CCTV Monitoring Service. Security is something that every individual and business owner might need and when you do, a trained team of security professionals is not hard to find. Here at Response UK Security we offer many different security services and solutions – from leisure centre security, to hospital security. With so many options to choose from when it comes to protection from one of the renowned Security Companies In England, you can have a customized solution for your own unique needs.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">In addition to retail security guards on your business premises, you can also make use of the security services that we offer for public events. This includes football matches, sporting events, live music concerts and festivals. These services will consist of crowd control and flow, risk assessment, health and safety, first aid and fire safety awareness. This is ideal to implement along with your existing CCTV monitoring service and will allow your event to be safer and professionally monitored.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">With guards on your premises, you will not only be safeguarding yourself and your employees, but you\nwill also create a safer environment for your guests and customers. There will be a trained team on-site\nin the event of any disaster happening, and you will significantly reduce the risk of theft or damage to\nyour property. You can also make use of the other specialised security services that we offer – these\ninclude hotel security, hospital security, event security, dog handling, and key holding services.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Limited we provide a professional event security service for business owners. We believe that our professional security service will truly benefit your business. We have a dedicated security team available to provide you with specialist services for your unique needs. We\nspecialise in providing a combined solution for clients; our aim is to add value to your business through\nour integrated and specialist security approach. All of our security personnel are highly trained and SIA\nlicensed.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 384 384.12\"><title>event</title><path d=\"M495,515.25c-3,6.51-8.13,8.63-15.11,8.34-9.61-.39-19.25-.13-28.87-.16-.22,0-.44-.18-1-.44,0-10.68,0-21.52,0-32.36a33.47,33.47,0,0,0-5.08-18.52c-6.53-10.23-15.92-15.61-28-16.06-5.7-.21-11.43,0-18.07,0,20.2-6.29,31-21.09,28.41-37.95-2.69-17.44-16.67-29.68-33.78-29.56-16.86.12-30.9,12.61-33.21,29.78-1.76,13,4.94,31.91,27.45,38-6.89,0-13.81-.39-20.67.11-7,.51-13.15,3.71-18.73,8.63-11.19-11.12-25.52-8.84-39.35-9.22,9.23-2.23,16.79-6.87,22-14.78a33.17,33.17,0,0,0,5-25.77c-3.24-16.09-18.25-27.53-35-26.67a33.83,33.83,0,0,0-31.53,30.35c-1.63,16,8.56,32.61,27.48,37.09-4.47,0-8.95-.23-13.4.06s-9.3.54-13.62,1.89-8.21,4-12.9,6.45c-10.56-10.45-24.83-8.31-38.69-8.61,9.13-2.28,16.65-6.86,21.89-14.7a33.07,33.07,0,0,0,5-26.11c-3.32-15.83-18-27-34.49-26.43-16.27.59-29.7,13.13-32,29.87s8.09,30.86,28.4,37.58c-6.08,0-11.29,0-16.5,0-19.92.11-34.48,14.66-34.6,34.61-.06,9.62,0,19.25,0,28.87v3.94c-11.95,0-23.54.22-35.12-.1-5.28-.15-9.35-4.91-9.84-10.2-.07-.75,0-1.5,0-2.25V365.25H495Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M307.5,139.5c.91.34,1.81.72,2.74,1,12.47,3.76,20.56,16,18.83,28.44a26.27,26.27,0,0,1-52.15,0c-1.71-12.5,6.37-24.68,18.84-28.44.93-.28,1.83-.66,2.74-1Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M334.56,203.09c6,7.24,9.41,15.36,9.56,24.47.28,16.49.09,33,.14,49.47a8.3,8.3,0,0,1-5.26,8c-5.63,2.48-7,6.92-7.55,12.52-1.56,14.89-3.58,29.74-5.45,44.91H280.07c-.83-6.4-1.69-12.91-2.51-19.44-1.28-10.28-2.44-20.57-3.91-30.83a8.68,8.68,0,0,0-2.78-4.52c-1.51-1.44-3.92-2-5.19-3.59-1.69-2.09-3.71-4.75-3.76-7.2q-.46-24.54-.05-49.1a38.19,38.19,0,0,1,9.48-24.54C297,218.37,312.38,218.36,334.56,203.09Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M223.91,342.63H201.62c-.07-1.41-.19-2.72-.19-4q0-69.72,0-139.45c0-8.55,2.13-11.44,10.37-14.18,10.53-3.5,21-7.1,31.62-10.44a10.93,10.93,0,0,1,13.11,6,11.26,11.26,0,0,1-3.83,14,19.28,19.28,0,0,1-4.41,2c-6.86,2.32-13.7,4.69-20.63,6.77-2.85.86-3.82,2.16-3.82,5.24q.18,64.49.08,129Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M427.47,523.35H360.3a21.78,21.78,0,0,1-.29-2.5c0-10.11-.05-20.22,0-30.34,0-7.27,4.68-12,11.94-12q21.9-.09,43.82,0c6.55,0,11.52,4.45,11.64,10.73C427.63,500.47,427.47,511.7,427.47,523.35Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M178.54,523.23c0-11.58-.17-22.93.06-34.27a10.81,10.81,0,0,1,10.79-10.4q22.85-.21,45.69,0a10.78,10.78,0,0,1,10.82,10.37c.24,11.34.07,22.69.07,34.3Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M336.75,523.36H269.53c-.09-.88-.27-1.71-.27-2.53,0-10.12-.05-20.23,0-30.34,0-7.28,4.7-11.95,12-12q21.72-.09,43.45,0c7.29,0,12,4.66,12.05,11.89C336.8,501.25,336.75,512.1,336.75,523.36Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M303.11,433.49a11.24,11.24,0,1,1,11.12-11.26A11.38,11.38,0,0,1,303.11,433.49Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M393.86,433.49A11.24,11.24,0,1,1,405,422.22,11.38,11.38,0,0,1,393.86,433.49Z\" transform=\"translate(-111 -139.5)\"/><path d=\"M223.49,422.56A11.24,11.24,0,1,1,212.66,411,11.38,11.38,0,0,1,223.49,422.56Z\" transform=\"translate(-111 -139.5)\"/></svg>','member-of-security-guard-team-on-public-event-2021-08-26-23-02-56-utc.jpg','top','2023-03-03 21:12:58','2023-03-03 21:12:58'),(8,3,8,'Key Holding Services','By making use of these Corporate Security Services, you will eliminate the risk of putting yourself or your employees at risk by...','<p class=\"text-muted para-desc mb-0\"><b>Key Holding Service</b> can be a very valuable asset for any company. By making use of these Corporate Security Services, you will eliminate the risk of putting yourself or your employees at risk by having to respond outside of office hours in an emergency situation.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">All business owners are encouraged to re-visit their key holding arrangements and they are reminded of all the safety benefits they will get when making use of a professional key holding service for their needs. You will not only eliminate the danger that employees will need to face by having to go to your premises outside of office hours, but you will have a professional security team in place to react in the case of an emergency. Knowing that trained security personnel are available to you in case of an emergency provides additional peace of mind and comfort too. It’s the best way to handling your key holding arrangement. We are one of the best Security Companies In England.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">With professional key holding services you have the added benefit of knowing that you are covered during holiday periods and your employees should not have to stay on-site during the night – thus\nrisking their own safety and security. You will eliminate Lone Worker Risk and have professionals take\ncare of your key holding when you need it most. There are many benefits of a professional key holding\nservice to business owners such as the one that we offer. Hiring professional security personnel is\nalways recommended.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. provides professional key holding services to business owners throughout the United Kingdom. Our dedicated and well-trained security personnel are always available and will\nrespond in a very timely manner. Our aim is to add value to your business through our integrated and\nspecialist security approach. All our security personnel are SIA licensed and we only deploy highly\ntrained security guards that have a solid working background.\n</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 384.78 383.94\"><title>key-holding</title><path d=\"M103.5,491a20.76,20.76,0,0,1-5.57-32.78c16.44-17.82,32.64-35.88,49.6-53.18,21.66-22.1,48.41-32,79.32-30.36a36.36,36.36,0,0,1,21,8.08,25.27,25.27,0,0,0,16.66,5.48q36.93-.18,73.87,0c9.16,0,15.67,6.64,15,15A13.31,13.31,0,0,1,342,415.31a42,42,0,0,1-5.61.26H260.67c-6.66,0-10.05,2.32-10.05,6.86s3.42,6.92,10,6.92h76.12c18.22,0,28.63-9.39,30.6-27.44a5.57,5.57,0,0,1,1.88-3.33q28.53-24,57.19-47.9c6.29-5.24,14.29-4.84,19.53.81s4.84,13.78-.83,19.55Q403,414,360.78,456.91c-4.57,4.66-10,6.64-16.49,6.63-41-.08-82,.17-123-.15-14.18-.11-25.53,4.4-34.18,15.8-3.57,4.72-7.19,9.62-13.13,11.81Z\" transform=\"translate(-92.22 -107.06)\"/><path d=\"M477,218.75c-2,3.77-5.12,5.09-9.26,4.87-3.49-.2-7,0-10.5-.07-5.13-.16-7.56-2.54-7.69-7.68s0-10,0-15q0-31.87,0-63.75c0-7.44,2.12-9.52,9.65-9.55,2.87,0,5.75.13,8.62,0,4.15-.25,7.31,1.13,9.21,5Z\" transform=\"translate(-92.22 -107.06)\"/><path d=\"M317.63,168.69c-5.8-19.61-20.08-34.72-42.45-40.2.72-.8,1.28-1.52,1.95-2.14,4.69-4.3,9.42-8.58,14.11-12.89,6.52-6,14-7.69,22.56-5.47Q373,123.41,432.23,138.7c2.79.72,3.67,1.87,3.65,4.79-.14,19.36-.05,38.73-.08,58.09,0,13.34-8.34,21.89-21.65,21.94-7,0-14.12.29-20.86-1.12-5.67-1.18-11.24-4.05-16.17-7.24-5.25-3.4-10.45-5.4-16.73-5.37-24.74.13-49.47.09-74.21,0-8.72,0-15.07-6.41-14.76-14.49a13.33,13.33,0,0,1,11.68-12.63,43.77,43.77,0,0,1,4.86-.17H363.3c1,0,2,0,3,0,4.77-.19,7.8-2.8,7.88-6.77s-3.06-7-8-7c-14.62-.06-29.24,0-43.86,0Z\" transform=\"translate(-92.22 -107.06)\"/><path d=\"M275.49,221.73c-20.27,6.92-43.79-6-50.35-27a41.25,41.25,0,0,1,28-51.73c24.6-7,45.19,9.77,49.55,25.68-5.93,0-11.75-.12-17.57,0-17.14.44-29.43,14.45-27.12,31.07,1.2,8.69,5.95,15.19,13.41,19.73C272.56,220.22,273.79,220.81,275.49,221.73Z\" transform=\"translate(-92.22 -107.06)\"/><path d=\"M271.35,237.13l13.47-3.41c.06,1.38.17,2.67.17,4,0,23.85,0,47.7.07,71.56a7.82,7.82,0,0,1-2.63,6.17c-6,5.82-11.79,11.82-17.92,18-6.81-6.83-13.35-13.33-19.79-19.91a4.17,4.17,0,0,1-.87-2.7q0-38,0-76.06a6.36,6.36,0,0,1,.25-1l13.43,3.38v3.79q0,20.79,0,41.59a20.11,20.11,0,0,0,.36,4.46,6.27,6.27,0,0,0,6.49,5.15,6.18,6.18,0,0,0,6.42-4.74,18.31,18.31,0,0,0,.51-4.8C271.36,267.46,271.35,252.37,271.35,237.13Z\" transform=\"translate(-92.22 -107.06)\"/></svg>','businessman-holding-car-keys-2021-09-24-03-49-16-utc.jpg','center','2023-03-04 03:01:58','2023-03-04 03:01:58'),(9,3,9,'Mobile Patrol visit','Our company will provide additional security to your premises and this will give you the peace of mind knowing...','<p class=\"text-muted para-desc mb-0\">Our firm is a competent provider of Professional Security Services. With security lapses posing a real threat in today’s age, it’s essential to employ the use of professional security service, such as ours here at Response UK Security. Whether you are a business owner or a home owner, you can always benefit from a well-trained security team at your disposal. Businesses are naturally more vulnerable to theft and property damage, which is why there are many effective security measures that you can take to minimize the chances of your business falling victim.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">One of the most effective security services to benefit from is mobile patrol visits. Our company will provide additional security to your premises and this will give you the peace of mind knowing that help is never far away. These mobile patrol visits include checking on your premises at scheduled intervals and unspecified times, particularly during weekends and holiday periods. These will also include detailed reports from the patrol unit so that you are always updated with proceedings. These are one of the best Security Solutions in UK.</p><br>\n\n<<p class=\"text-muted para-desc mb-0\">You can also supplement your existing security service with added benefits such as CCTV monitoring, and key holding services. This will ensure that you are completely safeguarded and that your\npremises and your employees are well protected. In the event of an emergency you need to know that\nprofessional help is always available, and that your security team will be able to take appropriate action\nwhen needed.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Right here at Response UK Security Ltd we provide businesses with professional mobile patrol visits that provide additional security. We employ a highly trained team of security experts, and all members are SIA licensed. You can be rest assured that professional security assistance is always nearby when\nusing out mobile patrol visits. We provide unique security solutions for all of our clients. These solutions\ninclude: mobile patrols, on-site, dog handling, and key holding services.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 447.97 416.27\"><title>patrol</title><path d=\"M521.86,422.8c-.54,1.31-1.1,2.62-1.62,3.94-4.13,10.36-11.86,15.87-22.86,17a25.35,25.35,0,0,1-2.62.05H101.18c-14,0-24.35-8.36-26.84-21.5a28.49,28.49,0,0,1-.4-5.22q0-24.27,0-48.54c0-12.43,4.37-23,13.4-31.63,4.53-4.33,9.12-8.6,13.47-13.11a9.76,9.76,0,0,1,7.7-3.1q82.44.13,164.87.07,109.54,0,219.1-.07c3.49,0,6,.8,8.29,3.56,3.21,4,6.78,7.63,10.24,11.37,5.9,6.4,8.75,14.25,10.87,22.47Zm-95.8-7q26.65,0,53.31,0c6.18,0,8.43-2.29,8.44-8.43q0-24.46,0-48.94c0-7.47-2.15-9.65-9.59-9.66H385.15c-7.12,0-8.91,1.57-10.25,8.54q-4.57,24-9.26,48c-1.45,7.46.92,10.5,8.42,10.51Q400.05,415.79,426.06,415.77Zm-256.75,0c17.77,0,35.54,0,53.31,0,6.15,0,8.89-3.21,7.76-9.25q-4.81-25.51-9.89-51c-1-5.08-3.24-6.77-8.61-6.77q-47.62-.06-95.25,0c-6.28,0-8.64,2.47-8.66,8.81q0,24.69,0,49.37c0,6.69,2.15,8.82,8.91,8.83Q143.1,415.81,169.31,415.77Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M521.86,485.79c-2.38,4.42-4.17,9.33-7.29,13.15-4.41,5.42-10.84,7.68-17.86,7.79-5.82.1-11.65.08-17.48,0-13.74-.16-24.33-9.69-25.24-23.37-.55-8.26-.1-16.57-.1-25.38,1.66-.08,3.18-.21,4.71-.22,11.65,0,23.31-.12,35,0,10.62.14,20.08-2.86,28.3-9.63Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M111.89,306.52c5.47-13.24,10.63-25.72,15.8-38.2q8.1-19.56,16.21-39.12c6.06-14.56,13.34-19.38,29.17-19.38q128.78,0,257.54,0c13,0,22,5.5,27,17.5q15.9,38.31,31.79,76.61a24.88,24.88,0,0,1,.76,2.64Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M73.92,448.11c10,8.21,20.79,10.05,32.33,9.72,10.35-.3,20.7-.07,31.06-.06,1.41,0,2.83.13,4.14.19,0,9.59.76,19-.19,28.13-1.21,11.6-11.41,20.14-23.13,20.59-6.55.25-13.13.26-19.68,0a25.15,25.15,0,0,1-24.51-25.2C73.84,470.71,73.92,459.94,73.92,448.11Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M320.48,195.53h-45.9c.44-10.3-.17-20.69,1.61-30.66,1.94-10.87,13.39-17.68,24.11-16.31,11.7,1.5,20.09,10.33,20.42,21.87.23,7.7.07,15.42.07,23.13A13.62,13.62,0,0,1,320.48,195.53Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M304.87,105.69c0,2.46.12,4.93,0,7.39-.24,4.17-3,7-6.84,7a6.75,6.75,0,0,1-7-6.76q-.3-8,0-16.09a6.88,6.88,0,0,1,6.78-6.64,7,7,0,0,1,7.07,6.82C305,100.17,304.86,102.93,304.87,105.69Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M236.4,155c2.75,0,5.53-.2,8.26,0,3.66.33,5.79,2.55,6.08,6.22s-1.38,6.74-5,7.06a110,110,0,0,1-18.6,0c-3.58-.3-5.4-3.46-5.11-7,.32-3.73,2.57-6.11,6.51-6.33,2.6-.14,5.22,0,7.83,0Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M359.55,154.93c2.61,0,5.23-.14,7.83,0,3.95.27,6.12,2.76,6.34,6.48.21,3.55-1.68,6.61-5.28,6.9a110.36,110.36,0,0,1-18.18,0c-3.81-.34-5.58-3.47-5.21-7.31.36-3.66,2.58-5.79,6.24-6.07C354,154.76,356.8,154.93,359.55,154.93Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M341,131c-1.39-1-4.1-2-4.93-3.89-.9-2-1-5.49.21-7.17a65.93,65.93,0,0,1,10.05-10.82c2.5-2.24,5.71-2.09,8.45,0,2.58,2,4,5.28,2.14,7.69-3.64,4.78-8.16,8.9-12.41,13.2C344,130.52,342.87,130.47,341,131Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M261.33,124.54c-1.21,1.48-2.42,4.25-4.43,5.08s-5.49.58-7.14-.71a67.91,67.91,0,0,1-10-10.32c-2.21-2.65-1.93-5.78.31-8.42s5.67-3.73,8.19-1.63c4.41,3.69,8.12,8.22,12,12.48C260.81,121.59,260.8,122.66,261.33,124.54Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M473.63,363v38.48h-93c2.5-12.9,5-25.56,7.47-38.48Z\" transform=\"translate(-73.89 -90.59)\"/><path d=\"M215.2,401.55H122.32V363.07h85.36C210.15,375.7,212.65,388.47,215.2,401.55Z\" transform=\"translate(-73.89 -90.59)\"/></svg>','patrol-on-the-street-is-a-part-of-police-daily-wor-2021-08-30-20-49-28-utc.jpg','center','2023-03-04 03:06:10','2023-03-04 03:06:10'),(10,3,10,'Store Detectives','With adequate Retail Security Services available to you in all aspects of your operation, you will not only secure your...','<p class=\"text-muted para-desc mb-0\">We are one of the established Security Companies In London. As a retail business owner there are certain areas that you simply cannot overlook if you want to secure your business’ future; one of these is security. With adequate Retail Security Services available to you in all aspects of your operation, you will not only secure your retail space but you will also provide a value added service to your customers.\n</p><br>\n\n<p class=\"text-muted para-desc mb-0\">There are many reasons to hire Store Detectives – these include the ability to investigate internal theft, stock losses, help prevent the use of stolen credit cards, and arrest shoplifters. Any U.K. business owner can benefit from these security services, they will make your retail space safer and more productive to manage. Store detectives can work alone or in conjunction with an existing security team.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our store detectives will move around the store discretely and without raising any suspicion. They will maintain visuals on possible shoplifters and report any and all suspicious findings to management. In the event that a theft is committed, the detective will follow the suspect until there is an appropriate\nopportunity to make an arrest. The store detective could also have the assistance of your security team\nif you choose to have one; making the process easier and safer for all.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we provide a high level security service to our portfolio of customers in the United Kingdom. Our retail guarding services include theft prevention, customer care and\nassistance to shoppers, lost child procedures, and civil arrest and police liaison. If you need any further\ninformation, please don’t hesitate to contact us for a customised quotation.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 376.52 386\"><title>store-detective</title><path d=\"M112.24,499c-7.3-2.78-10-8.05-9.85-15.82C103.48,423.64,146.47,370.7,204.81,358a179.92,179.92,0,0,1,30.57-3.49c14.27-.58,28.59-.14,43.11-.14a17.88,17.88,0,0,1,.41,2.63q0,71,0,142Z\" transform=\"translate(-102.39 -113)\"/><path d=\"M302.22,499c0-10.42.11-20.84.11-31.26q0-54.24,0-108.48v-4.2c.63-.33.84-.55,1.05-.54,20.19.35,40.57-.88,60.54,1.43,42,4.87,73.94,26.76,96.13,62.59C472.12,438,478,459.48,478.88,482.42c.3,7.82-2,13.39-9.29,16.58Zm71.63-112.42c-10,0-20.08-.05-30.12,0-7.46.05-12.19,4.78-12.23,12.27-.07,13.18-.25,26.37.15,39.54a14.54,14.54,0,0,0,3.74,9c9.59,9.75,19.58,19.1,29.55,28.47,5.56,5.24,11.85,5.16,17.45-.13,9.76-9.22,19.6-18.37,29-27.94a15.21,15.21,0,0,0,4.16-9.2c.46-13.29.32-26.61.15-39.91-.1-7.51-5-12-12.5-12.06C393.43,386.53,383.64,386.58,373.85,386.58Z\" transform=\"translate(-102.39 -113)\"/><path d=\"M218.58,249.62c48.32,16.88,96.32,16.82,144.35,0,3.72,22.64-6.27,53.3-33.81,70.42a73,73,0,0,1-82.71-4C223.17,298.29,214.79,269.58,218.58,249.62Z\" transform=\"translate(-102.39 -113)\"/><path d=\"M211.12,218.05c37.57-28.65,126.87-26.5,158.88.06C336,244.88,248.23,246.19,211.12,218.05Z\" transform=\"translate(-102.39 -113)\"/><path d=\"M384.39,161.07c-16.56-21.87-37.79-37.23-64.54-44.26-6.52-1.72-13.26-2.56-19.89-3.81H281.11a15.77,15.77,0,0,1-2.49.66c-34.29,3.8-61,20.66-81.93,47.52A14.38,14.38,0,0,0,194.1,174c1.64,6.82,3.21,13.67,4.84,20.49a20.2,20.2,0,0,0,1,2.47c28-17.75,58.81-22.94,90.93-22.93s62.93,5.24,91.07,23.16c2-8.88,4.34-17.2,5.49-25.69A15.65,15.65,0,0,0,384.39,161.07Zm-93.61-4.36c-6.35.09-11.82-5.5-11.85-12.12,0-5.91,5.6-11.27,11.82-11.26a11.83,11.83,0,0,1,11.57,12.24C302.24,151.41,296.85,156.62,290.78,156.71Z\" transform=\"translate(-102.39 -113)\"/><path d=\"M354.93,410.17h37.36c0,5.1-.42,10.21.1,15.23.64,6.06-1.23,10.43-6,14.22-4.49,3.56-8.38,7.88-12.76,12.08-6-5.75-11.91-11.33-17.74-17a3,3,0,0,1-.91-1.94C354.91,425.32,354.93,417.84,354.93,410.17Z\" transform=\"translate(-102.39 -113)\"/></svg>','supervisor-and-manager-smiling-happy-holding-lapto-2022-10-07-21-41-31-utc.jpg','top','2023-03-04 03:11:59','2023-03-04 03:11:59'),(11,3,11,'Retail Guardings','Internal thefts are a common affair in retail stores; added to that, there are shoplifters and even those who come with stolen credit cards...','<p class=\"text-muted para-desc mb-0\">Retail stores in the UK have grown in size and operation. The chain of various processes has elongated posing a great challenge to security. There are a number of issues that need to be addressed by beefing up security. Primarily, you need to secure your retail space. Internal thefts are a common affair in retail stores; added to that, there are shoplifters and even those who come with stolen credit cards. To be able to deal with all such situations you need professional Retail Guarding and, who can match our services it that context.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">We are one of the most distinguished Manned Guarding Companies In Kent. You can hire Store Detectives from us and strengthen security in your retail store. Our detectives are adept in solving cases of internal theft, loss or business disruption and are trained keeping in mind modern security challenges. Our detectives keep a vigilant eye on all the proceedings in the retail store and in case of any wrongdoing, follow the suspects until authorities are informed to make an arrest.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">So, to stay focused on your core processes and to manage your retail store smoothly you should contact Response UK Security Ltd. We provide a host of Retail Guarding Services including theft prevention, customer care and assistance to shoppers, lost child procedures, and civil arrest and police liaison. No doubt, we are among the most reliable Security Guarding Companies In Kent.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 359.93 347.93\"><title>Reatail-Secutrity</title><path d=\"M478.63,288.11V463.3H431c-.06-1.3-.16-2.52-.16-3.73q0-40.68,0-81.36c0-2.31.35-3.74,2.77-4.9a13.12,13.12,0,0,0,7.8-11.54,120.6,120.6,0,0,0,0-15,13.91,13.91,0,0,0-12.32-13.1c-15.49-1.9-31-3.5-46.54-5.19q-36.69-4-73.38-7.91a48.28,48.28,0,0,0-10.79-.41A14.29,14.29,0,0,0,286,334.09c-.14,3.62.13,7.26-.09,10.87-.52,8.9,3.22,14.88,11.86,17.75V463.35H228.2v-3.86q0-83.61-.07-167.22c0-2.79.67-4.09,3.45-5a92.53,92.53,0,0,0,45.36-32.94c1.27-1.69,2.35-2.28,4.61-1.87q95.77,17.43,191.59,34.67Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M201.31,115.43c45.16,0,82.39,36.9,82.41,81.76,0,46.33-36.75,83.19-82.94,83.17-44.89,0-82-37.24-82-82.23A82.38,82.38,0,0,1,201.31,115.43Zm-41.83,46.65a4.58,4.58,0,0,1,.53.92c4.19,18.49,8.4,37,12.46,55.5.2.88-.76,2.08-1.31,3.06-1.45,2.55-3.71,4.89-4.34,7.63-2.11,9,4.44,16.25,14.48,16.29,19.62.07,39.23,0,58.85,0a15.7,15.7,0,0,0,3-.17,5.39,5.39,0,0,0,4.74-5c.33-2.94-.86-5.22-3.69-6.2a15.05,15.05,0,0,0-4.8-.56q-27.91,0-55.85,0a13.82,13.82,0,0,1-3.35-.13c-.64-.16-1.11-1-1.66-1.53.59-.51,1.11-1.28,1.8-1.47a11.34,11.34,0,0,1,3-.09q27.74,0,55.47,0c5.21,0,6.95-1.38,8.07-6.4q3.92-17.52,7.77-35.07c2.58-11.71-2.81-18.45-14.74-18.45-20.86,0-41.73,0-62.59,0-2.35,0-3.6-.44-4-3.08-.63-4.06-1.79-8-2.68-12.05-.65-2.91-2.44-4.8-5.33-5a104,104,0,0,0-12.73-.05,5.71,5.71,0,0,0-5.52,6.32c.18,3.17,2.46,5.35,5.93,5.52C155.18,162.16,157.42,162.08,159.48,162.08Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M138.12,435.2c-6.12-1.91-11.86-3.58-17.48-5.59-.91-.33-1.79-2.18-1.81-3.35-.14-9.49-.08-19-.08-28.49,0-25.75,0-51.5,0-77.25a5.39,5.39,0,0,1,2.68-5.18c13.91-9.31,27.71-18.79,41.61-28.11,1.18-.8,3.15-1.51,4.32-1.08a96.87,96.87,0,0,0,48.59,5.09V459.66c-5-1.55-10.13-3-15.07-4.8-.82-.3-1.32-2.47-1.33-3.77q-.1-33.37-.05-66.75c0-2.75,0-5.5,0-8.25,0-4.65-1-9.63,4.84-11.95.62-.25,1-1.07,1.47-1.67,3.95-5.48,4-23.76,0-29.24-3.58-4.85-8.52-7.2-14.42-5.62q-25.32,6.76-50.47,14.1c-5.82,1.69-9.16,6.05-9.71,12.08a85.72,85.72,0,0,0-.05,12.72c.24,4,2.24,7.29,5.34,10a5.57,5.57,0,0,1,1.93,3.58c.12,17.75.08,35.5.07,53.25A14.07,14.07,0,0,1,138.12,435.2Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M310.16,363.85l51.44,5v94.47H310.16Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M451,266.55,437.13,264c-.17,1.48-.3,2.68-.48,4.27l-20.49-3.66-.52-4.92L315.1,239.88c-.17,2.16-.31,4-.49,6.34C308,245,301.52,244,295.1,242.66c-.56-.11-1.1-1.49-1.22-2.33a32.91,32.91,0,0,1-.06-4.45l-4.44-1.17c2.44-11.19,4.87-22.3,7.38-33.76,7.86,1.76,16.34,3.64,24.82,5.57q62,14.1,124,28.24C451,236,451,236,451,241.69ZM345,234.92c4.19.24,6.67-1.56,7.23-4.72.58-3.33-1.08-6.06-4.74-6.88q-18.6-4.15-37.27-8c-4.05-.84-7.09,1.17-7.68,4.62s1.42,6.23,5.47,7.16c3.28.75,6.58,1.4,9.87,2.09Zm44.56-2.79c-3.85-.28-6.5,1.71-7.08,4.85s1.19,6,4.8,6.84q16.39,3.65,32.86,7a5.72,5.72,0,0,0,6.92-4.19c.84-3.28-.74-6.51-4.13-7.28C411.62,236.77,400.28,234.44,389.53,232.13Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M374,370.1l44.55,4.35v88.89H374Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M298,340.93c-.18-10.59-.12-9.48,9.77-8.44,32,3.37,64.06,6.89,96.09,10.35,7.08.76,14.15,1.59,21.24,2.25,3.18.3,4.76,1.66,4.59,5-.15,2.86-.11,5.75,0,8.62.12,3.46-1.48,4.67-4.84,4.33-11.3-1.17-22.62-2.23-33.93-3.34l-65.62-6.44c-7.83-.77-15.65-1.55-23.49-2.27-2.54-.23-3.89-1.39-3.8-4.06C298,344.93,298,342.93,298,340.93Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M187.23,370.44v80.21c-5-1.56-9.8-2.92-14.45-4.58a3.56,3.56,0,0,1-1.58-2.82q-.13-33.35,0-66.69a3.72,3.72,0,0,1,1.87-2.89C177.62,372.43,182.25,371.54,187.23,370.44Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M196.48,347.73c0,9.78.87,8-8.34,10.11q-20.2,4.59-40.44,9.09c-4,.89-4.8.32-4.76-3.64.14-11.94-1.7-9.19,9.15-12.34,12.67-3.67,25.4-7.14,38.1-10.71,6-1.68,6.28-1.47,6.28,4.87C196.48,346,196.48,346.86,196.48,347.73Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M159,377.37v63.92c-.24.07-.49.24-.7.19-7.79-1.89-7.79-1.9-7.79-9.89V385.16C150.46,377.78,151.12,377.16,159,377.37Z\" transform=\"translate(-118.7 -115.43)\"/><path d=\"M184.72,218.28c-2.67-12-5.28-23.66-7.95-35.66h66.55a28.68,28.68,0,0,1-.32,3.61c-2.15,9.74-4.37,19.47-6.51,29.21-.38,1.72-.74,2.9-3,2.89C217.38,218.23,201.28,218.28,184.72,218.28Z\" transform=\"translate(-118.7 -115.43)\"/></svg>','confident-security-guard-standing-in-business-cent-2023-01-25-11-38-31-utc.jpg','top','2023-03-04 03:17:08','2023-03-04 03:17:08'),(12,3,12,'Construction/Building Site','Any building site runs the risk of theft or damage, at any point throughout the working day, or even during the night or weekends...','<p class=\"text-muted para-desc mb-0\">Managing the goings-on on a construction site is challenging enough without the having to worry about security risks at the same time. Any building site runs the risk of theft or damage, at any point throughout the working day, or even during the night or weekends. This is where our construction and building site security services, part of our range of Professional Security Services, come in – to give you peace of mind that your assets are being protected, even when you’re not around to do so yourself.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our company, which provides Construction Guarding Companies In Colchester, hires only professional security teams, which have dedicated personnel and will integrate your existing CCTV recording and monitoring, alarm systems and our personnel to provide you with a water-tight security service. We can also install clock-in devices to monitor and ensure effective guard patrols as well as provide written records of all visitors, contractors arriving and leaving, and any activity deemed suspicious.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">With effective monitoring you will be able to keep accurate records of all visits for contractors, employees, and guests and this will make your security management easier than before. With an\neffective and professional security team taking care of access control, you can focus your energy and\nattention on what matters most; getting your construction project completed effectively and on time. The\nbuilding industry is ever growing and this provides the need for effective security measures that can\neasily be taken care of by a well-trained and accredited security team, which is what we offer.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we provide professional security services to the construction and building industry in the United Kingdom. We have a dedicated and professional security team available\nto provide you with specialist services for your business’ unique needs. We specialise in providing\na combined solution that our clients will truly benefit from; our aim is to add value to your business\nthrough our integrated and specialist security approach. All our security personnel are SIA licensed.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 383.77 364.25\"><title>Construction-site</title><path d=\"M491,494.25H107.23V471.81h63.23v-249H158.17V210.28H111.74V142.66h46.07V130h93.06v12.5h4.58q61.68,0,123.37-.05A7.87,7.87,0,0,1,385,145q30.6,30.91,61.36,61.67c.86.88,1.69,1.79,3.07,3.24H393.72v36.55H371.17v-36h-120v12.25H238.5V471.46h64.85V337c1.31-.09,2.38-.23,3.44-.23,11.88,0,23.75-.11,35.62.1a8.75,8.75,0,0,1,5.43,2.34c10.55,10.3,20.87,20.84,31.43,31.15a8.79,8.79,0,0,0,5.44,2.3c12.24.2,24.48.1,37.13.1V279.24h57.81V471.75H491ZM193.38,471.48h22.23V420.2H193.38Zm.11-198.32V323.7h22.09V273.16Zm0,73.41v50.67h22V346.57Zm178.8,103.25V415H350.19v34.78ZM441.35,415h-22v34.76h22ZM215.62,223H193.53V250.3h22.09Zm72.56-35.63c-7.6-7.6-14.68-14.69-21.8-21.75a2.61,2.61,0,0,0-1.68-.6c-4.45,0-8.9,0-13.51,0v22.38Zm-130.45,0V165.18H134.2v22.24ZM352,187.27H394.4L373.19,166.2Zm-52.91-22.08,20.25,20.38,20.18-20.38Z\" transform=\"translate(-107.23 -130)\"/></svg>','technician-engineer-observing-the-team-of-workers-2022-12-03-07-26-46-utc.jpg','top','2023-03-04 03:20:37','2023-03-04 03:20:37'),(13,3,13,'Leasures Centers','The most effective form of leisure centre security comes when you have one of our teams permanently available on-site...','<p class=\"text-muted para-desc mb-0\">As a business owner it’s important that you address the security needs of your business in order to maintain the safety of your customers, and staff. Here at Response UK Security, which is among the established Security Companies In London, we offer a range of security services, including specialist leisure centre security teams. By hiring one of our security teams, we will provide you with professional support, through services like CCTV Monitoring Service, when you need it most. The most effective form of leisure centre security comes when you have one of our teams permanently available on-site.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">With a well-trained and experienced security team available, you will significantly reduce the risk of damage to your property as well as ensure the safety of your valued customers. It’s well worth investing in a professional security solution for your business.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">In addition to having a team available on site, you can also add additional security measures that will enhance your business’ safety even further. You can make use of a CCTV monitoring system and\nhave a team monitor your premises remotely, and you can have a mobile response unit available to\nreact immediately should disaster strike. With key holding services and dog handling, you can have\na complete security service at your disposal. This will safeguard yourself, your employees and your\ncustomers from any unwanted damage or injury on your business premises or venue. </p><br>\n\n<p class=\"text-muted para-desc mb-0\">Right here at Response UK Security Ltd we provide clients with the confidence that their customers will be safe and secure when visiting their venue. We have a dedicated security team that is available to provide you with specialist services for your unique needs. We specialise in providing a combined\nsolution that our clients will truly benefit from; our aim is to add value to your business through our\nintegrated and specialist security approach. All our security personnel are SIA licensed.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 409.6 377.19\"><title>Recreation</title><path d=\"M500.8,340.6c-3.15,8.23-9.25,10.92-17.85,10.91q-129.74-.25-259.46-.1h-4.92V323.53h5.24q129.54,0,259.07-.12c8.6,0,14.67,2.65,17.92,10.79Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M204,254.37V259q.1,120,.21,240c0,4.61-.32,9-3.08,13a17.6,17.6,0,0,1-19,6.89,17.22,17.22,0,0,1-12.58-15.36c-.15-1.85-.17-3.72-.18-5.59V362.47h-7.65v4.77q0,66.6,0,133.2c0,10.61-5.95,17.69-15.66,18.88a17.2,17.2,0,0,1-18.78-13.72,43.47,43.47,0,0,1-.53-7.57q-.06-118.59-.11-237.19c0-2.43,1.55-6.56-2.9-6.48-3.89.08-2.75,3.9-2.77,6.34q-.33,50-.57,100a29,29,0,0,1-.71,7.52c-1.86,6.81-8.42,10.87-15.73,10.08a14.45,14.45,0,0,1-12.57-13,33.22,33.22,0,0,1-.09-3.6q.27-51.4.56-102.8c.07-14.94,6.19-26.45,19.86-32.81a41.64,41.64,0,0,1,16.58-3.54c25.46-.36,50.93-.18,76.39-.15q16.65,0,24.85,14.59c6.85,12.2,13.86,24.3,20.63,36.53,1.26,2.28,2.54,2.83,5,2.35,12.55-2.43,25.12-4.71,37.7-7,6.45-1.18,12,.44,15.79,6,3.45,5.09,3.5,10.49.3,15.81a14.08,14.08,0,0,1-10,6.68c-17,3.18-34,6.38-51.06,9.43-7.68,1.37-13.05-1.4-17.23-8.63-7.8-13.49-15.51-27-23.27-40.54-.71-1.24-1.47-2.43-2.2-3.65Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M414.33,267c4.52-11.79,9.14-23.55,13.51-35.4,1-2.71,2.33-3.61,5.18-3.55,8.91.19,17.91-.46,26,4.58,9.05,5.65,14.94,13.63,15.29,24.34.53,16.36.14,32.74.14,49.46H448.25c-.07-1.47-.18-2.89-.18-4.31q-.07-19.39-.12-38.79c0-1.07.3-2.3-.12-3.16a14.9,14.9,0,0,0-2.63-3c-.95,1-2.68,2-2.72,3.11-.28,6-.15,12-.15,18v28.18H371.21V263.06c0-1.06.3-2.3-.13-3.15a4.76,4.76,0,0,0-2.63-2.32c-.54-.13-1.85,1.28-2.17,2.22a12.66,12.66,0,0,0-.21,4c0,14.12,0,28.24,0,42.69H339.43a21.71,21.71,0,0,1-.35-2.9c0-14.27,0-28.53.15-42.8.2-15.61,9.11-27.71,24.06-31.31,6.35-1.53,13.21-1,19.85-1.13.84,0,2.06,1.77,2.52,3,4.26,10.91,8.4,21.86,12.57,32.8a5.57,5.57,0,0,0,1.82,2.75c-.54-3-.87-6.07-1.68-9-1.26-4.55-.89-8.76,2.07-12.47,3.21-4,2.78-7.62,0-11.81-3.11-4.64-2.35-5.63,3.16-5.65q4.41,0,8.8,0c2.76,0,4.13,1.65,2.38,3.76-4.93,5.93-3.24,11.16.52,16.77,1,1.53,1.08,4.06.82,6-.55,4.18-1.61,8.3-2.46,12.45Zm-2.57,22.53c-1.14-.87-2.65-2.85-4.51-3.27-2.85-.65-4.76,1.26-4.91,4.26a4.17,4.17,0,0,0,4.21,4.76C409.5,295.52,411.2,293.84,411.76,289.56Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M253.55,447.07c0-4.5-.06-8.6,0-12.69.15-7.87,5.2-12.91,13.12-13q11.38-.13,22.79,0c7.93.1,12.87,5.07,13.06,13,.09,4,0,8,0,12.65h11.59c9.2,0,12.64,3.35,12.66,12.42q0,23.79,0,47.58c0,9.1-3.45,12.51-12.58,12.52H241.85c-9.12,0-12.45-3.38-12.46-12.57q0-23.79,0-47.58c0-8.93,3.41-12.33,12.25-12.37Zm12.92-12.82v12.57h23.21V434.25Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M165.75,152.5a30.11,30.11,0,1,1-30.49,30A30.23,30.23,0,0,1,165.75,152.5Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M407.71,181.41a41.45,41.45,0,0,1,24.7,7.16,5.55,5.55,0,0,1,2.13,4c-.18,14.84-12.65,26.71-27.69,26.57s-27.33-12.24-27.36-27a5.49,5.49,0,0,1,2.28-3.92C389.49,183.34,398,181.19,407.71,181.41Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M433.62,176.64c-17.84-7.72-35.24-7.61-53-.3,0-10.3,0-20.25,0-30.2,0-2.69,2-3.68,4.33-3.69q22.15-.07,44.3,0c2.82,0,4.35,1.59,4.34,4.57C433.6,156.73,433.62,166.44,433.62,176.64Z\" transform=\"translate(-91.2 -142.41)\"/><path d=\"M293.39,254.21c1.8-5.85,3.32-11.34,5.2-16.69,1.24-3.52,4.12-4.85,7.7-3.86,5.24,1.44,10.44,3,15.6,4.75,4.18,1.38,5.69,4.07,4.5,8.36-1.76,6.37-3.82,12.66-5.9,19.5C313.41,257.65,304.73,253.28,293.39,254.21Z\" transform=\"translate(-91.2 -142.41)\"/></svg>','cctv-security-camera-on-monitor-the-abstract-store-2022-12-16-03-24-09-utc.jpg','top','2023-03-04 03:28:24','2023-03-04 03:28:24'),(14,3,14,'Hospital Security','Our hospital security guards will consistently monitor and manage the building, ensuring that your needs are met and that your...','<p class=\"text-muted para-desc mb-0\">\nIn a hospital environment it is important to maintain the safety of all patients, staff and visitors. Hospital Security Services are essential and allow all employees to carry out their work duties without any intimidation or fear of violence.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our hospital security guards will consistently monitor and manage the building, ensuring that your needs are met and that your premises are secure and free from potential violent attacks or theft. Our guards are experienced and trained to handle many different situations that might arise; giving you the freedom to feel safe and protected in your own working environment. A hospital is a place that should be safe from threats and violence – and this is exactly what our company, one of the prominent Security Guarding Companies In Kent, provides.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our professional training allows us to assist with conflict resolution, reduce violent offences, and protect staff and visitors from any physical harm. We will also help to protect your property and reduce occurrences of criminal damage or theft. Our hospital security guards can work with your existing\nsecurity team to provide a comprehensive protection service that will not only be effective in preventing\ntheft, but also provide active protection against any threats that can damage your property or disrupt\nyour normal working operations. Avoiding conflict is essential and this is exactly what we provide.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Response UK Security Ltd. provides a wide range of security services to business owners and hospitals across the United Kingdom. With our main goal being the prevention of loss to you, the client, we aim to add value to your business through our integrated and specialist security approach. All of our security\npersonnel are SIA licensed and we only deploy highly trained security guards that have a solid working\nbackground. This allows you to get the best security protection for your business premises.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 365.7 365.26\"><title>hospital</title><path d=\"M481.53,488.8c-.06-3.2,1.46-7.45-.67-9.31-1.79-1.57-5.95-.64-9-.45-2.61.15-3.37-.58-3.37-3.3q.14-88,0-176c0-2.53.47-3.88,3.25-3.32,3.11.62,3.45-1,3.38-3.62-.18-6.24-.22-12.5,0-18.74.11-2.94-.52-3.84-3.69-3.82-21.59.17-43.19,0-64.78.14-2.54,0-3.42-.48-3.4-3.25q.19-29.34,0-58.68c0-2.52.46-3.88,3.24-3.32,3.11.62,3.46-1,3.39-3.61-.18-6.25-.22-12.5,0-18.74.11-2.93-.51-3.86-3.68-3.83-19.83.18-39.66,0-59.49.18-3.14,0-4.33-1-5.41-3.81a45.45,45.45,0,0,0-84.65,0c-1.21,3.2-2.77,3.82-5.84,3.8-19.69-.14-39.38,0-59.08-.16-3.13,0-3.81.84-3.7,3.81.24,6.51.18,13,0,19.55-.07,2.38.72,3.23,2.95,2.8,3.15-.61,3.72.79,3.7,3.73-.14,19.15-.18,38.3,0,57.45,0,3.47-.91,4.15-4.22,4.12-21.32-.16-42.65,0-64-.16-3.12,0-3.82.81-3.71,3.79.24,6.51.12,13,.05,19.56,0,1.84.07,3.3,2.51,2.81,3.47-.7,4.12.82,4.12,4.12q-.18,84.35-.09,168.69c0,3.11,1.07,7.23-.49,9.05-1.85,2.16-6.1.45-9.3.72a1.13,1.13,0,0,1-.41,0c-2.33-.4-2.92.61-2.89,2.88.13,8.56.25,17.12,0,25.67-.11,3.45.86,4.15,4.2,4.14q89-.17,178.06-.08,89.64,0,179.28.07c3,0,3.95-.55,3.81-3.7C481.37,501.58,481.65,495.18,481.53,488.8Zm-302.37-75q-10.59-.17-21.19,0c-2,0-2.5-.55-2.48-2.5q.13-13.85,0-27.7c0-2,.54-2.52,2.49-2.49q10.59.17,21.19,0c2,0,2.54.55,2.49,2.5-.14,4.61,0,9.23,0,13.85s-.09,9.24,0,13.85C181.72,413.29,181.11,413.84,179.16,413.81Zm2.49-88.33c-.13,4.48,0,9,0,13.44s-.09,9,0,13.44c.06,2-.38,2.83-2.63,2.78-6.92-.16-13.85-.13-20.78,0-2,0-2.8-.39-2.77-2.63.14-9.1.11-18.2,0-27.3,0-2,.38-2.82,2.63-2.77,6.93.16,13.86.18,20.78,0C181.44,322.34,181.72,323.37,181.65,325.48Zm158.91-68.26q10.59.18,21.19,0c2,0,2.51.54,2.49,2.5q-.15,13.84,0,27.7c0,2-.54,2.53-2.5,2.5q-10.58-.18-21.18,0c-2,0-2.55-.54-2.49-2.5.14-4.61,0-9.23,0-13.85s.1-9.24,0-13.85C338,257.76,338.6,257.19,340.56,257.22Zm-41.62-97.76a32.6,32.6,0,1,1-32.55,33.06A32.63,32.63,0,0,1,298.94,159.46ZM312,332.66c0,4.48-.1,9,0,13.44.06,1.95-.51,2.54-2.48,2.5q-10.59-.17-21.19,0c-1.95,0-2.52-.52-2.5-2.48q.15-13.86,0-27.71c0-1.94.52-2.53,2.49-2.5q10.59.18,21.18,0c1.95,0,2.56.52,2.5,2.49C311.94,323.15,312,327.91,312,332.66Zm-2.74-42.72c-6.92-.19-13.85-.17-20.77,0-2.31.06-2.63-.82-2.61-2.8.08-9.09.12-18.19,0-27.29,0-2.3.81-2.64,2.79-2.61,6.93.1,13.86.14,20.78,0,2.3-.06,2.66.82,2.61,2.8-.12,4.61,0,9.23,0,13.85,0,4.34-.1,8.69,0,13C312.14,289,311.79,290,309.29,289.94Zm-75.55-30.22c0-2,.53-2.53,2.49-2.5q10.59.18,21.18,0c2,0,2.55.54,2.5,2.5-.14,4.61-.05,9.23-.05,13.85s-.09,9.24.05,13.85c0,2-.53,2.53-2.5,2.5q-10.59-.18-21.18,0c-2,0-2.52-.54-2.49-2.5Q233.88,273.58,233.74,259.72Zm26.16,86.33c0,1.87-.38,2.59-2.43,2.56-7.06-.13-14.12-.17-21.18,0-2.42.06-2.57-1-2.54-2.87.09-4.62,0-9.23,0-13.85s.08-9,0-13.44c-.05-1.88.38-2.6,2.43-2.56,7.06.12,14.12.1,21.18,0,1.88,0,2.58.38,2.56,2.43C259.8,327.58,259.82,336.82,259.9,346.05Zm29.31,133c-6.65-.2-13.31-.16-20,0-2.3.05-2.93-.6-2.92-2.91q.14-33,0-66c0-2.29.58-3,2.9-2.93q10.18.24,20.37,0c2.3-.05,2.95.6,2.92,2.91-.12,11,0,22,0,33s-.09,21.74.06,32.6C292.57,478.34,291.9,479.12,289.21,479Zm39.11,0c-6.64-.2-13.31-.16-20,0-2.31.05-2.91-.62-2.9-2.92q.12-33,0-66c0-2.29.6-3,2.91-2.91q10.17.22,20.37,0c2.31-.05,2.93.62,2.9,2.92-.11,11.14-.05,22.27-.05,33.41,0,10.73-.09,21.46.07,32.19C331.7,478.37,331,479.12,328.32,479Zm-6.51-84.83H299c-9.91,0-19.83-.08-29.74.05-2.29,0-2.9-.6-2.93-2.9-.12-10.2-.2-10.2,9.85-10.2,17.38,0,34.76.06,52.15-.06,2.64,0,3.36.65,3.34,3.32C331.6,394.2,331.71,394.21,321.81,394.21Zm39.93-45.61q-10.59-.17-21.18,0c-2,0-2.55-.55-2.49-2.5.13-4.61,0-9.23,0-13.85s.1-9.24,0-13.85c-.06-2,.55-2.52,2.5-2.49q10.59.16,21.18,0c2,0,2.51.56,2.49,2.5q-.15,13.86,0,27.71C364.26,348.08,363.69,348.63,361.74,348.6Zm80.75,62.72c0,1.95-.53,2.52-2.5,2.49q-10.59-.17-21.18,0c-2,0-2.55-.53-2.49-2.49.13-4.62,0-9.24,0-13.85s.09-9.24,0-13.85c-.06-2,.53-2.53,2.49-2.5q10.59.17,21.18,0c2,0,2.52.54,2.5,2.49Q442.34,397.47,442.49,411.32Zm-3-56.16c-6.78-.23-13.58-.2-20.37,0-2.46.07-2.83-.85-2.8-3,.11-9,.14-17.93,0-26.89,0-2.46.85-2.85,3-2.81,6.79.13,13.59.16,20.37,0,2.46-.06,2.89.85,2.81,3-.15,4.34-.05,8.69-.05,13s-.11,9,.05,13.44C442.58,354.23,442.22,355.25,439.49,355.16Z\" transform=\"translate(-116.3 -146.41)\"/><path d=\"M285.76,198.54a20.4,20.4,0,0,0,4.06,0c2.15-.25,2.91.55,2.68,2.68a20.87,20.87,0,0,0,0,4.47,6.48,6.48,0,0,0,6.61,5.9c3.54-.09,6.08-2.74,6.36-6.62.43-6.07.43-6.07,6.22-6.41.27,0,.55,0,.82,0a6.55,6.55,0,0,0,6-6.55,6.45,6.45,0,0,0-6.12-6.4c-2.14-.19-4.94.64-6.28-.44-1.67-1.34-.36-4.3-.64-6.55a6.56,6.56,0,0,0-6.46-6.08,6.43,6.43,0,0,0-6.49,6c-.2,2.15.68,4.92-.37,6.33-1.32,1.76-4.29.43-6.52.69-3.6.42-6.11,3-6.19,6.36A6.48,6.48,0,0,0,285.76,198.54Z\" transform=\"translate(-116.3 -146.41)\"/></svg>','security-guard-hospital-bed-and-wheelchair-at-hospital-room-2022-12-16-03-06-58-utc.jpg','top','2023-03-04 03:32:43','2023-03-04 03:32:43'),(15,3,15,'Hotels','rained personnel will be able to spot potential dangers immediately and act to prevent any damages from occurring...','<p class=\"text-muted para-desc mb-0\">\nWhen it comes to hotel security you need a team that is constantly alert and vigilant to any threats that may arise at a second’s notice. Hotels tend to be busy areas that require attention to detail and careful profiling; security guards who can perform an effective safe-guarding role while blending in appropriately is exactly what any hotel owner needs – and that’s the service that we offer here at Response UK Security Ltd., which provides the most competent Security Solutions in UK. We are also competent providers of Hotel Security Services and Retail Security Services.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">The ability to blend into the environment is essential for any hotel security guard and this is part of what makes them so effective. Trained personnel will be able to spot potential dangers immediately and act to prevent any damages from occurring, or situations arising. In the event that an emergency does happen, your trained security professionals will be able to take appropriate action and handle everything on your behalf, in a controlled manner.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Your hotel security team do not only have to safeguard your employees, but they also have a responsibility to create a safe environment for your guests to enjoy. This is essential and it is the\nresponsibility of any management team to ensure they have the best professionals for the job. You\nwant to have a team on-site that can prevent situations from happening, but also react timely and\nappropriately in an emergency. With a trained security team at your disposal, you can ensure a safer\nenvironment for yourself, your employees, and your hotel guests.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">At Response UK Security Ltd we believe we provide a professional security services for clients in the hotel industry. We offer this service throughout the United Kingdom. We have a dedicated security team that is available to provide you with specialist services for your unique needs. We specialise in\nproviding a combined solution that our clients will truly benefit from; our aim is to add value to your\nbusiness through our integrated and specialist security approach. All of our security personnel are SIA\nlicensed.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 371.9 371.72\"><title>hotel</title><path d=\"M415,495.75h63.37a16.54,16.54,0,0,1,3.73.15c3,.71,4.82,2.69,4.83,5.83s-1.81,5.15-4.82,5.84a18.15,18.15,0,0,1-4.11.16H124.09c-6.18,0-9-1.84-9.06-5.91s2.81-6.09,8.88-6.09H187v-225c0-7.42,1.6-9,9-9H405.54c8,0,9.46,1.46,9.46,9.3v224.7ZM295.14,429.93v65.63h11.91V430h36.16v65.51H355V426c0-6.39-1.88-8.29-8.22-8.29H255.32c-6.42,0-8.31,1.86-8.32,8.18q0,33,0,66c0,1.21.11,2.41.16,3.57h11.94V429.93ZM259,315.91c0-3.88.08-7.75,0-11.62-.1-4.19-2.36-6.47-6.57-6.51q-11.43-.13-22.86,0c-4.19.05-6.47,2.35-6.51,6.56q-.14,11.43,0,22.87c.05,4.18,2.35,6.46,6.56,6.51q11.43.13,22.87,0c4.18-.05,6.41-2.36,6.52-6.57C259.07,323.41,259,319.66,259,315.91Zm41.77,17.84c3.88,0,7.75.07,11.62,0,4.21-.1,6.53-2.33,6.59-6.5q.13-11.43,0-22.87c-.05-4.22-2.32-6.53-6.49-6.58q-11.43-.13-22.87,0c-4.22,0-6.53,2.31-6.58,6.49q-.13,11.43,0,22.86c0,4.22,2.31,6.48,6.49,6.59C293.26,333.82,297,333.74,300.76,333.75Zm59.9,0c3.88,0,7.75.06,11.62,0,4.26-.09,6.63-2.28,6.68-6.4q.17-11.62,0-23.25c-.06-3.95-2.39-6.24-6.39-6.29q-11.61-.15-23.24,0c-4,0-6.24,2.38-6.29,6.38q-.15,11.61,0,23.24c.06,4,2.38,6.2,6.38,6.31C353.16,333.83,356.92,333.74,360.66,333.75ZM259,375.73c0-3.88.09-7.75,0-11.62s-2.39-6.27-6.37-6.32q-11.62-.15-23.24,0c-4,0-6.27,2.37-6.32,6.36q-.15,11.61,0,23.24c.05,4,2.37,6.27,6.36,6.32q11.61.15,23.24,0c4,0,6.21-2.38,6.33-6.36S259,379.6,259,375.73Zm42.33-18c-3.87,0-7.75-.06-11.62,0-4.4.09-6.64,2.33-6.68,6.78q-.11,11.25,0,22.49c.05,4.4,2.34,6.65,6.78,6.69q11.25.11,22.49,0c4.25-.05,6.62-2.28,6.67-6.42q.17-11.61,0-23.24c-.06-3.95-2.4-6.18-6.4-6.29C308.82,357.68,305.07,357.76,301.32,357.75Zm59.89,0c-3.87,0-7.74-.07-11.62,0-4.21.1-6.51,2.33-6.56,6.51q-.13,11.43,0,22.87c0,4.21,2.32,6.52,6.5,6.57q11.43.13,22.87,0c4.2-.05,6.52-2.33,6.57-6.51q.13-11.43,0-22.87c-.05-4.21-2.33-6.46-6.51-6.57C368.71,357.68,365,357.75,361.21,357.75Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M223,249.48c0-6.35-.2-12.47.05-18.57.27-6.44,5.52-11.11,12.3-11.14,14.49-.06,29,0,43.48,0h86.22c9.24,0,13.89,4.61,13.92,13.75,0,5.24,0,10.47,0,16Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M331,158a20.32,20.32,0,0,1-2.05,3.72,73,73,0,0,1-6.9,7.88c-2.16,2-2.32,4-1.46,6.66,1.25,3.78,2.11,7.69,3.23,11.52a5.83,5.83,0,0,1-2,6.69c-2.21,1.78-4.62,1.68-7,.28-3.76-2.22-7.57-4.38-11.23-6.75-1.8-1.17-3.19-1.31-5.05-.06-3.42,2.28-7.06,4.22-10.56,6.4-2.55,1.58-5.1,2.18-7.65.22s-2.95-4.42-2-7.37c.71-2.13.84-4.49,1.8-6.48,2.91-6,1.5-10.83-3.57-14.94a32,32,0,0,1-3.73-4.2c-1.76-2.05-2.84-4.6-1.08-6.8a10.08,10.08,0,0,1,5.68-3.32,42,42,0,0,1,9.71-.11c2.39.14,3.6-.75,4.41-3,1.07-2.93,2.11-6,3.89-8.47,1.28-1.8,3.69-3.72,5.67-3.8,1.78-.07,3.66,2.29,5.48,3.58.1.06.13.21.19.32,1.77,3.69,2.64,8.8,5.57,10.66s8,.52,12.08.65C328.36,151.39,330.87,153.64,331,158Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M239.35,207.72a38,38,0,0,1-3.63-1.65c-4.35-2.39-8.64-6.73-13-6.75-4.18,0-8.38,4.38-12.58,6.85l-1,.57c-2.39,1.38-4.79,1.47-7-.3a5.84,5.84,0,0,1-2-6.69c1.2-4.19,2.12-8.48,3.49-12.61.71-2.13.18-3.47-1.23-5a68.22,68.22,0,0,1-7.54-8.8,9.56,9.56,0,0,1-1.2-6.46c.52-2.73,3.09-3.61,5.84-3.66,4.22-.07,9.31,1.13,12.39-.81,2.92-1.85,3.42-7.24,5.59-10.69,1.1-1.75,3.56-3.74,5.34-3.68,2,.07,4.32,2,5.7,3.77a20.61,20.61,0,0,1,3.25,7.1c1,3.71,3.26,4.81,6.9,4.38a74.57,74.57,0,0,1,7.48-.07c2.72-.05,4.9.8,6.16,3.37,1.35,2.76.45,5.08-1.43,7.19-.25.28-.49.57-.73.86-2.78,3.34-7.08,6.35-7.91,10.12s1.79,8.33,2.9,12.54a29.2,29.2,0,0,1,.91,3.63C246.55,204.49,243.73,207.69,239.35,207.72Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M378.88,146.52c2.29,2,4.39,3.19,5.53,5a46.93,46.93,0,0,1,4,8.82c.82,2.23,2,3.14,4.42,3,2.61-.19,5.25,0,7.87,0,3.1-.07,6,.09,7.63,3.41,1.68,3.52-.31,5.93-2.45,8.33s-4.17,5-6.45,7.29a4.32,4.32,0,0,0-1.08,5c1.29,4,2.17,8.19,3.38,12.25a6,6,0,0,1-2.11,7c-2.25,1.73-4.65,1.51-7,.11-3.65-2.17-7.37-4.23-10.9-6.57-1.93-1.28-3.41-1.38-5.37-.08-3.53,2.34-7.26,4.39-10.89,6.58-2.48,1.5-5,1.74-7.31-.15s-2.77-4.23-1.9-7.07c1.17-3.81,2-7.74,3.23-11.52.79-2.41.51-4.15-1.34-6-2.56-2.55-4.8-5.42-7.19-8.14-1.77-2-2.63-4.23-1.43-6.87s3.28-3.54,6-3.59c4.21-.08,9.31,1.11,12.37-.84s3.49-7.19,5.56-10.72C374.57,149.85,376.64,148.6,378.88,146.52Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M175,193.8a20.84,20.84,0,0,1-1.18,2.83,16.47,16.47,0,0,1-1.86,2.34c-2.7,3.25-6.87,6.17-7.68,9.83s1.73,8.1,2.81,12.19c.28,1.08,1,2.26.81,3.22-.48,2.17-.87,4.9-2.36,6.13-1.33,1.1-4.4,1.25-6.12.5a72.37,72.37,0,0,1-11-6.41c-2.34-1.56-4.21-1.88-6.69-.09-3.22,2.32-6.81,4.15-10.23,6.21-2.48,1.51-5,1.77-7.31-.12s-2.79-4.23-1.92-7.07c1.17-3.81,2-7.73,3.23-11.52.79-2.4.53-4.14-1.32-6a52.15,52.15,0,0,1-7.3-8.51,9.57,9.57,0,0,1-1.18-6.46c.53-2.72,3.1-3.6,5.85-3.64,4.21-.07,9.31,1.12,12.38-.83,2.92-1.86,3.42-7.24,5.59-10.69,1.1-1.75,3.57-3.73,5.35-3.66,2,.08,4.36,2,5.68,3.79,1.67,2.25,2.61,5.1,3.56,7.79s2.41,4,5.49,3.68a64.5,64.5,0,0,1,9.73,0C172.65,187.51,175,190,175,193.8Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M433.85,225.05c1.17-4.37,2.62-9.15,3.66-14a6.35,6.35,0,0,0-1-4.54c-2.3-3.1-5-5.9-7.56-8.81-1.76-2-2.6-4.24-1.4-6.87s3.3-3.58,6-3.56c3.12,0,6.26-.19,9.36.06,2.6.21,3.83-.85,4.68-3.15,1-2.81,2-5.76,3.71-8.14,1.3-1.82,3.67-3.92,5.58-4s4.38,2,5.64,3.82c1.82,2.61,2.88,5.79,4,8.81a3.46,3.46,0,0,0,3.91,2.59,47.88,47.88,0,0,1,10.09.12c2.05.35,4.73,1.71,5.52,3.38s.18,4.68-.91,6.41a48.27,48.27,0,0,1-7.3,8.5c-2,2-2.18,3.83-1.38,6.33,1.22,3.79,2.07,7.7,3.22,11.52a5.92,5.92,0,0,1-2.13,7c-2.25,1.73-4.65,1.49-7,.09-3.65-2.18-7.37-4.23-10.9-6.57-1.93-1.27-3.39-1.37-5.37-.06-3.74,2.48-7.61,4.8-11.57,6.9C438.5,233.18,433.71,230.19,433.85,225.05Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M246.79,321.57H235.28V310h11.51Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M295.17,321.49V309.94h11.54v11.55Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M366.86,310v11.49H355.19V310Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M235.17,381.55V370h11.6v11.53Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M295.23,369.82H306.7v11.67H295.23Z\" transform=\"translate(-115.03 -136.06)\"/><path d=\"M355.18,381.54V370h11.58v11.51Z\" transform=\"translate(-115.03 -136.06)\"/></svg>','hotel-employee-showing-hotel-guests-their-room-2022-12-16-22-24-54-utc.jpg','top','2023-03-04 03:35:28','2023-03-04 03:35:28'),(16,3,16,'Concierge','Being one of the prominent Security Companies in UK, Response UK Security Ltd we provide a comprehensive Concierge Security Services...','<p class=\"text-muted para-desc mb-0\">\nBeing one of the prominent Security Companies in UK, Response UK Security Ltd we provide a comprehensive Concierge Security Services for clients looking to employ a member of staff to be at their beck and call, day and night. Not only are our concierge staff highly motivated, excellent communicators and hard workers, they’re also SIA licensed – which means that they are trained to be able to deal with potential tricky situations, should one arise.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">There are many different businesses in which, services of a Security Receptionist or a concierge are required. An increasing number of hospitals are now employing the services of professional concierge staff who are tasked with everything from ensuring patients get to appointments in the right area of the hospital, to dealing with potentially dangerous security breaches.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Our concierge staff are also trained to work in other environments, too. Businesses such as hotels can also benefit from having a highly trained concierge – a background in security and an SIA license means that the concierge staff we supply have a trained eye for possibly dangerous situations flaring up.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">If you don’t have a full blown security team keeping a watchful eye over your premises, it’s a good idea to kill two birds with one stone by hiring a highly trained security member who can double up\nas concierge. In a day and age where the threat of terrorist attacks is bigger than ever, and deep cuts\ncontinue to restrict the operations of our emergency services, it really does make sense to get in touch\nwith us about our concierge service.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">We believe that the concierge service we provide here at Response UK Security Ltd is second to none. Our concierge staff will cater for your every need whilst also keeping one eye on security. Whether your business is a hotel or a hospital – or even a block of apartments, make sure you get in call us today to\nsee how we can help.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 352.5 384\"><title>conceirge</title><path d=\"M241.75,471.75c0-18.5-.05-37,.08-55.5a7.37,7.37,0,0,1,1.91-4.82q14.75-14.13,29.85-27.9a6.59,6.59,0,0,1,4.9-1.48c36.12,6.2,69.77-10.46,86.61-43.05a5.94,5.94,0,0,1,.8-.85l16.58,6.1c11.93,4.41,23.91,8.71,35.79,13.28,19,7.33,31,21.09,35.47,40.92,5.35,23.87,10.15,47.87,15.17,71.81a10.46,10.46,0,0,1,.09,1.49Zm33.77-22.38a11.12,11.12,0,0,0,11.21-11.16,11.23,11.23,0,1,0-22.46,0A11.14,11.14,0,0,0,275.52,449.37Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M116.5,471.75c2.85-13.93,5.67-27.86,8.57-41.78,2.32-11.11,4.45-22.28,7.17-33.29,4.41-17.89,15.2-31,32.17-37.95,18.09-7.45,36.64-13.79,55.25-20.71,7.53,14.48,18.48,25.66,33.52,34.88a26,26,0,0,0-3.75,2.35c-8.53,7.89-17,15.89-25.52,23.74a13.71,13.71,0,0,0-4.7,10.91c.1,20.62,0,41.23,0,61.85Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M367.75,87.75c6.45,2.76,8.78,7.67,8.47,14.59-.38,8.46-.09,17-.09,25.68H208.56V113.91c0-3.87.26-7.77-.05-11.61-.58-7,2-11.82,8.49-14.55Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M220,196H364.65c.08,1.16.22,2.24.22,3.32,0,15.88.08,31.75,0,47.62-.2,36.43-24.31,65.32-60.15,72.17-38.94,7.45-78.46-20.79-84-60.1a96.06,96.06,0,0,1-.88-12.69c-.1-15.49,0-31,0-46.49C219.82,198.6,219.93,197.38,220,196Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M208.56,150.91h167.2c0,4.73.5,9.47-.14,14.06s-5.11,7.88-9.92,8.26c-1.12.09-2.25.05-3.37.05H222.46c-9.89,0-13.88-4-13.9-13.79Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M240.52,327.62c35.13,20.34,69.73,20.17,104.19-.39-.27,12.77-24.75,30.89-45.07,33.34C276,363.42,245.63,346.74,240.52,327.62Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M197.14,196.82V251c-11-1.16-19.92-12.58-20.12-25.69C176.78,210.18,184.9,198.58,197.14,196.82Z\" transform=\"translate(-116.5 -87.75)\"/><path d=\"M387.46,251.17V197c9.22.25,19.14,11.17,20.06,22C409,236,401.42,248.35,387.46,251.17Z\" transform=\"translate(-116.5 -87.75)\"/></svg>','businessman-checking-in-to-hotel-2021-09-24-03-59-26-utc.jpg','top','2023-03-04 03:39:02','2023-03-04 03:39:02'),(17,3,17,'Security Receptionist','As well as monitoring security in your company’s reception area, the security receptionists that we provide are also highly trained in...','<p class=\"text-muted para-desc mb-0\">\nWithin any business it’s important that a Security Receptionist is employed; not only is your receptionist the first port of call for people who drop into your premises, a security receptionist is also a visible sign that your business takes security seriously. There are many merits to employing the Corporate Security Services, which include a security receptionist, and here at Response UK Security Ltd we can provide this service and other services like Concierge Security Services as well.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">All of our staff is highly trained, and all employees have an SIA license. As well as monitoring security in your company’s reception area, the security receptionists that we provide are also highly trained in taking calls, assisting visitors and sorting mail. Our staff is highly efficient in what they do, so if your reception area is currently unmanned and you don’t have time to recruit a receptionist, why not get in touch with us about the security receptionists that we can offer? You don’t need to worry about things like sifting through application forms and conducting interviews – we’ve got members of staff waiting in the wings to take up the post in your business.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">As well as the day to day tasks a receptionist would usually complete, our highly trained staff are also able to conduct security exercises such as patrolling your premises, answering alarms and disturbances, and liaising with emergency services should any situation arise.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we provide a wide range of security services to corporate and residential clients. From key holding services to dog handling, mobile patrol visits to hospital security,\nwe offer a selection of different security solutions to ensure that your business, your property, your\nclients and your staff remain safe, 24/7. Get in touch with us today to see how we can help you by\ninstalling a security receptionist within your business.</p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 384 359.56\"><title>security-reception</title><path d=\"M180.63,254.67c0-5.49,0-11,0-16.45a2.15,2.15,0,0,1,.56-1.43c2.91-2.8,5.87-5.56,8.85-8.27a1.92,1.92,0,0,1,1.45-.44,23.75,23.75,0,0,0,25.68-12.76c0-.07.1-.11.24-.26l4.91,1.81c3.54,1.31,7.09,2.58,10.61,3.94a16.16,16.16,0,0,1,10.52,12.13c1.58,7.08,3,14.19,4.49,21.29a3.15,3.15,0,0,1,0,.44Zm10-6.64a3.28,3.28,0,0,0,3.32-3.3,3.33,3.33,0,1,0-6.65,0A3.29,3.29,0,0,0,190.64,248Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M143.5,254.67c.85-4.13,1.68-8.26,2.54-12.39.69-3.29,1.32-6.6,2.12-9.87a15.65,15.65,0,0,1,9.54-11.25c5.37-2.2,10.86-4.08,16.38-6.14A26,26,0,0,0,184,225.36a7.74,7.74,0,0,0-1.11.7c-2.53,2.34-5,4.71-7.57,7a4.07,4.07,0,0,0-1.39,3.23c0,6.12,0,12.23,0,18.34Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M218,140.83a4,4,0,0,1,2.52,4.33c-.12,2.5,0,5,0,7.61H170.79v-4.18c0-1.15.08-2.31,0-3.45a3.85,3.85,0,0,1,2.51-4.31Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M174.18,172.91h42.88c0,.35.07.67.07,1,0,4.71,0,9.41,0,14.12a21.5,21.5,0,0,1-42.73,3.58,28,28,0,0,1-.26-3.77c0-4.59,0-9.18,0-13.78C174.13,173.69,174.16,173.33,174.18,172.91Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M170.79,159.56h49.57a30.34,30.34,0,0,1,0,4.16,3.1,3.1,0,0,1-2.94,2.45c-.34,0-.67,0-1,0H174.91c-2.93,0-4.11-1.18-4.12-4.09Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M180.27,211.94c10.41,6,20.67,6,30.88-.11-.08,3.78-7.33,9.15-13.36,9.88C190.79,222.55,181.78,217.61,180.27,211.94Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M167.41,173.17v16.05c-3.27-.34-5.91-3.73-6-7.61C161.37,177.12,163.78,173.69,167.41,173.17Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M223.83,189.28V173.22c2.73.07,5.67,3.31,5.95,6.52C230.2,184.78,228,188.44,223.83,189.28Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M95.75,299V276.5H355V253.88H276.73V119.25H456.21V254.11H378V276.5H479.75V299H456.42V456.54H433.87v22.27H411.45v-22H163.92v22H141.37V456.4H119V299Zm225.74,56.3a33.74,33.74,0,1,0-34,33.69A33.83,33.83,0,0,0,321.49,355.3Z\" transform=\"translate(-95.75 -119.25)\"/><path d=\"M287.79,366.49A11.24,11.24,0,1,1,299,355.3,11.38,11.38,0,0,1,287.79,366.49Z\" transform=\"translate(-95.75 -119.25)\"/></svg>','african-american-receptionist-talking-to-asian-nur-2022-07-07-13-58-54-utc.jpg','top','2023-03-04 03:44:30','2023-03-04 03:44:30'),(18,3,18,'Traffic Management','If you’re planning on running a large event that is likely to attract upwards of one thousand people, the chances are that...','<p class=\"text-muted para-desc mb-0\">\nIf you’re planning on running a large event that is likely to attract upwards of one thousand people, the chances are that you will need to employ a private Traffic Management Security Company. There are many reasons that you should consider hiring a traffic management firm – not least the fact that most councils and local authorities will only grant permission for the event to be held in the first place on the premise that adequate traffic management will be drafted in to minimize the impact on local residents.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">It’s of paramount importance that you spare a second thought for the traffic management at any event that you plan. If nearby roads become congested there’s a chance your event could come to a standstill – so make sure plans are put in place to ensure that nearby roads run smooth so that everyone can get in and out of the vicinity of your event at their leisure. If traffic management isn’t something you’ve ever had to deal with before, don’t worry, because we can help you, being one of the leading Facilities Management Companies in the UK.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Every traffic management job that we’re assigned is treated on an individual basis. We will draw up a plan of action to carefully deal with the volume of people and vehicles you’re expecting at your event thus ensuring that everything runs smoothly, allowing your event to go ahead as planned. Our number\none priority is the complete safety of all event attendees and staff whilst making their way to and from\nit. Our other main priority is to minimise the inconvenience caused to other members of the public who\naren’t attending your event.</p><br>\n\n<p class=\"text-muted para-desc mb-0\">Here at Response UK Security Ltd we offer a comprehensive traffic management service. So whether you’re holding a car boot or an outdoor market, a concert of a festival, make sure you get in touch with us today to see how our team of traffic management officers can help. </p>','<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"50\" height=\"50\" viewBox=\"0 0 267.87 394.14\"><title>traffoc-management</title><path d=\"M377.85,117.41q12.42,2.3,24.83,4.59c2.65.48,5.29,1,8,1.34,7,.79,11.3,4.63,13.64,11.23q5.48,15.39,11.44,30.59c2.52,6.42,1.46,11.91-3,17.11-6.89,8.12-13.75,16.27-20.29,24.67-4.66,6-10.37,8-17.61,6.5-1.84-.38-3.72-.55-5.84-.85-2,11.62-3.86,22.85-5.76,34.07-1,5.69-1.87,11.38-2.9,17.06-.4,2.26-.27,3.85,1.88,5.56,9.08,7.25,7.15,20.74-3.53,25.48-2.31,1-3.92,2.13-5,4.66a8.73,8.73,0,0,1-11.79,4c-2.4-1.35-4.22-1-6.44-.19-6.27,2.26-12.5,4.63-18.87,6.56-9.12,2.77-14.41.67-19.66-7.29a131.44,131.44,0,0,0-9.89-13.72v53H221.21v-32l-1-.32c-.57,1.12-1.19,2.21-1.71,3.35-6.7,14.68-13.33,29.4-20.11,44-3.89,8.38-12.17,11.77-20,8.47s-11.36-11.93-7.82-20.21c4-9.3,8.31-18.45,12.51-27.66,12.28-26.92,24.67-53.8,36.79-80.79,3.22-7.18,8.36-10.86,16-10.89q29.25-.09,58.5.1c6.2.05,10.86,2.87,14.28,8.24,9.23,14.48,18.7,28.8,28.27,43.49,7.28-2.63,14.49-5.17,21.65-7.87a3.32,3.32,0,0,0,1.55-2.27c3.33-19.31,6.57-38.62,9.88-58.22-2.86-.51-5.49-1-8.11-1.46a14.29,14.29,0,0,1-11.5-9.64q-6.22-16.55-12.35-33.13a14.11,14.11,0,0,1,2.55-14.75c7.42-9,14.68-18.17,22.38-26.93,2.24-2.56,5.75-4,8.67-6Zm-95.5,135.32a77.93,77.93,0,0,0-9.52,2.53c-1.18.47-2.63,2.49-2.52,3.66.73,7.43,2.52,14.62,6.9,20.83,3.41,4.83,7.18,5,10.27,0A57.66,57.66,0,0,0,293,267.26C296.48,256.68,293.76,253.2,282.35,252.73Z\" transform=\"translate(-169.19 -117.41)\"/><path d=\"M270.75,385.05H257.46v4.74q0,50.4,0,100.81c0,8.15-2.34,14.92-10,18.87a18,18,0,0,1-26.09-13.22,30.67,30.67,0,0,1-.41-5q0-66.18,0-132.37v-3.7h85.81a23,23,0,0,1,.26,2.5q0,67.34,0,134.67c0,7.1-2.7,12.77-8.79,16.48a18,18,0,0,1-27.43-14.77c-.31-10.63-.1-21.28-.11-31.93V385.05Z\" transform=\"translate(-169.19 -117.41)\"/><path d=\"M228.78,183a142.45,142.45,0,0,0,70.4,0c1.93,17.66-14.54,34.94-34.7,35.62C245,219.32,227.7,201.76,228.78,183Z\" transform=\"translate(-169.19 -117.41)\"/><path d=\"M264.2,126.83q21,0,41.92,0c3.32,0,6.53.26,8.23,3.68s-.18,6-1.89,8.84c-2.23,3.68-5,4.94-9.35,4.9-26.66-.22-53.33-.11-80-.11-4.7,0-10.7-7-10-11.74.52-3.53,3.29-5.53,8-5.55,13.33,0,26.66,0,40,0Z\" transform=\"translate(-169.19 -117.41)\"/><path d=\"M224.3,157.07h79.44c-1.68,7.86-10.33,16-19.4,16.41a400.38,400.38,0,0,1-40.7,0C234.6,173,226.05,164.9,224.3,157.07Z\" transform=\"translate(-169.19 -117.41)\"/></svg>','male-police-officer-in-green-uniform-stops-vehicle-2021-08-30-12-45-45-utc.jpg','top','2023-03-04 03:48:04','2023-03-04 03:48:04');
+/*!40000 ALTER TABLE `service_products` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `users`
+--
+
+DROP TABLE IF EXISTS `users`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `users` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email_verified_at` timestamp NULL DEFAULT NULL,
+  `password` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `users_email_unique` (`email`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,'Motor Vehicl','yachur@ymail.com',NULL,'$2y$10$t8.0H8W.g5M8bLWWdrNGHOlss3n.7rlyyg3WBN1EuikG2qbQNqixS',NULL,'2023-04-10 03:57:11','2023-04-10 03:57:11'),(6,'okunade yusuf','okunadeyusuf003@gmail.com',NULL,'$2y$10$aePHFBNU0beuduP95OcCAeC//e9loBzTlSCx2gQrg7Vi6MQB7oqVa',NULL,'2023-04-10 08:21:57','2023-04-10 08:21:57');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2023-05-02 22:17:18
