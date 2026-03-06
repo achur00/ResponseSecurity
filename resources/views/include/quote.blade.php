@@ -86,7 +86,9 @@
                                     <input class="form-control border-0" placeholder="How did you find us?"  name='ref_src'></textarea>
                                 </div>
                                 <div class="col-12">
-                                    <button class="btn achur-primary rounded-pill  w-100 py-3" type="submit">
+                                    <button class="btn achur-primary rounded-pill  w-100 py-3 g-recaptcha" data-sitekey="{{ config('services.recaptcha_v3.siteKey') }}"
+                                    data-callback="onSubmit"
+                                    data-action="submitContact">
                                         Submit Request</button>
                                 </div>
                             </div>
@@ -97,3 +99,4 @@
         </div>
     </div>
     <!-- Quote End -->
+

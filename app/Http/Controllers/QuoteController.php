@@ -13,17 +13,17 @@ class QuoteController extends Controller
      //var_dump($request->input());
     $request->validate(
         [
-            'name'=>'required|min:3',
-            'comp_name'=>'required',
-            'email'=>'required',
+            'name'=>'required|string|min:3',
+            'comp_name'=>'required|string',
+            'email'=>'required|email',
             'mobile'=>'min:11|max:14',
             'service_type'=>'required'
 
-            
+
         ]
         );
 
-        	
+
         //Sendind quote to db
   //  $quote= new Quote;
   //  $quote->name=$request->name;
@@ -39,7 +39,7 @@ class QuoteController extends Controller
   //  $quote->note=$request->note;
   //  $quote->reference_src=$request->ref_src;
   //  $save=$quote->save();
-   
+
 
    $data= array(
 	        'name'=>$request->name,
@@ -59,17 +59,17 @@ class QuoteController extends Controller
     );
 
      //sending mail to email
-    
+
    	Mail::to('info@responseuksecurity.co.uk')->send(new SendMail($data));
 
     return back()->with('success','Your quote was sent successfully');
 }
-  
-
-    
 
 
 
 
-   
+
+
+
+
 }

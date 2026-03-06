@@ -244,50 +244,58 @@
 
 
     <!-- Back to Top -->
-    <a href="https://wa.link/ssqgp4" target="_blank" class="btn btn-lg btn-success btn-lg-square rounded-circle whatsapp" style="font-size:50px;"><i class="bi bi-whatsapp"></i></a>
+    <a href="https://wa.link/tw7wod" target="_blank" class="btn btn-lg btn-success btn-lg-square rounded-circle whatsapp" style="font-size:50px;"><i class="bi bi-whatsapp"></i></a>
     <a href="#" class="btn btn-lg btn-danger btn-lg-square rounded-circle mt-1  back-to-top"><i class="bi bi-arrow-up"></i></a>
 
 
     <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="{{asset('assets/lib/wow/wow.min.js')}}"></script>
-    <script src="{{asset('assets/lib/easing/easing.min.js')}}"></script>
-    <script src="{{asset('assets/lib/waypoints/waypoints.min.js')}}"></script>
-    <script src="{{asset('assets/lib/counterup/counterup.min.js')}}"></script>
-    <script src="{{asset('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
-    <script src="{{asset('assets/lib/isotope/isotope.pkgd.min.js')}}"></script>
-    <script src="{{asset('assets/lib/lightbox/js/lightbox.min.js')}}"></script>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{{asset('assets/lib/wow/wow.min.js')}}"></script>
+        <script src="{{asset('assets/lib/easing/easing.min.js')}}"></script>
+        <script src="{{asset('assets/lib/waypoints/waypoints.min.js')}}"></script>
+        <script src="{{asset('assets/lib/counterup/counterup.min.js')}}"></script>
+        <script src="{{asset('assets/lib/owlcarousel/owl.carousel.min.js')}}"></script>
+        <script src="{{asset('assets/lib/isotope/isotope.pkgd.min.js')}}"></script>
+        <script src="{{asset('assets/lib/lightbox/js/lightbox.min.js')}}"></script>
+        <!-- recaptcha Javascript -->
+        <script src="https://www.google.com/recaptcha/api.js"></script>
+        {{--  --}}
+        <!-- Template Javascript -->
+        <script src="{{asset('assets/js/main.js')}}"></script>
+        <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+        <script>
 
-    <!-- Template Javascript -->
-    <script src="{{asset('assets/js/main.js')}}"></script>
-    <script src="https://code.jquery.com/jquery-2.2.0.min.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
-     <script>
-
-        $(document).ready(function () {
-            $('.customer-logos').slick({
-                slidesToShow: 6,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 1500,
-                arrows: false,
-                dots: false,
-                pauseOnHover: false,
-                responsive: [{
-                    breakpoint: 768,
-                    settings: {
-                        slidesToShow: 4
-                    }
-                }, {
-                    breakpoint: 520,
-                    settings: {
-                        slidesToShow: 3
-                    }
-                }]
+            $(document).ready(function () {
+                $('.customer-logos').slick({
+                    slidesToShow: 6,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 1500,
+                    arrows: false,
+                    dots: false,
+                    pauseOnHover: false,
+                    responsive: [{
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 4
+                        }
+                    }, {
+                        breakpoint: 520,
+                        settings: {
+                            slidesToShow: 3
+                        }
+                    }]
+                });
             });
-        });
-    </script>
+        </script>
+        {{-- recaptcha --}}
+         <script>
+            function onSubmit(token) {
+              document.getElementById("demo-form").submit();
+            }
+          </script>
 </body>
 
 </html>

@@ -33,7 +33,7 @@ class AppServiceProvider extends ServiceProvider
         View()->composer(['Layouts.master','Layouts.productslayout','Layouts.serviceslayout','Layouts.dashboardlayout'], function($view)
         {
             // $service=Page::with('Service_product')->get();
-             $service=Page::all()->load(['Service_product']);
+             $service=Page::where('status', 'active')->with('Service_product')->get();
              $service_product=Service_product::inRandomOrder()->limit(5)->get();
              $newsletter=Newsletter::all()->first();
             //      

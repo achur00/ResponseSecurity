@@ -34,12 +34,12 @@ class Handler extends ExceptionHandler
      *
      * @return void
      */
-    public function register()
-    {
-        $this->reportable(function (Throwable $e) {
-              $this->sendEmail($e);
-        });
-    }
+    // public function register()
+    // {
+    //     $this->reportable(function (Throwable $e) {
+    //           $this->sendEmail($e);
+    //     });
+    // }
 
     //   public function sendEmail(Throwable $exception)
     // {
@@ -57,24 +57,24 @@ class Handler extends ExceptionHandler
     //     }
     // }
 
-       public function sendEmail(Throwable $exception)
-    {
-       try {
+    //    public function sendEmail(Throwable $exception)
+    // {
+    //    try {
    
-            $content['message'] = $exception->getMessage();
-            $content['file'] = $exception->getFile();
-            $content['line'] = $exception->getLine();
-            $content['trace'] = $exception->getTrace();
+    //         $content['message'] = $exception->getMessage();
+    //         $content['file'] = $exception->getFile();
+    //         $content['line'] = $exception->getLine();
+    //         $content['trace'] = $exception->getTrace();
   
-            $content['url'] = request()->url();
-            $content['body'] = request()->all();
-            $content['ip'] = request()->ip();
+    //         $content['url'] = request()->url();
+    //         $content['body'] = request()->all();
+    //         $content['ip'] = request()->ip();
    
-            Mail::to('your_email@gmail.com')->send(new ExceptionOccured($content));
+    //         Mail::to('your_email@gmail.com')->send(new ExceptionOccured($content));
   
-        } catch (Throwable $exception) {
-            Log::error($exception);
-        }
-    }
+    //     } catch (Throwable $exception) {
+    //         Log::error($exception);
+    //     }
+    // }
 
 }
