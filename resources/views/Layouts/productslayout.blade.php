@@ -31,11 +31,6 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
-    {{-- <link rel="stylesheet" href="{{asset('assets/plugins/css/style.css')}}"> --}}
-
-    {{-- partners-slider --}}
-        {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script> --}}
 
 </head>
 
@@ -107,7 +102,7 @@
     <!-- Navbar Start -->
     {{-- {{dd($servicexr)}} --}}
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top p-0 px-4 px-lg-5 ">
-        <a href="{{url('/')}}"><img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" style="width:150%; height:auto" /></a>
+        <a href="{{url('/')}}"><img src="{{asset('assets/img/responseLogo.png')}}" class="navbar-brand d-flex align-items-center d-lg-inline-flex d-sm-inline-flex animated slideInDown" style="width:60%; height:auto" /></a>
          
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
@@ -117,22 +112,6 @@
             <div class="navbar-nav ms-auto py-4 py-lg-0 d-flex align-items-center ">
 
                 @foreach ( $servicexr as $menus )
-                    
-                    {{-- <a href="{{url("$menus->page_url")}}" class="nav-item nav-link ">{{$menus->page_name}}</a> --}}
-                    
-                    {{-- @if(count($menus->service_product)) --}}
-                        {{-- <ul> --}}
-                            {{-- @foreach ($menus->service_product as $submenu)   
-                                <li><a href="">{{$submenu->title}}</a></li>
-                            @endforeach --}}
-
-                             {{-- @foreach ($menus->service_product as $submenu)   
-                                <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                                    <a href="" class="dropdown-item">{{$submenu->title}}</a>
-                                </div>
-                            @endforeach --}}
-
-                        {{-- </ul> --}}
 
                         <div class="navbar-collapse" id="main_nav">
                             <ul class="navbar-nav">
@@ -154,29 +133,10 @@
 
                 @endforeach
 
-                {{-- <a href="{{url('about')}}" class="nav-item nav-link">About</a>
-                <a href="{{url('services')}}" class="nav-item nav-link">Service</a>
-                <a href="{{url('project')}}" class="nav-item nav-link">Project</a> --}}
 
-                {{-- <div class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                    <div class="dropdown-menu rounded-0 rounded-bottom m-0">
-                        <a href="feature.html" class="dropdown-item">Feature</a>
-                        <a href="quote.html" class="dropdown-item">Free Quote</a>
-                        <a href="team.html" class="dropdown-item">Our Team</a>
-                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                        <a href="404.html" class="dropdown-item">404 Page</a>
-                    </div>
-                </div> --}}
-                {{-- <a href="{{url('contact')}}" class="nav-item nav-link">Contact</a> --}}
                 <a href="{{URL('/#my_quote')}}" class="btn btn-primary  rounded-pill py-md-3 px-md-3 small animated ">Get A Quote</a>
             </div>
-            {{-- <div class="h-100 d-lg-inline-flex align-items-center d-none">
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-facebook-f"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-twitter"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-2" href=""><i class="fab fa-linkedin-in"></i></a>
-                <a class="btn btn-square rounded-circle bg-light text-primary me-0" href=""><i class="fab fa-instagram"></i></a>
-            </div> --}}
+       
         </div>
     </nav>
     <!-- Navbar End -->
@@ -196,10 +156,7 @@
                                     <div style="color: whitesmoke">
                                         <hr>
                                     </div>
-                                        {{-- <li class="small text-uppercase fw-bold"> All services<span class="align-self-end"><span
-                                                    class="m-2"></span><i class="bi bi-chevron-right"></i></span>
-                                        </li>
-                                        --}}
+                                      
                                     
                                         @foreach($servicexr as $menus)
                                         
@@ -295,13 +252,11 @@
   
     <div class="container-fluid py-4" style="background: #000000;">
         <div class="container">
-            {{-- <div class="row"> --}}
 
                 <div class="text-center">
                     
                    &copy;<?= date('Y') ?> <span class="text-danger">Response Security</span><br> Designed By <a class=" text-info" href="">Arkuz</a> 
                 </div>
-            {{-- </div> --}}
         </div>
     </div>
     

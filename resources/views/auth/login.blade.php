@@ -33,7 +33,7 @@
                         <div class="alert-warning"> {{Session::get('fail')}}</div>
                         @endif
                         <h3 >Login to account</h3>
-                        <p>Access to the most powerfull tool in the entire design and web industry.</p>
+                        <p>Welcome back.</p>
                         <form action="{{route('auth.login')}}" method="POST">
                             @csrf
                             <input class="form-control" type="text" name="email" placeholder="E-mail Address" required>
